@@ -1,0 +1,58 @@
+# Dependencies
+node_modules/
+.venv/
+__pycache__/
+*.pyc
+venv/
+env/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Large files (videos, generated content)
+*.mp4
+*.avi
+*.mov
+videos/
+generated/
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Python
+.pytest_cache/
+*.egg-info/
+dist/
+build/
+
+# Misc
+*.pem
+secrets/

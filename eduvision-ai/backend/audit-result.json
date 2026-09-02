@@ -1,0 +1,1163 @@
+{
+  "health": {
+    "success": true,
+    "data": {
+      "totalBooks": 4,
+      "readyBooks": 2,
+      "pendingBooks": 1,
+      "processingBooks": 0,
+      "failedBooks": 0,
+      "totalChunks": 60,
+      "chunksWithEmbeddings": 10,
+      "vectorDimension": 1536,
+      "embeddingModel": "text-embedding-3-small",
+      "classStats": {
+        "Class 6": {
+          "total": 0,
+          "ready": 0
+        },
+        "Class 7": {
+          "total": 0,
+          "ready": 0
+        },
+        "Class 8": {
+          "total": 0,
+          "ready": 0
+        },
+        "Class 9": {
+          "total": 1,
+          "ready": 1
+        },
+        "Class 10": {
+          "total": 1,
+          "ready": 0
+        },
+        "Class 11": {
+          "total": 1,
+          "ready": 1
+        },
+        "Class 12": {
+          "total": 0,
+          "ready": 0
+        }
+      },
+      "timestamp": "2026-08-21T09:07:28.320Z"
+    }
+  },
+  "textbooks": [
+    {
+      "id": "tb-10-sci",
+      "class_id": "c-10",
+      "subject_id": "sub-10-sci",
+      "book_name": "Tamil Nadu State Board Class 10 Science Textbook (Samacheer Kalvi)",
+      "publisher": "Tamil Nadu Textbook and Educational Services Corporation",
+      "academic_year": "2024-2025",
+      "pdf_url": null,
+      "source_hash": null,
+      "status": "PARTIAL"
+    },
+    {},
+    {
+      "id": "tb-1787302902476",
+      "class_id": "c-9",
+      "subject_id": "sub-9-eng",
+      "book_name": "Tamil Nadu State Board Class 9 English Reader (Samacheer Kalvi)",
+      "publisher": "Tamil Nadu Textbook and Educational Services Corporation",
+      "academic_year": "2024-2025",
+      "pdf_url": "/storage/textbooks/c-9/sub-9-eng/Std9_English_Term1.pdf",
+      "file_size": 1039,
+      "status": "READY",
+      "source_hash": "b9524603fff51502c45b21a8c00d4259835ceea84c8ff2c8024b135874fca1f9",
+      "source_type": "MANUAL_VERIFIED_UPLOAD",
+      "source_url": "https://textbooksonline.tn.nic.in/",
+      "uploaded_by": "user-admin-demo",
+      "uploaded_at": "2026-08-21T09:01:42.476Z",
+      "processed_at": "2026-08-21T09:01:42.478Z",
+      "error_message": null
+    },
+    {
+      "id": "tb-1787302902503",
+      "class_id": "c-11",
+      "subject_id": "sub-11-phy",
+      "book_name": "Tamil Nadu State Board Class 11 Physics Volume 1 (Samacheer Kalvi)",
+      "publisher": "Tamil Nadu Textbook and Educational Services Corporation",
+      "academic_year": "2024-2025",
+      "pdf_url": "/storage/textbooks/c-11/sub-11-phy/Std11_Physics_Vol1_EM.pdf",
+      "file_size": 907,
+      "status": "READY",
+      "source_hash": "2f4634d32b71b57aed2b8a1ec25b4114f7a7f0622efd05618adcd46bc107469b",
+      "source_type": "MANUAL_VERIFIED_UPLOAD",
+      "source_url": "https://textbooksonline.tn.nic.in/",
+      "uploaded_by": "user-admin-demo",
+      "uploaded_at": "2026-08-21T09:01:42.503Z",
+      "processed_at": "2026-08-21T09:01:42.505Z",
+      "error_message": null
+    }
+  ],
+  "classes": {
+    "Class 6": {
+      "id": "c-6",
+      "subjects": [
+        {
+          "id": "sub-6-tam",
+          "name": "Tamil",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-6tam-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-6tam-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-6-eng",
+          "name": "English",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-6eng-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-6eng-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-6-math",
+          "name": "Mathematics",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-6math-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-6math-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-6-sci",
+          "name": "Science",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-6sci-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-6sci-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-6-soc",
+          "name": "Social Science",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-6soc-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-6soc-1"
+            }
+          ]
+        }
+      ]
+    },
+    "Class 7": {
+      "id": "c-7",
+      "subjects": [
+        {
+          "id": "sub-7-tam",
+          "name": "Tamil",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-7tam-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-7tam-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-7-eng",
+          "name": "English",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-7eng-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-7eng-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-7-math",
+          "name": "Mathematics",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-7math-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-7math-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-7-sci",
+          "name": "Science",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-7sci-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-7sci-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-7-soc",
+          "name": "Social Science",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-7soc-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-7soc-1"
+            }
+          ]
+        }
+      ]
+    },
+    "Class 8": {
+      "id": "c-8",
+      "subjects": [
+        {
+          "id": "sub-8-tam",
+          "name": "Tamil",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-8tam-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-8tam-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-8-eng",
+          "name": "English",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-8eng-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-8eng-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-8-math",
+          "name": "Mathematics",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-8math-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-8math-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-8-sci",
+          "name": "Science",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-8sci-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-8sci-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-8-soc",
+          "name": "Social Science",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-8soc-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-8soc-1"
+            }
+          ]
+        }
+      ]
+    },
+    "Class 9": {
+      "id": "c-9",
+      "subjects": [
+        {
+          "id": "sub-9-tam",
+          "name": "Tamil",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-9tam-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-9tam-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-9-eng",
+          "name": "English",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-9eng-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "READY",
+              "termId": "trm-9eng-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-9-math",
+          "name": "Mathematics",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-9math-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-9math-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-9-sci",
+          "name": "Science",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-9sci-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-9sci-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-9-soc",
+          "name": "Social Science",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "id": "ch-9soc-t1-1",
+              "name": "Chapter 1 — Textbook upload required",
+              "status": "PENDING",
+              "termId": "trm-9soc-1"
+            }
+          ]
+        }
+      ]
+    },
+    "Class 10": {
+      "id": "c-10",
+      "subjects": [
+        {
+          "id": "sub-10-tam",
+          "name": "Tamil",
+          "chaptersCount": 0,
+          "chapters": []
+        },
+        {
+          "id": "sub-10-eng",
+          "name": "English",
+          "chaptersCount": 0,
+          "chapters": []
+        },
+        {
+          "id": "sub-10-math",
+          "name": "Mathematics",
+          "chaptersCount": 9,
+          "chapters": [
+            {
+              "id": "ch-10math-t1-1",
+              "name": "Relations and Functions",
+              "status": "PENDING",
+              "termId": "trm-10math-1"
+            },
+            {
+              "id": "ch-10math-t2-1",
+              "name": "Trigonometry",
+              "status": "PENDING",
+              "termId": "trm-10math-2"
+            },
+            {
+              "id": "ch-10math-t3-1",
+              "name": "Probability",
+              "status": "PENDING",
+              "termId": "trm-10math-3"
+            },
+            {
+              "id": "ch-10math-t1-2",
+              "name": "Numbers and Sequences",
+              "status": "PENDING",
+              "termId": "trm-10math-1"
+            },
+            {
+              "id": "ch-10math-t2-2",
+              "name": "Mensuration",
+              "status": "PENDING",
+              "termId": "trm-10math-2"
+            },
+            {
+              "id": "ch-10math-t1-3",
+              "name": "Algebra",
+              "status": "PENDING",
+              "termId": "trm-10math-1"
+            },
+            {
+              "id": "ch-10math-t2-3",
+              "name": "Statistics",
+              "status": "PENDING",
+              "termId": "trm-10math-2"
+            },
+            {
+              "id": "ch-10math-t1-4",
+              "name": "Geometry",
+              "status": "PENDING",
+              "termId": "trm-10math-1"
+            },
+            {
+              "id": "ch-10math-t1-5",
+              "name": "Coordinate Geometry",
+              "status": "PENDING",
+              "termId": "trm-10math-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-10-sci",
+          "name": "Science",
+          "chaptersCount": 13,
+          "chapters": [
+            {
+              "id": "ch-10sci-t1-1",
+              "name": "Laws of Motion",
+              "status": "READY",
+              "termId": "trm-10sci-1"
+            },
+            {
+              "id": "ch-10sci-t2-1",
+              "name": "Plant Anatomy and Plant Physiology",
+              "status": "READY",
+              "termId": "trm-10sci-2"
+            },
+            {
+              "id": "ch-10sci-t3-1",
+              "name": "Atomic Structure",
+              "status": "READY",
+              "termId": "trm-10sci-3"
+            },
+            {
+              "id": "ch-10sci-t1-2",
+              "name": "Optics",
+              "status": "READY",
+              "termId": "trm-10sci-1"
+            },
+            {
+              "id": "ch-10sci-t2-2",
+              "name": "Structural Organisation of Animals",
+              "status": "READY",
+              "termId": "trm-10sci-2"
+            },
+            {
+              "id": "ch-10sci-t3-2",
+              "name": "Periodic Classification of Elements",
+              "status": "READY",
+              "termId": "trm-10sci-3"
+            },
+            {
+              "id": "ch-10sci-t1-3",
+              "name": "Thermal Physics",
+              "status": "READY",
+              "termId": "trm-10sci-1"
+            },
+            {
+              "id": "ch-10sci-t2-3",
+              "name": "Reproduction in Plants",
+              "status": "PENDING",
+              "termId": "trm-10sci-2"
+            },
+            {
+              "id": "ch-10sci-t3-3",
+              "name": "Chemical Reactions",
+              "status": "READY",
+              "termId": "trm-10sci-3"
+            },
+            {
+              "id": "ch-10sci-t1-4",
+              "name": "Electricity",
+              "status": "READY",
+              "termId": "trm-10sci-1"
+            },
+            {
+              "id": "ch-10sci-t2-4",
+              "name": "Genetics",
+              "status": "PENDING",
+              "termId": "trm-10sci-2"
+            },
+            {
+              "id": "ch-10sci-t3-4",
+              "name": "Chemistry in Everyday Life",
+              "status": "PENDING",
+              "termId": "trm-10sci-3"
+            },
+            {
+              "id": "ch-10sci-t1-5",
+              "name": "Acoustics",
+              "status": "READY",
+              "termId": "trm-10sci-1"
+            }
+          ]
+        },
+        {
+          "id": "sub-10-soc",
+          "name": "Social Science",
+          "chaptersCount": 11,
+          "chapters": [
+            {
+              "id": "ch-10soc-t1-1",
+              "name": "India in the 18th Century",
+              "status": "PENDING",
+              "termId": "trm-10soc-1"
+            },
+            {
+              "id": "ch-10soc-t2-1",
+              "name": "Indian National Movement (1919–1947)",
+              "status": "PENDING",
+              "termId": "trm-10soc-2"
+            },
+            {
+              "id": "ch-10soc-t3-1",
+              "name": "Democratic India after Independence",
+              "status": "PENDING",
+              "termId": "trm-10soc-3"
+            },
+            {
+              "id": "ch-10soc-t1-2",
+              "name": "Rise of Nationalism in India",
+              "status": "PENDING",
+              "termId": "trm-10soc-1"
+            },
+            {
+              "id": "ch-10soc-t2-2",
+              "name": "World War II",
+              "status": "PENDING",
+              "termId": "trm-10soc-2"
+            },
+            {
+              "id": "ch-10soc-t3-2",
+              "name": "Government of India",
+              "status": "PENDING",
+              "termId": "trm-10soc-3"
+            },
+            {
+              "id": "ch-10soc-t1-3",
+              "name": "World War I",
+              "status": "PENDING",
+              "termId": "trm-10soc-1"
+            },
+            {
+              "id": "ch-10soc-t2-3",
+              "name": "Liberalisation and Globalisation",
+              "status": "PENDING",
+              "termId": "trm-10soc-2"
+            },
+            {
+              "id": "ch-10soc-t3-3",
+              "name": "International Organisations",
+              "status": "PENDING",
+              "termId": "trm-10soc-3"
+            },
+            {
+              "id": "ch-10soc-t1-4",
+              "name": "League of Nations",
+              "status": "PENDING",
+              "termId": "trm-10soc-1"
+            },
+            {
+              "id": "ch-10soc-t2-4",
+              "name": "Sustainable Development",
+              "status": "PENDING",
+              "termId": "trm-10soc-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-10-ca",
+          "name": "Computer Applications",
+          "chaptersCount": 0,
+          "chapters": []
+        }
+      ]
+    },
+    "Class 11": {
+      "id": "c-11",
+      "subjects": [
+        {
+          "id": "sub-11-tam",
+          "name": "Tamil",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11tam-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11tam-1"
+            },
+            {
+              "id": "ch-11tam-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11tam-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-eng",
+          "name": "English",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11eng-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11eng-1"
+            },
+            {
+              "id": "ch-11eng-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11eng-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-phy",
+          "name": "Physics",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11phy-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "READY",
+              "termId": "trm-11phy-1"
+            },
+            {
+              "id": "ch-11phy-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11phy-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-chem",
+          "name": "Chemistry",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11chem-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11chem-1"
+            },
+            {
+              "id": "ch-11chem-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11chem-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-bio",
+          "name": "Biology",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11bio-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11bio-1"
+            },
+            {
+              "id": "ch-11bio-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11bio-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-cs",
+          "name": "Computer Science",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11cs-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11cs-1"
+            },
+            {
+              "id": "ch-11cs-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11cs-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-math",
+          "name": "Mathematics",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11math-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11math-1"
+            },
+            {
+              "id": "ch-11math-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11math-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-comm",
+          "name": "Commerce",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11comm-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11comm-1"
+            },
+            {
+              "id": "ch-11comm-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11comm-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-econ",
+          "name": "Economics",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11econ-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11econ-1"
+            },
+            {
+              "id": "ch-11econ-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11econ-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-acct",
+          "name": "Accountancy",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11acct-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11acct-1"
+            },
+            {
+              "id": "ch-11acct-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11acct-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-bmath",
+          "name": "Business Mathematics and Statistics",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11bmath-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11bmath-1"
+            },
+            {
+              "id": "ch-11bmath-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11bmath-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-hist",
+          "name": "History",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11hist-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11hist-1"
+            },
+            {
+              "id": "ch-11hist-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11hist-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-geo",
+          "name": "Geography",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11geo-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11geo-1"
+            },
+            {
+              "id": "ch-11geo-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11geo-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-11-polsci",
+          "name": "Political Science",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-11polsci-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11polsci-1"
+            },
+            {
+              "id": "ch-11polsci-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-11polsci-2"
+            }
+          ]
+        }
+      ]
+    },
+    "Class 12": {
+      "id": "c-12",
+      "subjects": [
+        {
+          "id": "sub-12-tam",
+          "name": "Tamil",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12tam-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12tam-1"
+            },
+            {
+              "id": "ch-12tam-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12tam-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-eng",
+          "name": "English",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12eng-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12eng-1"
+            },
+            {
+              "id": "ch-12eng-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12eng-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-phy",
+          "name": "Physics",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12phy-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12phy-1"
+            },
+            {
+              "id": "ch-12phy-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12phy-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-chem",
+          "name": "Chemistry",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12chem-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12chem-1"
+            },
+            {
+              "id": "ch-12chem-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12chem-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-bio",
+          "name": "Biology",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12bio-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12bio-1"
+            },
+            {
+              "id": "ch-12bio-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12bio-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-cs",
+          "name": "Computer Science",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12cs-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12cs-1"
+            },
+            {
+              "id": "ch-12cs-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12cs-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-math",
+          "name": "Mathematics",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12math-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12math-1"
+            },
+            {
+              "id": "ch-12math-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12math-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-comm",
+          "name": "Commerce",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12comm-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12comm-1"
+            },
+            {
+              "id": "ch-12comm-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12comm-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-econ",
+          "name": "Economics",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12econ-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12econ-1"
+            },
+            {
+              "id": "ch-12econ-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12econ-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-acct",
+          "name": "Accountancy",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12acct-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12acct-1"
+            },
+            {
+              "id": "ch-12acct-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12acct-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-bmath",
+          "name": "Business Mathematics and Statistics",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12bmath-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12bmath-1"
+            },
+            {
+              "id": "ch-12bmath-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12bmath-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-hist",
+          "name": "History",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12hist-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12hist-1"
+            },
+            {
+              "id": "ch-12hist-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12hist-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-geo",
+          "name": "Geography",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12geo-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12geo-1"
+            },
+            {
+              "id": "ch-12geo-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12geo-2"
+            }
+          ]
+        },
+        {
+          "id": "sub-12-polsci",
+          "name": "Political Science",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "id": "ch-12polsci-t1-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12polsci-1"
+            },
+            {
+              "id": "ch-12polsci-t2-1",
+              "name": "Chapter 1 — Fundamentals & Core Concepts",
+              "status": "PENDING",
+              "termId": "trm-12polsci-2"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

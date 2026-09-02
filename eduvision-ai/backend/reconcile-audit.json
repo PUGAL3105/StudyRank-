@@ -1,0 +1,1342 @@
+{
+  "totalClasses": 7,
+  "totalSubjects": 54,
+  "totalChapters": 109,
+  "totalReadyChapters": 12,
+  "totalPendingChapters": 97,
+  "classes": [
+    {
+      "classId": "c-6",
+      "className": "Class 6",
+      "subjectsCount": 5,
+      "subjects": [
+        {
+          "subjectId": "sub-6-tam",
+          "subjectName": "Tamil",
+          "medium": "Tamil",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-6tam-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-6tam-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-6-eng",
+          "subjectName": "English",
+          "medium": "English",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-6eng-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-6eng-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-6-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-6math-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-6math-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-6-sci",
+          "subjectName": "Science",
+          "medium": "Both",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-6sci-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-6sci-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-6-soc",
+          "subjectName": "Social Science",
+          "medium": "Both",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-6soc-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-6soc-1",
+              "status": "PENDING"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "classId": "c-7",
+      "className": "Class 7",
+      "subjectsCount": 5,
+      "subjects": [
+        {
+          "subjectId": "sub-7-tam",
+          "subjectName": "Tamil",
+          "medium": "Tamil",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-7tam-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-7tam-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-7-eng",
+          "subjectName": "English",
+          "medium": "English",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-7eng-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-7eng-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-7-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-7math-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-7math-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-7-sci",
+          "subjectName": "Science",
+          "medium": "Both",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-7sci-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-7sci-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-7-soc",
+          "subjectName": "Social Science",
+          "medium": "Both",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-7soc-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-7soc-1",
+              "status": "PENDING"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "classId": "c-8",
+      "className": "Class 8",
+      "subjectsCount": 5,
+      "subjects": [
+        {
+          "subjectId": "sub-8-tam",
+          "subjectName": "Tamil",
+          "medium": "Tamil",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-8tam-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-8tam-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-8-eng",
+          "subjectName": "English",
+          "medium": "English",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-8eng-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-8eng-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-8-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-8math-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-8math-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-8-sci",
+          "subjectName": "Science",
+          "medium": "Both",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-8sci-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-8sci-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-8-soc",
+          "subjectName": "Social Science",
+          "medium": "Both",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-8soc-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-8soc-1",
+              "status": "PENDING"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "classId": "c-9",
+      "className": "Class 9",
+      "subjectsCount": 5,
+      "subjects": [
+        {
+          "subjectId": "sub-9-tam",
+          "subjectName": "Tamil",
+          "medium": "Tamil",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-9tam-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-9tam-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-9-eng",
+          "subjectName": "English",
+          "medium": "English",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-9eng-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-9eng-1",
+              "status": "READY"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-9-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-9math-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-9math-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-9-sci",
+          "subjectName": "Science",
+          "medium": "Both",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-9sci-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-9sci-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-9-soc",
+          "subjectName": "Social Science",
+          "medium": "Both",
+          "chaptersCount": 1,
+          "chapters": [
+            {
+              "chapterId": "ch-9soc-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Textbook upload required",
+              "termId": "trm-9soc-1",
+              "status": "PENDING"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "classId": "c-10",
+      "className": "Class 10",
+      "subjectsCount": 6,
+      "subjects": [
+        {
+          "subjectId": "sub-10-tam",
+          "subjectName": "Tamil",
+          "medium": "Tamil",
+          "chaptersCount": 0,
+          "chapters": []
+        },
+        {
+          "subjectId": "sub-10-eng",
+          "subjectName": "English",
+          "medium": "English",
+          "chaptersCount": 0,
+          "chapters": []
+        },
+        {
+          "subjectId": "sub-10-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "chaptersCount": 9,
+          "chapters": [
+            {
+              "chapterId": "ch-10math-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Relations and Functions",
+              "termId": "trm-10math-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10math-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Trigonometry",
+              "termId": "trm-10math-2",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10math-t3-1",
+              "chapterNumber": 1,
+              "chapterName": "Probability",
+              "termId": "trm-10math-3",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10math-t1-2",
+              "chapterNumber": 2,
+              "chapterName": "Numbers and Sequences",
+              "termId": "trm-10math-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10math-t2-2",
+              "chapterNumber": 2,
+              "chapterName": "Mensuration",
+              "termId": "trm-10math-2",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10math-t1-3",
+              "chapterNumber": 3,
+              "chapterName": "Algebra",
+              "termId": "trm-10math-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10math-t2-3",
+              "chapterNumber": 3,
+              "chapterName": "Statistics",
+              "termId": "trm-10math-2",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10math-t1-4",
+              "chapterNumber": 4,
+              "chapterName": "Geometry",
+              "termId": "trm-10math-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10math-t1-5",
+              "chapterNumber": 5,
+              "chapterName": "Coordinate Geometry",
+              "termId": "trm-10math-1",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-10-sci",
+          "subjectName": "Science",
+          "medium": "Both",
+          "chaptersCount": 13,
+          "chapters": [
+            {
+              "chapterId": "ch-10sci-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Laws of Motion",
+              "termId": "trm-10sci-1",
+              "status": "READY"
+            },
+            {
+              "chapterId": "ch-10sci-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Plant Anatomy and Plant Physiology",
+              "termId": "trm-10sci-2",
+              "status": "READY"
+            },
+            {
+              "chapterId": "ch-10sci-t3-1",
+              "chapterNumber": 1,
+              "chapterName": "Atomic Structure",
+              "termId": "trm-10sci-3",
+              "status": "READY"
+            },
+            {
+              "chapterId": "ch-10sci-t1-2",
+              "chapterNumber": 2,
+              "chapterName": "Optics",
+              "termId": "trm-10sci-1",
+              "status": "READY"
+            },
+            {
+              "chapterId": "ch-10sci-t2-2",
+              "chapterNumber": 2,
+              "chapterName": "Structural Organisation of Animals",
+              "termId": "trm-10sci-2",
+              "status": "READY"
+            },
+            {
+              "chapterId": "ch-10sci-t3-2",
+              "chapterNumber": 2,
+              "chapterName": "Periodic Classification of Elements",
+              "termId": "trm-10sci-3",
+              "status": "READY"
+            },
+            {
+              "chapterId": "ch-10sci-t1-3",
+              "chapterNumber": 3,
+              "chapterName": "Thermal Physics",
+              "termId": "trm-10sci-1",
+              "status": "READY"
+            },
+            {
+              "chapterId": "ch-10sci-t2-3",
+              "chapterNumber": 3,
+              "chapterName": "Reproduction in Plants",
+              "termId": "trm-10sci-2",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10sci-t3-3",
+              "chapterNumber": 3,
+              "chapterName": "Chemical Reactions",
+              "termId": "trm-10sci-3",
+              "status": "READY"
+            },
+            {
+              "chapterId": "ch-10sci-t1-4",
+              "chapterNumber": 4,
+              "chapterName": "Electricity",
+              "termId": "trm-10sci-1",
+              "status": "READY"
+            },
+            {
+              "chapterId": "ch-10sci-t2-4",
+              "chapterNumber": 4,
+              "chapterName": "Genetics",
+              "termId": "trm-10sci-2",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10sci-t3-4",
+              "chapterNumber": 4,
+              "chapterName": "Chemistry in Everyday Life",
+              "termId": "trm-10sci-3",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10sci-t1-5",
+              "chapterNumber": 5,
+              "chapterName": "Acoustics",
+              "termId": "trm-10sci-1",
+              "status": "READY"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-10-soc",
+          "subjectName": "Social Science",
+          "medium": "Both",
+          "chaptersCount": 11,
+          "chapters": [
+            {
+              "chapterId": "ch-10soc-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "India in the 18th Century",
+              "termId": "trm-10soc-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10soc-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Indian National Movement (1919–1947)",
+              "termId": "trm-10soc-2",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10soc-t3-1",
+              "chapterNumber": 1,
+              "chapterName": "Democratic India after Independence",
+              "termId": "trm-10soc-3",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10soc-t1-2",
+              "chapterNumber": 2,
+              "chapterName": "Rise of Nationalism in India",
+              "termId": "trm-10soc-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10soc-t2-2",
+              "chapterNumber": 2,
+              "chapterName": "World War II",
+              "termId": "trm-10soc-2",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10soc-t3-2",
+              "chapterNumber": 2,
+              "chapterName": "Government of India",
+              "termId": "trm-10soc-3",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10soc-t1-3",
+              "chapterNumber": 3,
+              "chapterName": "World War I",
+              "termId": "trm-10soc-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10soc-t2-3",
+              "chapterNumber": 3,
+              "chapterName": "Liberalisation and Globalisation",
+              "termId": "trm-10soc-2",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10soc-t3-3",
+              "chapterNumber": 3,
+              "chapterName": "International Organisations",
+              "termId": "trm-10soc-3",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10soc-t1-4",
+              "chapterNumber": 4,
+              "chapterName": "League of Nations",
+              "termId": "trm-10soc-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-10soc-t2-4",
+              "chapterNumber": 4,
+              "chapterName": "Sustainable Development",
+              "termId": "trm-10soc-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-10-ca",
+          "subjectName": "Computer Applications",
+          "medium": "Both",
+          "chaptersCount": 0,
+          "chapters": []
+        }
+      ]
+    },
+    {
+      "classId": "c-11",
+      "className": "Class 11",
+      "subjectsCount": 14,
+      "subjects": [
+        {
+          "subjectId": "sub-11-tam",
+          "subjectName": "Tamil",
+          "medium": "Tamil",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11tam-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11tam-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11tam-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11tam-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-eng",
+          "subjectName": "English",
+          "medium": "English",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11eng-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11eng-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11eng-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11eng-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-phy",
+          "subjectName": "Physics",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11phy-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11phy-1",
+              "status": "READY"
+            },
+            {
+              "chapterId": "ch-11phy-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11phy-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-chem",
+          "subjectName": "Chemistry",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11chem-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11chem-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11chem-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11chem-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-bio",
+          "subjectName": "Biology",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11bio-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11bio-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11bio-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11bio-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-cs",
+          "subjectName": "Computer Science",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11cs-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11cs-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11cs-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11cs-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11math-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11math-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11math-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11math-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-comm",
+          "subjectName": "Commerce",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11comm-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11comm-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11comm-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11comm-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-econ",
+          "subjectName": "Economics",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11econ-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11econ-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11econ-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11econ-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-acct",
+          "subjectName": "Accountancy",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11acct-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11acct-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11acct-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11acct-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-bmath",
+          "subjectName": "Business Mathematics and Statistics",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11bmath-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11bmath-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11bmath-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11bmath-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-hist",
+          "subjectName": "History",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11hist-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11hist-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11hist-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11hist-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-geo",
+          "subjectName": "Geography",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11geo-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11geo-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11geo-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11geo-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-polsci",
+          "subjectName": "Political Science",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-11polsci-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11polsci-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-11polsci-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-11polsci-2",
+              "status": "PENDING"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "classId": "c-12",
+      "className": "Class 12",
+      "subjectsCount": 14,
+      "subjects": [
+        {
+          "subjectId": "sub-12-tam",
+          "subjectName": "Tamil",
+          "medium": "Tamil",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12tam-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12tam-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12tam-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12tam-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-eng",
+          "subjectName": "English",
+          "medium": "English",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12eng-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12eng-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12eng-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12eng-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-phy",
+          "subjectName": "Physics",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12phy-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12phy-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12phy-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12phy-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-chem",
+          "subjectName": "Chemistry",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12chem-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12chem-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12chem-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12chem-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-bio",
+          "subjectName": "Biology",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12bio-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12bio-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12bio-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12bio-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-cs",
+          "subjectName": "Computer Science",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12cs-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12cs-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12cs-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12cs-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12math-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12math-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12math-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12math-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-comm",
+          "subjectName": "Commerce",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12comm-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12comm-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12comm-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12comm-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-econ",
+          "subjectName": "Economics",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12econ-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12econ-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12econ-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12econ-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-acct",
+          "subjectName": "Accountancy",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12acct-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12acct-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12acct-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12acct-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-bmath",
+          "subjectName": "Business Mathematics and Statistics",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12bmath-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12bmath-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12bmath-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12bmath-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-hist",
+          "subjectName": "History",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12hist-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12hist-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12hist-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12hist-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-geo",
+          "subjectName": "Geography",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12geo-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12geo-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12geo-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12geo-2",
+              "status": "PENDING"
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-polsci",
+          "subjectName": "Political Science",
+          "medium": "Both",
+          "chaptersCount": 2,
+          "chapters": [
+            {
+              "chapterId": "ch-12polsci-t1-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12polsci-1",
+              "status": "PENDING"
+            },
+            {
+              "chapterId": "ch-12polsci-t2-1",
+              "chapterNumber": 1,
+              "chapterName": "Chapter 1 — Fundamentals & Core Concepts",
+              "termId": "trm-12polsci-2",
+              "status": "PENDING"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "textbooks": [
+    {
+      "id": "tb-10-sci",
+      "class_id": "c-10",
+      "subject_id": "sub-10-sci",
+      "book_name": "Tamil Nadu State Board Class 10 Science Textbook (Samacheer Kalvi)",
+      "publisher": "Tamil Nadu Textbook and Educational Services Corporation",
+      "academic_year": "2024-2025",
+      "pdf_url": null,
+      "source_hash": null,
+      "status": "PARTIAL"
+    },
+    {},
+    {
+      "id": "tb-1787302902476",
+      "class_id": "c-9",
+      "subject_id": "sub-9-eng",
+      "book_name": "Tamil Nadu State Board Class 9 English Reader (Samacheer Kalvi)",
+      "publisher": "Tamil Nadu Textbook and Educational Services Corporation",
+      "academic_year": "2024-2025",
+      "pdf_url": "/storage/textbooks/c-9/sub-9-eng/Std9_English_Term1.pdf",
+      "file_size": 1039,
+      "status": "READY",
+      "source_hash": "b9524603fff51502c45b21a8c00d4259835ceea84c8ff2c8024b135874fca1f9",
+      "source_type": "MANUAL_VERIFIED_UPLOAD",
+      "source_url": "https://textbooksonline.tn.nic.in/",
+      "uploaded_by": "user-admin-demo",
+      "uploaded_at": "2026-08-21T09:01:42.476Z",
+      "processed_at": "2026-08-21T09:01:42.478Z",
+      "error_message": null
+    },
+    {
+      "id": "tb-1787302902503",
+      "class_id": "c-11",
+      "subject_id": "sub-11-phy",
+      "book_name": "Tamil Nadu State Board Class 11 Physics Volume 1 (Samacheer Kalvi)",
+      "publisher": "Tamil Nadu Textbook and Educational Services Corporation",
+      "academic_year": "2024-2025",
+      "pdf_url": "/storage/textbooks/c-11/sub-11-phy/Std11_Physics_Vol1_EM.pdf",
+      "file_size": 907,
+      "status": "READY",
+      "source_hash": "2f4634d32b71b57aed2b8a1ec25b4114f7a7f0622efd05618adcd46bc107469b",
+      "source_type": "MANUAL_VERIFIED_UPLOAD",
+      "source_url": "https://textbooksonline.tn.nic.in/",
+      "uploaded_by": "user-admin-demo",
+      "uploaded_at": "2026-08-21T09:01:42.503Z",
+      "processed_at": "2026-08-21T09:01:42.505Z",
+      "error_message": null
+    }
+  ],
+  "health": {
+    "totalBooks": 4,
+    "readyBooks": 2,
+    "pendingBooks": 1,
+    "processingBooks": 0,
+    "failedBooks": 0,
+    "totalChunks": 60,
+    "chunksWithEmbeddings": 10,
+    "vectorDimension": 1536,
+    "embeddingModel": "text-embedding-3-small",
+    "classStats": {
+      "Class 6": {
+        "total": 0,
+        "ready": 0
+      },
+      "Class 7": {
+        "total": 0,
+        "ready": 0
+      },
+      "Class 8": {
+        "total": 0,
+        "ready": 0
+      },
+      "Class 9": {
+        "total": 1,
+        "ready": 1
+      },
+      "Class 10": {
+        "total": 1,
+        "ready": 0
+      },
+      "Class 11": {
+        "total": 1,
+        "ready": 1
+      },
+      "Class 12": {
+        "total": 0,
+        "ready": 0
+      }
+    },
+    "timestamp": "2026-08-21T09:09:06.567Z"
+  }
+}

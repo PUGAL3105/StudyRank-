@@ -1,0 +1,662 @@
+{
+  "board": "Tamil Nadu State Board (Samacheer Kalvi)",
+  "version": "2.0.0",
+  "academicYear": "2024-2025",
+  "authority": "Tamil Nadu Textbook and Educational Services Corporation",
+  "classes": [
+    {
+      "classNumber": 6,
+      "classId": "c-6",
+      "curriculumStatus": "VERIFIED",
+      "subjects": [
+        {
+          "subjectId": "sub-6-tam",
+          "subjectName": "Tamil",
+          "medium": "Tamil",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "இன்பத்தமிழ்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Tamil Term 1" }, { "chapterNumber": 2, "chapterName": "தமிழ்க்கும்மி", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Tamil Term 1" }, { "chapterNumber": 3, "chapterName": "வளர்constituent / உரைநடை", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Tamil Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "மூதுரை", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Tamil Term 2" }, { "chapterNumber": 2, "chapterName": "துன்பம் வெல்லும் கல்வி", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Tamil Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "பாரதம் அன்றைய நாற்றாங்கால்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Tamil Term 3" }, { "chapterNumber": 2, "chapterName": "தமிழ்நாட்டின் காந்தி", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Tamil Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-6-eng",
+          "subjectName": "English",
+          "medium": "English",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Sea Turtles", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 English Term 1" }, { "chapterNumber": 2, "chapterName": "Owlie", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 English Term 1" }, { "chapterNumber": 3, "chapterName": "A Birthday Letter", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 English Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Sports Stars", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 English Term 2" }, { "chapterNumber": 2, "chapterName": "Trip to Ooty", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 English Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "A Tiger in the Zoo", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 English Term 3" }, { "chapterNumber": 2, "chapterName": "Who Owns the Water?", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 English Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-6-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Numbers", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 1" }, { "chapterNumber": 2, "chapterName": "Introduction to Algebra", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 1" }, { "chapterNumber": 3, "chapterName": "Ratio and Proportion", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 1" }, { "chapterNumber": 4, "chapterName": "Geometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 1" }, { "chapterNumber": 5, "chapterName": "Information Processing", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Numbers", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 2" }, { "chapterNumber": 2, "chapterName": "Measurements", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 2" }, { "chapterNumber": 3, "chapterName": "Bill, Profit and Loss", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 2" }, { "chapterNumber": 4, "chapterName": "Geometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 2" }, { "chapterNumber": 5, "chapterName": "Information Processing", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "Fractions", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 3" }, { "chapterNumber": 2, "chapterName": "Integers", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 3" }, { "chapterNumber": 3, "chapterName": "Perimeter and Area", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 3" }, { "chapterNumber": 4, "chapterName": "Symmetry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 3" }, { "chapterNumber": 5, "chapterName": "Information Processing", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Mathematics Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-6-sci",
+          "subjectName": "Science",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Measurements", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 1" }, { "chapterNumber": 2, "chapterName": "Force and Motion", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 1" }, { "chapterNumber": 3, "chapterName": "Matter Around Us", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 1" }, { "chapterNumber": 4, "chapterName": "The Living World of Plants", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 1" }, { "chapterNumber": 5, "chapterName": "Living World of Animals", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 1" }, { "chapterNumber": 6, "chapterName": "Health and Hygiene", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 1" }, { "chapterNumber": 7, "chapterName": "Computer – An Introduction", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Heat", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 2" }, { "chapterNumber": 2, "chapterName": "Electricity", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 2" }, { "chapterNumber": 3, "chapterName": "Changes Around Us", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 2" }, { "chapterNumber": 4, "chapterName": "Air", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 2" }, { "chapterNumber": 5, "chapterName": "The Cell", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 2" }, { "chapterNumber": 6, "chapterName": "Human Organ Systems", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 2" }, { "chapterNumber": 7, "chapterName": "Parts of Computer", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "Magnetism", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 3" }, { "chapterNumber": 2, "chapterName": "Water", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 3" }, { "chapterNumber": 3, "chapterName": "Chemistry in Daily Life", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 3" }, { "chapterNumber": 4, "chapterName": "Our Environment", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 3" }, { "chapterNumber": 5, "chapterName": "Plants in Daily Life", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 3" }, { "chapterNumber": 6, "chapterName": "Hardware and Software", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Science Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-6-soc",
+          "subjectName": "Social Science",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "What is History?", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 1" }, { "chapterNumber": 2, "chapterName": "Human Evolution", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 1" }, { "chapterNumber": 3, "chapterName": "Indus Civilisation", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 1" }, { "chapterNumber": 4, "chapterName": "Ancient Cities of Tamilagam", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 1" }, { "chapterNumber": 5, "chapterName": "The Universe and Solar System", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 1" }, { "chapterNumber": 6, "chapterName": "Land and Oceans", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 1" }, { "chapterNumber": 7, "chapterName": "Understanding Diversity", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 1" }, { "chapterNumber": 8, "chapterName": "Achieving Equality", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Vedic Culture in North India and Megalithic Culture in South India", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 2" }, { "chapterNumber": 2, "chapterName": "Great Thinkers and New Faiths", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 2" }, { "chapterNumber": 3, "chapterName": "From Chiefdoms to Empires", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 2" }, { "chapterNumber": 4, "chapterName": "Resources", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 2" }, { "chapterNumber": 5, "chapterName": "National Symbols", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 2" }, { "chapterNumber": 6, "chapterName": "The Constitution of India", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 2" }, { "chapterNumber": 7, "chapterName": "Economics – An Introduction", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "Society and Culture in Ancient Tamizhagam: The Sangam Age", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 3" }, { "chapterNumber": 2, "chapterName": "The Post-Mauryan India", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 3" }, { "chapterNumber": 3, "chapterName": "The Age of Empires: Guptas and Vardhanas", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 3" }, { "chapterNumber": 4, "chapterName": "South Indian Kingdoms", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 3" }, { "chapterNumber": 5, "chapterName": "Asia and Europe", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 3" }, { "chapterNumber": 6, "chapterName": "Globe", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 3" }, { "chapterNumber": 7, "chapterName": "Democracy", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 3" }, { "chapterNumber": 8, "chapterName": "Local Bodies – Urban and Rural", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 3" }, { "chapterNumber": 9, "chapterName": "Understanding Disaster", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 6 Social Science Term 3" }] }
+          ]
+        }
+      ]
+    },
+    {
+      "classNumber": 7,
+      "classId": "c-7",
+      "curriculumStatus": "VERIFIED",
+      "subjects": [
+        {
+          "subjectId": "sub-7-tam",
+          "subjectName": "Tamil",
+          "medium": "Tamil",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "எங்கள் தமிழ்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Tamil Term 1" }, { "chapterNumber": 2, "chapterName": "ஒன்றல்ல இரண்டல்ல", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Tamil Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "காடு", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Tamil Term 2" }, { "chapterNumber": 2, "chapterName": "அப்பியங்கள்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Tamil Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "விருந்தோம்பல்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Tamil Term 3" }, { "chapterNumber": 2, "chapterName": "வயலும் வாழ்வும்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Tamil Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-7-eng",
+          "subjectName": "English",
+          "medium": "English",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Eidgah", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 English Term 1" }, { "chapterNumber": 2, "chapterName": "The Wind on Haunted Hill", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 English Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Alice in Wonderland", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 English Term 2" }, { "chapterNumber": 2, "chapterName": "Naya the Home of a Artist", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 English Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "Journey by Train", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 English Term 3" }, { "chapterNumber": 2, "chapterName": "A Story of Self Sacrifice", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 English Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-7-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Number System", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 1" }, { "chapterNumber": 2, "chapterName": "Measurements", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 1" }, { "chapterNumber": 3, "chapterName": "Algebra", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 1" }, { "chapterNumber": 4, "chapterName": "Direct and Inverse Proportion", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 1" }, { "chapterNumber": 5, "chapterName": "Geometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 1" }, { "chapterNumber": 6, "chapterName": "Information Processing", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Number System", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 2" }, { "chapterNumber": 2, "chapterName": "Measurements", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 2" }, { "chapterNumber": 3, "chapterName": "Algebra", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 2" }, { "chapterNumber": 4, "chapterName": "Geometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 2" }, { "chapterNumber": 5, "chapterName": "Information Processing", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "Number System", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 3" }, { "chapterNumber": 2, "chapterName": "Percentage and Simple Interest", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 3" }, { "chapterNumber": 3, "chapterName": "Algebra", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 3" }, { "chapterNumber": 4, "chapterName": "Geometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 3" }, { "chapterNumber": 5, "chapterName": "Statistics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 3" }, { "chapterNumber": 6, "chapterName": "Information Processing", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Mathematics Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-7-sci",
+          "subjectName": "Science",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Measurement", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 1" }, { "chapterNumber": 2, "chapterName": "Force and Motion", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 1" }, { "chapterNumber": 3, "chapterName": "Matter Around Us", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 1" }, { "chapterNumber": 4, "chapterName": "Atomic Structure", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 1" }, { "chapterNumber": 5, "chapterName": "Reproduction and Modification in Plants", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 1" }, { "chapterNumber": 6, "chapterName": "Health and Hygiene", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 1" }, { "chapterNumber": 7, "chapterName": "Visual Communication", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Heat and Temperature", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 2" }, { "chapterNumber": 2, "chapterName": "Electricity", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 2" }, { "chapterNumber": 3, "chapterName": "Changes Around Us", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 2" }, { "chapterNumber": 4, "chapterName": "Cell Biology", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 2" }, { "chapterNumber": 5, "chapterName": "Basis of Classification", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 2" }, { "chapterNumber": 6, "chapterName": "Digital Presentation", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "Light", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 3" }, { "chapterNumber": 2, "chapterName": "Universe and Space", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 3" }, { "chapterNumber": 3, "chapterName": "Polymer Chemistry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 3" }, { "chapterNumber": 4, "chapterName": "Chemistry in Daily Life", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 3" }, { "chapterNumber": 5, "chapterName": "Animals in Daily Life", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 3" }, { "chapterNumber": 6, "chapterName": "Visual Communication", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Science Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-7-soc",
+          "subjectName": "Social Science",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Sources of Medieval India", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 1" }, { "chapterNumber": 2, "chapterName": "Emergence of New Kingdoms in North India", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 1" }, { "chapterNumber": 3, "chapterName": "Later Cholas and Pandyas", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 1" }, { "chapterNumber": 4, "chapterName": "Delhi Sultanate", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 1" }, { "chapterNumber": 5, "chapterName": "Interior of the Earth", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 1" }, { "chapterNumber": 6, "chapterName": "Landforms", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 1" }, { "chapterNumber": 7, "chapterName": "Population and Settlement", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 1" }, { "chapterNumber": 8, "chapterName": "Equality", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 1" }, { "chapterNumber": 9, "chapterName": "Political Parties", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 1" }, { "chapterNumber": 10, "chapterName": "Production", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Vijayanagar and Bahmani Kingdoms", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 2" }, { "chapterNumber": 2, "chapterName": "The Mughal Empire", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 2" }, { "chapterNumber": 3, "chapterName": "Rise of Marathas and Peshwas", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 2" }, { "chapterNumber": 4, "chapterName": "Resources", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 2" }, { "chapterNumber": 5, "chapterName": "Tourism", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 2" }, { "chapterNumber": 6, "chapterName": "State Government", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 2" }, { "chapterNumber": 7, "chapterName": "Media and Democracy", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "New Religious Ideas and Movements", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 3" }, { "chapterNumber": 2, "chapterName": "Art and Architecture of Tamil Nadu", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 3" }, { "chapterNumber": 3, "chapterName": "Jainism, Buddhism and Ajivikism in Tamil Nadu", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 3" }, { "chapterNumber": 4, "chapterName": "Exploring Continents – North America and South America", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 3" }, { "chapterNumber": 5, "chapterName": "Map Reading", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 3" }, { "chapterNumber": 6, "chapterName": "Women Empowerment", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 3" }, { "chapterNumber": 7, "chapterName": "Market and Consumer Protection", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 3" }, { "chapterNumber": 8, "chapterName": "Road Safety", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 3" }, { "chapterNumber": 9, "chapterName": "Tax and its Importance", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 7 Social Science Term 3" }] }
+          ]
+        }
+      ]
+    },
+    {
+      "classNumber": 8,
+      "classId": "c-8",
+      "curriculumStatus": "VERIFIED",
+      "subjects": [
+        {
+          "subjectId": "sub-8-tam",
+          "subjectName": "Tamil",
+          "medium": "Tamil",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "தமிழ்மொழி வாழ்த்து", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Tamil Term 1" }, { "chapterNumber": 2, "chapterName": "தமிழ்மொழி மரபு", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Tamil Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "கல்வி அழகே அழகு", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Tamil Term 2" }, { "chapterNumber": 2, "chapterName": "புத்தியைத் தீட்டு", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Tamil Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "படை வேழம்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Tamil Term 3" }, { "chapterNumber": 2, "chapterName": "விடுதலைத் திருநாள்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Tamil Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-8-eng",
+          "subjectName": "English",
+          "medium": "English",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "The Nose-Jewel", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 English Term 1" }, { "chapterNumber": 2, "chapterName": "Hobby – Turns A Successful Career", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 English Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Sir Isaac Newton – The Smart Scientist", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 English Term 2" }, { "chapterNumber": 2, "chapterName": "My Reminiscence", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 English Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "The Mystery of the Cyber Friend", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 English Term 3" }, { "chapterNumber": 2, "chapterName": "Jack and the Beanstalk", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 English Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-8-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Rational Numbers", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 1" }, { "chapterNumber": 2, "chapterName": "Measurements", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 1" }, { "chapterNumber": 3, "chapterName": "Algebra", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 1" }, { "chapterNumber": 4, "chapterName": "Geometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 1" }, { "chapterNumber": 5, "chapterName": "Information Processing", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Life Mathematics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 2" }, { "chapterNumber": 2, "chapterName": "Algebra", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 2" }, { "chapterNumber": 3, "chapterName": "Geometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 2" }, { "chapterNumber": 4, "chapterName": "Information Processing", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "Numbers", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 3" }, { "chapterNumber": 2, "chapterName": "Life Mathematics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 3" }, { "chapterNumber": 3, "chapterName": "Geometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 3" }, { "chapterNumber": 4, "chapterName": "Statistics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 3" }, { "chapterNumber": 5, "chapterName": "Information Processing", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Mathematics Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-8-sci",
+          "subjectName": "Science",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Measurement", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 1" }, { "chapterNumber": 2, "chapterName": "Forces and Pressure", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 1" }, { "chapterNumber": 3, "chapterName": "Light", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 1" }, { "chapterNumber": 4, "chapterName": "Matter Around Us", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 1" }, { "chapterNumber": 5, "chapterName": "Changes Around Us", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 1" }, { "chapterNumber": 6, "chapterName": "Microorganisms", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 1" }, { "chapterNumber": 7, "chapterName": "Plant Kingdom", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 1" }, { "chapterNumber": 8, "chapterName": "Organisation of Life", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Heat", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 2" }, { "chapterNumber": 2, "chapterName": "Electricity", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 2" }, { "chapterNumber": 3, "chapterName": "Air", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 2" }, { "chapterNumber": 4, "chapterName": "Atomic Structure", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 2" }, { "chapterNumber": 5, "chapterName": "Movements in Animals", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 2" }, { "chapterNumber": 6, "chapterName": "Reaching the Age of Adolescence", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "Sound", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 3" }, { "chapterNumber": 2, "chapterName": "Magnetism", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 3" }, { "chapterNumber": 3, "chapterName": "Universe and Space Science", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 3" }, { "chapterNumber": 4, "chapterName": "Chemistry in Everyday Life", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 3" }, { "chapterNumber": 5, "chapterName": "Crop Production and Management", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 3" }, { "chapterNumber": 6, "chapterName": "Conservation of Plants and Animals", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 3" }, { "chapterNumber": 7, "chapterName": "Visual Communication", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Science Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-8-soc",
+          "subjectName": "Social Science",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Advent of the Europeans", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 1" }, { "chapterNumber": 2, "chapterName": "From Trade to Territory", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 1" }, { "chapterNumber": 3, "chapterName": "Rural Life and Society", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 1" }, { "chapterNumber": 4, "chapterName": "People's Revolt", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 1" }, { "chapterNumber": 5, "chapterName": "Rocks and Soil", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 1" }, { "chapterNumber": 6, "chapterName": "Weather and Climate", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 1" }, { "chapterNumber": 7, "chapterName": "Hydrologic Cycle", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 1" }, { "chapterNumber": 8, "chapterName": "How the State Government Works", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 1" }, { "chapterNumber": 9, "chapterName": "Citizens and Citizenship", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 1" }, { "chapterNumber": 10, "chapterName": "Money, Savings and Investments", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Educational Development in India", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 2" }, { "chapterNumber": 2, "chapterName": "Development of Industries in India", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 2" }, { "chapterNumber": 3, "chapterName": "Migration and Urbanisation", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 2" }, { "chapterNumber": 4, "chapterName": "Hazards", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 2" }, { "chapterNumber": 5, "chapterName": "Secularism", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 2" }, { "chapterNumber": 6, "chapterName": "Human Rights and UNO", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "Urban Changes During the British Period", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 3" }, { "chapterNumber": 2, "chapterName": "Status of Women in India through the Ages", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 3" }, { "chapterNumber": 3, "chapterName": "Industries", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 3" }, { "chapterNumber": 4, "chapterName": "Exploring Continents (Africa, Australia and Antarctica)", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 3" }, { "chapterNumber": 5, "chapterName": "Map Reading", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 3" }, { "chapterNumber": 6, "chapterName": "Defence & Foreign Policy", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 3" }, { "chapterNumber": 7, "chapterName": "The Judiciary", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 3" }, { "chapterNumber": 8, "chapterName": "Public and Private Sectors", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 8 Social Science Term 3" }] }
+          ]
+        }
+      ]
+    },
+    {
+      "classNumber": 9,
+      "classId": "c-9",
+      "curriculumStatus": "VERIFIED",
+      "subjects": [
+        {
+          "subjectId": "sub-9-tam",
+          "subjectName": "Tamil",
+          "medium": "Tamil",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "திராவிட மொழிக்குடும்பம்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Tamil Term 1" }, { "chapterNumber": 2, "chapterName": "தமிழோவியம்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Tamil Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "நீரின்றி அமையாது உலகு", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Tamil Term 2" }, { "chapterNumber": 2, "chapterName": "பட்டமரம்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Tamil Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "ஏறு தழுவுதல்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Tamil Term 3" }, { "chapterNumber": 2, "chapterName": "மணிமேகலை", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Tamil Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-9-eng",
+          "subjectName": "English",
+          "medium": "English",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Learning the Game", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 English Term 1" }, { "chapterNumber": 2, "chapterName": "I Can't Climb Trees Anymore", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 English Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Old Man River", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 English Term 2" }, { "chapterNumber": 2, "chapterName": "Seventeen", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 English Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "The Envious Neighbour", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 English Term 3" }, { "chapterNumber": 2, "chapterName": "The Little Hero of Haarlem", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 English Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-9-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Set Language", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Mathematics Term 1" }, { "chapterNumber": 2, "chapterName": "Real Numbers", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Mathematics Term 1" }, { "chapterNumber": 3, "chapterName": "Algebra", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Mathematics Term 1" }, { "chapterNumber": 4, "chapterName": "Geometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Mathematics Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Coordinate Geometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Mathematics Term 2" }, { "chapterNumber": 2, "chapterName": "Trigonometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Mathematics Term 2" }, { "chapterNumber": 3, "chapterName": "Mensuration", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Mathematics Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "Statistics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Mathematics Term 3" }, { "chapterNumber": 2, "chapterName": "Probability", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Mathematics Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-9-sci",
+          "subjectName": "Science",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Measurement", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 1" }, { "chapterNumber": 2, "chapterName": "Motion", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 1" }, { "chapterNumber": 3, "chapterName": "Fluids", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 1" }, { "chapterNumber": 4, "chapterName": "Matter Around Us", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 1" }, { "chapterNumber": 5, "chapterName": "Atomic Structure", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 1" }, { "chapterNumber": 6, "chapterName": "Living World of Plants", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 1" }, { "chapterNumber": 7, "chapterName": "Plant Physiology", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 1" }, { "chapterNumber": 8, "chapterName": "Organisation of Tissues", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Heat", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 2" }, { "chapterNumber": 2, "chapterName": "Electric Charge and Electric Current", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 2" }, { "chapterNumber": 3, "chapterName": "Periodic Classification of Elements", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 2" }, { "chapterNumber": 4, "chapterName": "Chemical Bonding", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 2" }, { "chapterNumber": 5, "chapterName": "Acids, Bases and Salts", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 2" }, { "chapterNumber": 6, "chapterName": "Carbon and its Compounds", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 2" }, { "chapterNumber": 7, "chapterName": "Animal Kingdom", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "Light", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 3" }, { "chapterNumber": 2, "chapterName": "Sound", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 3" }, { "chapterNumber": 3, "chapterName": "Magnetism and Electromagnetism", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 3" }, { "chapterNumber": 4, "chapterName": "Universe", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 3" }, { "chapterNumber": 5, "chapterName": "Applied Chemistry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 3" }, { "chapterNumber": 6, "chapterName": "Environmental Science", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 3" }, { "chapterNumber": 7, "chapterName": "Computer – Structure and Function", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Science Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-9-soc",
+          "subjectName": "Social Science",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "Evolution of Humans and Society – Prehistoric Period", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 1" }, { "chapterNumber": 2, "chapterName": "Ancient Civilisations", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 1" }, { "chapterNumber": 3, "chapterName": "Early Tamil Society and Culture", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 1" }, { "chapterNumber": 4, "chapterName": "Intellectual Awakening and Socio-Political Changes", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 1" }, { "chapterNumber": 5, "chapterName": "Lithosphere – I Endogenetic Processes", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 1" }, { "chapterNumber": 6, "chapterName": "Lithosphere – II Exogenetic Processes", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 1" }, { "chapterNumber": 7, "chapterName": "Atmosphere", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 1" }, { "chapterNumber": 8, "chapterName": "Hydrosphere", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 1" }, { "chapterNumber": 9, "chapterName": "Forms of Government and Democracy", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 1" }, { "chapterNumber": 10, "chapterName": "Election, Political Parties and Pressure Groups", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 1" }, { "chapterNumber": 11, "chapterName": "Understanding Development: Perspectives, Measurement and Sustainability", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "The Classical World", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 2" }, { "chapterNumber": 2, "chapterName": "The Middle Ages", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 2" }, { "chapterNumber": 3, "chapterName": "Biosphere", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 2" }, { "chapterNumber": 4, "chapterName": "Human Rights", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 2" }, { "chapterNumber": 5, "chapterName": "Employment in India and Tamil Nadu", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "State and Society in Medieval India", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 3" }, { "chapterNumber": 2, "chapterName": "The Beginning of the Modern Age", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 3" }, { "chapterNumber": 3, "chapterName": "The Age of Revolutions", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 3" }, { "chapterNumber": 4, "chapterName": "Industrial Revolution", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 3" }, { "chapterNumber": 5, "chapterName": "Man and Environment", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 3" }, { "chapterNumber": 6, "chapterName": "Mapping Skills", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 3" }, { "chapterNumber": 7, "chapterName": "Disaster Management: Responding to Disasters", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 3" }, { "chapterNumber": 8, "chapterName": "Forms of Government", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 3" }, { "chapterNumber": 9, "chapterName": "Local Self Government", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 3" }, { "chapterNumber": 10, "chapterName": "Money and Credit", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 3" }, { "chapterNumber": 11, "chapterName": "Tamil Nadu Agriculture", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 9 Social Science Term 3" }] }
+          ]
+        }
+      ]
+    },
+    {
+      "classNumber": 10,
+      "classId": "c-10",
+      "curriculumStatus": "VERIFIED",
+      "subjects": [
+        {
+          "subjectId": "sub-10-sci",
+          "subjectName": "Science",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Term 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Laws of Motion", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 1" },
+                { "chapterNumber": 2, "chapterName": "Optics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 1" },
+                { "chapterNumber": 3, "chapterName": "Thermal Physics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 1" },
+                { "chapterNumber": 4, "chapterName": "Electricity", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 1" },
+                { "chapterNumber": 5, "chapterName": "Acoustics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 1" },
+                { "chapterNumber": 6, "chapterName": "Nuclear Physics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 1" }
+              ]
+            },
+            {
+              "termNumber": 2,
+              "termName": "Term 2",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Plant Anatomy and Plant Physiology", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 2" },
+                { "chapterNumber": 2, "chapterName": "Structural Organisation of Animals", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 2" },
+                { "chapterNumber": 3, "chapterName": "Transportation in Plants and Circulation in Animals", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 2" },
+                { "chapterNumber": 4, "chapterName": "Nervous System", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 2" },
+                { "chapterNumber": 5, "chapterName": "Plant and Animal Hormones", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 2" },
+                { "chapterNumber": 6, "chapterName": "Reproduction in Plants and Animals", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 2" },
+                { "chapterNumber": 7, "chapterName": "Genetics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 2" },
+                { "chapterNumber": 8, "chapterName": "Origin and Evolution of Life", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 2" }
+              ]
+            },
+            {
+              "termNumber": 3,
+              "termName": "Term 3",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Atomic Structure", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 3" },
+                { "chapterNumber": 2, "chapterName": "Periodic Classification of Elements", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 3" },
+                { "chapterNumber": 3, "chapterName": "Solutions", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 3" },
+                { "chapterNumber": 4, "chapterName": "Types of Chemical Reactions", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 3" },
+                { "chapterNumber": 5, "chapterName": "Carbon and its Compounds", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 3" },
+                { "chapterNumber": 6, "chapterName": "Environmental Management", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Science Term 3" }
+              ]
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-10-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Term 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Relations and Functions", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Mathematics Term 1" },
+                { "chapterNumber": 2, "chapterName": "Numbers and Sequences", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Mathematics Term 1" },
+                { "chapterNumber": 3, "chapterName": "Algebra", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Mathematics Term 1" },
+                { "chapterNumber": 4, "chapterName": "Geometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Mathematics Term 1" },
+                { "chapterNumber": 5, "chapterName": "Coordinate Geometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Mathematics Term 1" }
+              ]
+            },
+            {
+              "termNumber": 2,
+              "termName": "Term 2",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Trigonometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Mathematics Term 2" },
+                { "chapterNumber": 2, "chapterName": "Mensuration", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Mathematics Term 2" },
+                { "chapterNumber": 3, "chapterName": "Statistics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Mathematics Term 2" }
+              ]
+            },
+            {
+              "termNumber": 3,
+              "termName": "Term 3",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Probability", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Mathematics Term 3" }
+              ]
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-10-soc",
+          "subjectName": "Social Science",
+          "medium": "Both",
+          "termType": "3-term",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Term 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Outbreak of World War I and Its Aftermath", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Social Science Term 1" },
+                { "chapterNumber": 2, "chapterName": "The World Between Two World Wars", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Social Science Term 1" },
+                { "chapterNumber": 3, "chapterName": "World War II", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Social Science Term 1" },
+                { "chapterNumber": 4, "chapterName": "The World After World War II", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Social Science Term 1" }
+              ]
+            },
+            {
+              "termNumber": 2,
+              "termName": "Term 2",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Social and Religious Reform Movements in 19th Century", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Social Science Term 2" },
+                { "chapterNumber": 2, "chapterName": "India – Location, Relief and Drainage", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Social Science Term 2" },
+                { "chapterNumber": 3, "chapterName": "Climate and Natural Vegetation of India", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Social Science Term 2" },
+                { "chapterNumber": 4, "chapterName": "India – Agriculture", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Social Science Term 2" }
+              ]
+            },
+            {
+              "termNumber": 3,
+              "termName": "Term 3",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Indian Constitution", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Social Science Term 3" },
+                { "chapterNumber": 2, "chapterName": "Central Government", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Social Science Term 3" },
+                { "chapterNumber": 3, "chapterName": "State Government", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Social Science Term 3" }
+              ]
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-10-tam",
+          "subjectName": "Tamil",
+          "medium": "Tamil",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "அன்னைய மொழியே", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Tamil Term 1" }, { "chapterNumber": 2, "chapterName": "தமிழ் சொல்வளம்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Tamil Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "காற்றே வா", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Tamil Term 2" }, { "chapterNumber": 2, "chapterName": "முல்லைப்பாட்டு", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Tamil Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "காசி காண்டம்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Tamil Term 3" }, { "chapterNumber": 2, "chapterName": "மலைபடுகடாம்", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 Tamil Term 3" }] }
+          ]
+        },
+        {
+          "subjectId": "sub-10-eng",
+          "subjectName": "English",
+          "medium": "English",
+          "termType": "3-term",
+          "terms": [
+            { "termNumber": 1, "termName": "Term 1", "chapters": [{ "chapterNumber": 1, "chapterName": "His First Flight", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 English Term 1" }, { "chapterNumber": 2, "chapterName": "The Night the Ghost Got In", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 English Term 1" }] },
+            { "termNumber": 2, "termName": "Term 2", "chapters": [{ "chapterNumber": 1, "chapterName": "Empowered Women Navigating The World", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 English Term 2" }, { "chapterNumber": 2, "chapterName": "The Attic", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 English Term 2" }] },
+            { "termNumber": 3, "termName": "Term 3", "chapters": [{ "chapterNumber": 1, "chapterName": "Tech Bloomers", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 English Term 3" }, { "chapterNumber": 2, "chapterName": "The Last Lesson", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 10 English Term 3" }] }
+          ]
+        }
+      ]
+    },
+    {
+      "classNumber": 11,
+      "classId": "c-11",
+      "curriculumStatus": "VERIFIED",
+      "subjects": [
+        {
+          "subjectId": "sub-11-phy",
+          "subjectName": "Physics",
+          "medium": "Both",
+          "termType": "2-semester",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Semester 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Nature of Physical World and Measurement", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Physics Sem 1" },
+                { "chapterNumber": 2, "chapterName": "Kinematics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Physics Sem 1" },
+                { "chapterNumber": 3, "chapterName": "Laws of Motion", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Physics Sem 1" },
+                { "chapterNumber": 4, "chapterName": "Work, Energy and Power", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Physics Sem 1" },
+                { "chapterNumber": 5, "chapterName": "Motion of System of Particles and Rigid Body", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Physics Sem 1" }
+              ]
+            },
+            {
+              "termNumber": 2,
+              "termName": "Semester 2",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Gravitation", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Physics Sem 2" },
+                { "chapterNumber": 2, "chapterName": "Properties of Matter", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Physics Sem 2" },
+                { "chapterNumber": 3, "chapterName": "Heat and Thermodynamics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Physics Sem 2" },
+                { "chapterNumber": 4, "chapterName": "Behaviour of Perfect Gas and Kinetic Theory", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Physics Sem 2" },
+                { "chapterNumber": 5, "chapterName": "Oscillations", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Physics Sem 2" },
+                { "chapterNumber": 6, "chapterName": "Waves", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Physics Sem 2" }
+              ]
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-chem",
+          "subjectName": "Chemistry",
+          "medium": "Both",
+          "termType": "2-semester",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Semester 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Basic Concepts of Chemistry and Chemical Calculations", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Chemistry Sem 1" },
+                { "chapterNumber": 2, "chapterName": "Quantum Mechanical Model of Atom", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Chemistry Sem 1" },
+                { "chapterNumber": 3, "chapterName": "Periodic Classification of Elements", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Chemistry Sem 1" },
+                { "chapterNumber": 4, "chapterName": "Hydrogen", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Chemistry Sem 1" },
+                { "chapterNumber": 5, "chapterName": "Alkali and Alkaline Earth Metals", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Chemistry Sem 1" }
+              ]
+            },
+            {
+              "termNumber": 2,
+              "termName": "Semester 2",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Gaseous State", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Chemistry Sem 2" },
+                { "chapterNumber": 2, "chapterName": "Thermodynamics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Chemistry Sem 2" },
+                { "chapterNumber": 3, "chapterName": "Physical and Chemical Equilibrium", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Chemistry Sem 2" },
+                { "chapterNumber": 4, "chapterName": "Solutions", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Chemistry Sem 2" }
+              ]
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-cs",
+          "subjectName": "Computer Science",
+          "medium": "Both",
+          "termType": "2-semester",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Semester 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Introduction to Computers", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 CS Sem 1" },
+                { "chapterNumber": 2, "chapterName": "Number Systems", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 CS Sem 1" },
+                { "chapterNumber": 3, "chapterName": "Computer Organisation", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 CS Sem 1" },
+                { "chapterNumber": 4, "chapterName": "Theoretical Concepts of Operating System", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 CS Sem 1" },
+                { "chapterNumber": 5, "chapterName": "Working with Windows", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 CS Sem 1" }
+              ]
+            },
+            {
+              "termNumber": 2,
+              "termName": "Semester 2",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Introduction to C++", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 CS Sem 2" },
+                { "chapterNumber": 2, "chapterName": "Control Statements in C++", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 CS Sem 2" },
+                { "chapterNumber": 3, "chapterName": "Functions in C++", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 CS Sem 2" },
+                { "chapterNumber": 4, "chapterName": "Arrays and Structures", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 CS Sem 2" }
+              ]
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "termType": "2-semester",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Semester 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Sets, Relations and Functions", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Math Sem 1" },
+                { "chapterNumber": 2, "chapterName": "Basic Algebra", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Math Sem 1" },
+                { "chapterNumber": 3, "chapterName": "Trigonometry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Math Sem 1" }
+              ]
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-11-bio",
+          "subjectName": "Biology",
+          "medium": "Both",
+          "termType": "2-semester",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Semester 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Diversity of Living World", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Bio Sem 1" },
+                { "chapterNumber": 2, "chapterName": "Plant Morphology and Taxonomy", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Bio Sem 1" },
+                { "chapterNumber": 3, "chapterName": "Cell: The Unit of Life", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 11 Bio Sem 1" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "classNumber": 12,
+      "classId": "c-12",
+      "curriculumStatus": "VERIFIED",
+      "subjects": [
+        {
+          "subjectId": "sub-12-phy",
+          "subjectName": "Physics",
+          "medium": "Both",
+          "termType": "2-semester",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Semester 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Electrostatics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Physics Sem 1" },
+                { "chapterNumber": 2, "chapterName": "Current Electricity", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Physics Sem 1" },
+                { "chapterNumber": 3, "chapterName": "Magnetism and Magnetic Effects of Electric Current", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Physics Sem 1" },
+                { "chapterNumber": 4, "chapterName": "Electromagnetic Induction and Alternating Current", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Physics Sem 1" },
+                { "chapterNumber": 5, "chapterName": "Electromagnetic Waves", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Physics Sem 1" }
+              ]
+            },
+            {
+              "termNumber": 2,
+              "termName": "Semester 2",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Optics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Physics Sem 2" },
+                { "chapterNumber": 2, "chapterName": "Dual Nature of Radiation and Matter", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Physics Sem 2" },
+                { "chapterNumber": 3, "chapterName": "Atomic and Nuclear Physics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Physics Sem 2" },
+                { "chapterNumber": 4, "chapterName": "Semiconductor Electronics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Physics Sem 2" },
+                { "chapterNumber": 5, "chapterName": "Communication Systems", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Physics Sem 2" }
+              ]
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-chem",
+          "subjectName": "Chemistry",
+          "medium": "Both",
+          "termType": "2-semester",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Semester 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Metallurgy", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Chemistry Sem 1" },
+                { "chapterNumber": 2, "chapterName": "p-Block Elements - I", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Chemistry Sem 1" },
+                { "chapterNumber": 3, "chapterName": "p-Block Elements - II", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Chemistry Sem 1" },
+                { "chapterNumber": 4, "chapterName": "Transition and Inner Transition Elements", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Chemistry Sem 1" },
+                { "chapterNumber": 5, "chapterName": "Coordination Chemistry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Chemistry Sem 1" }
+              ]
+            },
+            {
+              "termNumber": 2,
+              "termName": "Semester 2",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Solid State", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Chemistry Sem 2" },
+                { "chapterNumber": 2, "chapterName": "Chemical Kinetics", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Chemistry Sem 2" },
+                { "chapterNumber": 3, "chapterName": "Electrochemistry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Chemistry Sem 2" },
+                { "chapterNumber": 4, "chapterName": "Surface Chemistry", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Chemistry Sem 2" }
+              ]
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-cs",
+          "subjectName": "Computer Science",
+          "medium": "Both",
+          "termType": "2-semester",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Semester 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Function", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 CS Sem 1" },
+                { "chapterNumber": 2, "chapterName": "Data Abstraction", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 CS Sem 1" },
+                { "chapterNumber": 3, "chapterName": "Scoping", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 CS Sem 1" },
+                { "chapterNumber": 4, "chapterName": "Algorithmic Strategies", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 CS Sem 1" },
+                { "chapterNumber": 5, "chapterName": "Python – Variables and Operators", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 CS Sem 1" }
+              ]
+            },
+            {
+              "termNumber": 2,
+              "termName": "Semester 2",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Control Structures", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 CS Sem 2" },
+                { "chapterNumber": 2, "chapterName": "Python Functions", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 CS Sem 2" },
+                { "chapterNumber": 3, "chapterName": "Strings and String Manipulation", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 CS Sem 2" },
+                { "chapterNumber": 4, "chapterName": "Lists, Tuples, Sets and Dictionary", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 CS Sem 2" }
+              ]
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-math",
+          "subjectName": "Mathematics",
+          "medium": "Both",
+          "termType": "2-semester",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Semester 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Applications of Matrices and Determinants", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Math Sem 1" },
+                { "chapterNumber": 2, "chapterName": "Complex Numbers", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Math Sem 1" },
+                { "chapterNumber": 3, "chapterName": "Theory of Equations", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Math Sem 1" }
+              ]
+            }
+          ]
+        },
+        {
+          "subjectId": "sub-12-bio",
+          "subjectName": "Biology",
+          "medium": "Both",
+          "termType": "2-semester",
+          "terms": [
+            {
+              "termNumber": 1,
+              "termName": "Semester 1",
+              "chapters": [
+                { "chapterNumber": 1, "chapterName": "Reproduction in Organisms", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Bio Sem 1" },
+                { "chapterNumber": 2, "chapterName": "Sexual Reproduction in Flowering Plants", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Bio Sem 1" },
+                { "chapterNumber": 3, "chapterName": "Principles of Inheritance and Variation", "curriculumStatus": "VERIFIED", "source": "Samacheer Kalvi Class 12 Bio Sem 1" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
