@@ -36,6 +36,9 @@ import {
   GraduationCap,
   XCircle,
   RotateCcw,
+  Bot,
+  Lock,
+  X,
 } from 'lucide-react'
 
 export const StudentExamPortal: React.FC = () => {
@@ -80,10 +83,14 @@ export const StudentExamPortal: React.FC = () => {
   const [quizSubmittedMap, setQuizSubmittedMap] = useState<Record<string, boolean>>({})
   const [quizScore, setQuizScore] = useState<number>(0)
   const [quizAttemptedCount, setQuizAttemptedCount] = useState<number>(0)
+  const [quizPage, setQuizPage] = useState<number>(1)
+  const [quizPageSize, setQuizPageSize] = useState<number>(10)
 
   // Descriptive 2M/3M/5M State
   const [prepDifficulty, setPrepDifficulty] = useState<'ALL' | 'Easy' | 'Medium' | 'Hard'>('ALL')
   const [prepMarkFilter, setPrepMarkFilter] = useState<number | 'ALL'>('ALL')
+  const [descPage, setDescPage] = useState<number>(1)
+  const [descPageSize, setDescPageSize] = useState<number>(10)
   const [prepSearchQuery, setPrepSearchQuery] = useState<string>('')
   const [prepPracticeAnswers, setPrepPracticeAnswers] = useState<Record<string, string>>({})
   const [prepEvaluationResults, setPrepEvaluationResults] = useState<Record<string, any>>({})
@@ -97,6 +104,67 @@ export const StudentExamPortal: React.FC = () => {
 
   const curated1MarkQuizBank = MASTER_1MARK_QUIZ_BANK
   const curatedDescriptiveQuestionBank = MASTER_DESCRIPTIVE_BANK
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // AI CLARIFICATION CHATBOT STATE (Auto-disables during LIVE_EXAM, unlocks after)
+  // ─────────────────────────────────────────────────────────────────────────
+  const [isChatbotOpen, setIsChatbotOpen] = useState<boolean>(false)
+  const [chatMessages, setChatMessages] = useState<Array<{ id: string; sender: 'user' | 'bot'; text: string; time: string }>>([
+    {
+      id: 'welcome',
+      sender: 'bot',
+      text: '👋 Hello! I am your StudyRank AI Tutor. Ask me any doubts about board questions, formulas, derivations, theorems, or exam strategies for Classes 9–12!',
+      time: 'Just now',
+    },
+  ])
+  const [chatInput, setChatInput] = useState<string>('')
+  const [isBotTyping, setIsBotTyping] = useState<boolean>(false)
+
+  const handleSendChatMessage = (textToSend?: string) => {
+    const query = (textToSend || chatInput).trim()
+    if (!query || isBotTyping) return
+
+    const userMsg = {
+      id: `usr-${Date.now()}`,
+      sender: 'user' as const,
+      text: query,
+      time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+    }
+
+    setChatMessages((prev) => [...prev, userMsg])
+    if (!textToSend) setChatInput('')
+    setIsBotTyping(true)
+
+    setTimeout(() => {
+      let botResponse = ''
+      const lower = query.toLowerCase()
+
+      if (lower.includes('thales') || lower.includes('proportionality')) {
+        botResponse = '📐 **Basic Proportionality Theorem (Thales Theorem)**:\n\n*Statement*: If a line is drawn parallel to one side of a triangle intersecting the other two sides, then it divides the two sides in the same ratio.\n*Proof*: In ΔABC, DE || BC. Area(ADE)/Area(BDE) = AD/DB and Area(ADE)/Area(CDE) = AE/EC. Since Area(BDE) = Area(CDE), we get **AD/DB = AE/EC**.\n\n*State Board Tip*: Drawing the triangle with altitude gives 1 mark, proof gives 3 marks, conclusion gives 1 mark (Total 5 Marks).'
+      } else if (lower.includes('momentum') || lower.includes('newton')) {
+        botResponse = '⚡ **Law of Conservation of Linear Momentum**:\n\n*Statement*: In the absence of an external unbalanced force, the total linear momentum of an isolated system remains constant.\n*Formula*: **m₁u₁ + m₂u₂ = m₁v₁ + m₂v₂**\n\n*Proof*: Action force F₁ = m₁(v₁-u₁)/t, Reaction force F₂ = m₂(v₂-u₂)/t. By Newton’s Third Law F₁ = -F₂, equating both proves momentum conservation.'
+      } else if (lower.includes('transformer')) {
+        botResponse = '🔌 **Transformer Working & Principle**:\n\n*Principle*: Mutual Induction between two coils.\n*Formula*: **Es / Ep = Ns / Np = K** (Transformation ratio).\n*For Step-up*: K > 1 (Secondary voltage is higher).\n*Energy Losses*: Copper loss (I²R heating), Iron/Eddy current loss, Hysteresis loss, and Flux leakage.'
+      } else if (lower.includes('அணி') || lower.includes('தமிழ்')) {
+        botResponse = '📖 **பொதுத்தமிழ் - அணியிலக்கணம்**:\n\n*வரையறை*: செய்யுளுக்கு அழகூட்டுவது அணி எனப்படும்.\n*முக்கிய அணிகள்*: \n1. **உவமையணி**: உவமை, உவமேயம், உவம உருபு (போல, போன்ற) வெளிப்படையாக வருவது.\n2. **உருவக அணி**: உவமையும் உவமேயமும் வேறுபாடின்றி ஒன்றே எனத் தோன்றுவது.\n3. **வேற்றுமையணி**: இரு பொருள்களுக்கு இடையே உள்ள ஒற்றுமையைக் கூறி பின் வேறுபடுத்திக் காட்டுவது.'
+      } else if (lower.includes('fixed') || lower.includes('fluctuating') || lower.includes('capital')) {
+        botResponse = '💼 **Fixed vs Fluctuating Capital Method (Accountancy)**:\n\n1. **Fixed Capital Method**: Two accounts are maintained for each partner: Capital Account and Current Account. Capital balance remains fixed.\n2. **Fluctuating Capital Method**: Only one account (Capital Account) is maintained. All adjustments (drawings, interest, profit) are recorded directly in Capital Account.'
+      } else {
+        botResponse = `💡 **StudyRank AI Clarification for "${query}"**:\n\nAccording to the Tamil Nadu State Board Curriculum (Samacheer Kalvi), key concepts on this topic are tested in 1-Mark MCQs and 2M/3M/5M sections. Focus on exact definitions, SI units, standard formulas, and step-by-step proofs to score centum marks!`
+      }
+
+      setChatMessages((prev) => [
+        ...prev,
+        {
+          id: `bot-${Date.now()}`,
+          sender: 'bot' as const,
+          text: botResponse,
+          time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        },
+      ])
+      setIsBotTyping(false)
+    }, 600)
+  }
 
   useEffect(() => {
     loadAvailableExams()
@@ -343,7 +411,14 @@ export const StudentExamPortal: React.FC = () => {
   // Filter 1-Mark Quiz Questions
   const filtered1MarkQuizQuestions = curated1MarkQuizBank.filter((q) => {
     const matchClass = q.classId === selectedClassId
-    const matchStream = selectedStream === 'ALL' || q.stream === 'GENERAL' || q.stream === selectedStream
+    let matchStream = true
+    if (selectedStream === 'SCIENCE') {
+      matchStream = ['SCIENCE', 'GENERAL', 'LANGUAGES'].includes(q.stream) && q.subjectId !== 'sub-12-cs' && q.subjectId !== 'sub-11-cs' && !q.subjectId.includes('-acc') && !q.subjectId.includes('-com') && !q.subjectId.includes('-eco')
+    } else if (selectedStream === 'CS') {
+      matchStream = ['CS', 'SCIENCE', 'GENERAL', 'LANGUAGES'].includes(q.stream) && !q.subjectId.includes('-bio') && !q.subjectId.includes('-acc') && !q.subjectId.includes('-com') && !q.subjectId.includes('-eco')
+    } else if (selectedStream === 'COMMERCE') {
+      matchStream = ['COMMERCE', 'GENERAL', 'LANGUAGES'].includes(q.stream) && !q.subjectId.includes('-phy') && !q.subjectId.includes('-chem') && !q.subjectId.includes('-bio') && !q.subjectId.includes('-cs')
+    }
     const matchSubject = selectedSubjectFilter === 'ALL' || q.subjectId === selectedSubjectFilter
     const matchExamSource = examSourceFilter === 'ALL' || q.examSource === examSourceFilter
     const matchQuery =
@@ -351,13 +426,20 @@ export const StudentExamPortal: React.FC = () => {
       q.questionText.toLowerCase().includes(prepSearchQuery.toLowerCase()) ||
       q.topic.toLowerCase().includes(prepSearchQuery.toLowerCase()) ||
       q.boardTag.toLowerCase().includes(prepSearchQuery.toLowerCase())
-    return matchClass && matchStream && matchSubject && matchExamSource && matchQuery
+    return matchClass && (selectedSubjectFilter !== 'ALL' ? matchSubject : matchStream) && matchSubject && matchExamSource && matchQuery
   })
 
   // Filter Descriptive 2M/3M/5M Questions
   const filteredDescriptiveQuestions = curatedDescriptiveQuestionBank.filter((q) => {
     const matchClass = q.classId === selectedClassId
-    const matchStream = selectedStream === 'ALL' || q.stream === 'GENERAL' || q.stream === selectedStream
+    let matchStream = true
+    if (selectedStream === 'SCIENCE') {
+      matchStream = ['SCIENCE', 'GENERAL', 'LANGUAGES'].includes(q.stream) && q.subjectId !== 'sub-12-cs' && q.subjectId !== 'sub-11-cs' && !q.subjectId.includes('-acc') && !q.subjectId.includes('-com') && !q.subjectId.includes('-eco')
+    } else if (selectedStream === 'CS') {
+      matchStream = ['CS', 'SCIENCE', 'GENERAL', 'LANGUAGES'].includes(q.stream) && !q.subjectId.includes('-bio') && !q.subjectId.includes('-acc') && !q.subjectId.includes('-com') && !q.subjectId.includes('-eco')
+    } else if (selectedStream === 'COMMERCE') {
+      matchStream = ['COMMERCE', 'GENERAL', 'LANGUAGES'].includes(q.stream) && !q.subjectId.includes('-phy') && !q.subjectId.includes('-chem') && !q.subjectId.includes('-bio') && !q.subjectId.includes('-cs')
+    }
     const matchSubject = selectedSubjectFilter === 'ALL' || q.subjectId === selectedSubjectFilter
     const matchDifficulty = prepDifficulty === 'ALL' || q.difficulty === prepDifficulty
     const matchMarks = prepMarkFilter === 'ALL' || q.marks === prepMarkFilter
@@ -367,12 +449,22 @@ export const StudentExamPortal: React.FC = () => {
       q.questionText.toLowerCase().includes(prepSearchQuery.toLowerCase()) ||
       q.topic.toLowerCase().includes(prepSearchQuery.toLowerCase()) ||
       q.boardTag.toLowerCase().includes(prepSearchQuery.toLowerCase())
-    return matchClass && matchStream && matchSubject && matchDifficulty && matchMarks && matchExamSource && matchQuery
+    return matchClass && (selectedSubjectFilter !== 'ALL' ? matchSubject : matchStream) && matchSubject && matchDifficulty && matchMarks && matchExamSource && matchQuery
   })
 
   // Dynamic Subjects List based on Selected Class & Stream
   const getSubjectOptions = () => {
-    if (selectedClassId === 'c-9' || selectedClassId === 'c-10') {
+    if (selectedClassId === 'c-9') {
+      return [
+        { id: 'ALL', name: 'All Subjects' },
+        { id: 'sub-9-sci', name: 'Science' },
+        { id: 'sub-9-math', name: 'Mathematics' },
+        { id: 'sub-9-soc', name: 'Social Science' },
+        { id: 'sub-9-tam', name: 'Tamil' },
+        { id: 'sub-9-eng', name: 'English' },
+      ]
+    }
+    if (selectedClassId === 'c-10') {
       return [
         { id: 'ALL', name: 'All Subjects' },
         { id: 'sub-10-sci', name: 'Science' },
@@ -382,18 +474,98 @@ export const StudentExamPortal: React.FC = () => {
         { id: 'sub-10-eng', name: 'English' },
       ]
     }
-    // Classes 11 & 12
+    if (selectedClassId === 'c-11') {
+      if (selectedStream === 'SCIENCE') {
+        return [
+          { id: 'ALL', name: 'All Science Subjects' },
+          { id: 'sub-11-phy', name: 'Physics' },
+          { id: 'sub-11-chem', name: 'Chemistry' },
+          { id: 'sub-11-bio', name: 'Biology' },
+          { id: 'sub-11-math', name: 'Mathematics' },
+          { id: 'sub-11-tam', name: 'General Tamil' },
+          { id: 'sub-11-eng', name: 'General English' },
+        ]
+      }
+      if (selectedStream === 'CS') {
+        return [
+          { id: 'ALL', name: 'All CS Stream Subjects' },
+          { id: 'sub-11-cs', name: 'Computer Science' },
+          { id: 'sub-11-phy', name: 'Physics' },
+          { id: 'sub-11-chem', name: 'Chemistry' },
+          { id: 'sub-11-math', name: 'Mathematics' },
+          { id: 'sub-11-tam', name: 'General Tamil' },
+          { id: 'sub-11-eng', name: 'General English' },
+        ]
+      }
+      if (selectedStream === 'COMMERCE') {
+        return [
+          { id: 'ALL', name: 'All Commerce Subjects' },
+          { id: 'sub-11-acc', name: 'Accountancy' },
+          { id: 'sub-11-com', name: 'Commerce' },
+          { id: 'sub-11-eco', name: 'Economics' },
+          { id: 'sub-11-tam', name: 'General Tamil' },
+          { id: 'sub-11-eng', name: 'General English' },
+        ]
+      }
+      return [
+        { id: 'ALL', name: 'All Class 11 Subjects' },
+        { id: 'sub-11-phy', name: 'Physics' },
+        { id: 'sub-11-chem', name: 'Chemistry' },
+        { id: 'sub-11-bio', name: 'Biology' },
+        { id: 'sub-11-cs', name: 'Computer Science' },
+        { id: 'sub-11-math', name: 'Mathematics' },
+        { id: 'sub-11-acc', name: 'Accountancy' },
+        { id: 'sub-11-com', name: 'Commerce' },
+        { id: 'sub-11-eco', name: 'Economics' },
+        { id: 'sub-11-tam', name: 'General Tamil' },
+        { id: 'sub-11-eng', name: 'General English' },
+      ]
+    }
+    // Class 12
+    if (selectedStream === 'SCIENCE') {
+      return [
+        { id: 'ALL', name: 'All Science Subjects' },
+        { id: 'sub-12-phy', name: 'Physics' },
+        { id: 'sub-12-chem', name: 'Chemistry' },
+        { id: 'sub-12-bio', name: 'Biology' },
+        { id: 'sub-12-math', name: 'Mathematics' },
+        { id: 'sub-12-tam', name: 'General Tamil' },
+        { id: 'sub-12-eng', name: 'General English' },
+      ]
+    }
+    if (selectedStream === 'CS') {
+      return [
+        { id: 'ALL', name: 'All CS Stream Subjects' },
+        { id: 'sub-12-cs', name: 'Computer Science' },
+        { id: 'sub-12-phy', name: 'Physics' },
+        { id: 'sub-12-chem', name: 'Chemistry' },
+        { id: 'sub-12-math', name: 'Mathematics' },
+        { id: 'sub-12-tam', name: 'General Tamil' },
+        { id: 'sub-12-eng', name: 'General English' },
+      ]
+    }
+    if (selectedStream === 'COMMERCE') {
+      return [
+        { id: 'ALL', name: 'All Commerce Subjects' },
+        { id: 'sub-12-acc', name: 'Accountancy' },
+        { id: 'sub-12-com', name: 'Commerce' },
+        { id: 'sub-12-eco', name: 'Economics' },
+        { id: 'sub-12-tam', name: 'General Tamil' },
+        { id: 'sub-12-eng', name: 'General English' },
+      ]
+    }
     return [
-      { id: 'ALL', name: 'All Stream Subjects' },
+      { id: 'ALL', name: 'All Class 12 Subjects' },
       { id: 'sub-12-phy', name: 'Physics' },
       { id: 'sub-12-chem', name: 'Chemistry' },
       { id: 'sub-12-bio', name: 'Biology' },
       { id: 'sub-12-cs', name: 'Computer Science' },
+      { id: 'sub-12-math', name: 'Mathematics' },
       { id: 'sub-12-acc', name: 'Accountancy' },
       { id: 'sub-12-com', name: 'Commerce' },
       { id: 'sub-12-eco', name: 'Economics' },
-      { id: 'sub-10-tam', name: 'Tamil' },
-      { id: 'sub-10-eng', name: 'English' },
+      { id: 'sub-12-tam', name: 'General Tamil' },
+      { id: 'sub-12-eng', name: 'General English' },
     ]
   }
 
@@ -881,6 +1053,42 @@ export const StudentExamPortal: React.FC = () => {
         </div>
       </div>
 
+      {/* CLASS PORTAL DETAILS BANNER */}
+      <div className="bg-gradient-to-r from-indigo-50 via-purple-50 to-blue-50 p-4 rounded-2xl border border-indigo-100 flex flex-wrap items-center justify-between gap-3 shadow-xs">
+        <div className="flex items-center gap-3">
+          <div className="w-12 h-12 rounded-2xl bg-indigo-600 text-white font-extrabold text-lg flex items-center justify-center shadow-xs">
+            {selectedClassId === 'c-9' ? '9th' : selectedClassId === 'c-10' ? '10th' : selectedClassId === 'c-11' ? '11th' : '12th'}
+          </div>
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="text-xs font-bold text-indigo-950 uppercase tracking-wide">
+                {selectedClassId === 'c-9'
+                  ? 'Class 9 Foundation Portal'
+                  : selectedClassId === 'c-10'
+                  ? 'Class 10 SSLC State Board Portal'
+                  : selectedClassId === 'c-11'
+                  ? 'Class 11 (+1 Higher Secondary) Portal'
+                  : 'Class 12 (HSC +2 Higher Secondary) Portal'}
+              </span>
+              <span className="px-2 py-0.5 bg-indigo-200/60 text-indigo-900 rounded-full text-[10px] font-extrabold">
+                100 MCQs & 150 Descriptive / Subject
+              </span>
+            </div>
+            <p className="text-xs text-gray-600 mt-0.5">
+              {selectedClassId === 'c-12' || selectedClassId === 'c-11'
+                ? 'Covers Science (Bio-Maths / CS), Commerce, Accountancy, Economics & Languages with 2019–2024 Public Papers.'
+                : 'Covers Science, Mathematics, Social Science, Tamil & English with high-repeat board questions.'}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <div className="px-3 py-1.5 bg-white border border-indigo-200 rounded-xl text-xs font-bold text-indigo-800 shadow-xs flex items-center gap-1.5">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600" /> State Board Approved
+          </div>
+        </div>
+      </div>
+
       {/* STREAM SELECTOR FOR CLASSES 11 & 12 */}
       {(selectedClassId === 'c-11' || selectedClassId === 'c-12') && (
         <div className="bg-indigo-50/70 p-3 rounded-2xl border border-indigo-100 shadow-xs flex items-center justify-between gap-2 overflow-x-auto">
@@ -1040,6 +1248,43 @@ export const StudentExamPortal: React.FC = () => {
             ))}
           </div>
 
+          {/* Pagination & Count Header */}
+          <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-xs flex flex-wrap items-center justify-between gap-3">
+            <div className="text-xs font-bold text-gray-700">
+              Showing{' '}
+              <span className="text-indigo-600 font-extrabold">
+                {filtered1MarkQuizQuestions.length > 0
+                  ? quizPageSize === -1
+                    ? `All 1–${filtered1MarkQuizQuestions.length}`
+                    : `${(quizPage - 1) * quizPageSize + 1}–${Math.min(quizPage * quizPageSize, filtered1MarkQuizQuestions.length)}`
+                  : '0'}
+              </span>{' '}
+              of <span className="text-indigo-600 font-extrabold">{filtered1MarkQuizQuestions.length} Board MCQs</span>
+            </div>
+
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-gray-500 font-medium">View:</span>
+              {[
+                { label: '10 / Page', size: 10 },
+                { label: '25 / Page', size: 25 },
+                { label: 'All 100', size: -1 },
+              ].map((sz) => (
+                <button
+                  key={sz.label}
+                  onClick={() => {
+                    setQuizPageSize(sz.size)
+                    setQuizPage(1)
+                  }}
+                  className={`px-2.5 py-1 rounded-lg text-xs font-bold transition ${
+                    quizPageSize === sz.size ? 'bg-indigo-600 text-white shadow-xs' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {sz.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
           {/* 1-Mark Quiz Cards List */}
           <div className="space-y-5">
             {filtered1MarkQuizQuestions.length === 0 ? (
@@ -1047,7 +1292,11 @@ export const StudentExamPortal: React.FC = () => {
                 No 1-mark questions found for the selected subject. Try selecting 'All Subjects'.
               </div>
             ) : (
-              filtered1MarkQuizQuestions.map((q, qIndex) => {
+              (quizPageSize === -1
+                ? filtered1MarkQuizQuestions
+                : filtered1MarkQuizQuestions.slice((quizPage - 1) * quizPageSize, quizPage * quizPageSize)
+              ).map((q, pageIdx) => {
+                const globalIdx = quizPageSize === -1 ? pageIdx : (quizPage - 1) * quizPageSize + pageIdx
                 const isSubmitted = !!quizSubmittedMap[q.id]
                 const selectedOpt = quizSelectedAnswers[q.id]
                 const isCorrect = isSubmitted && selectedOpt === q.correctOptionIndex
@@ -1062,7 +1311,7 @@ export const StudentExamPortal: React.FC = () => {
                       <div>
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="px-2 py-0.5 bg-indigo-50 text-indigo-700 rounded text-[11px] font-bold">
-                            Q{qIndex + 1} • {q.subjectName} • {q.topic}
+                            Q{globalIdx + 1} • {q.subjectName} • {q.topic}
                           </span>
                           <span className="px-2 py-0.5 bg-blue-50 text-blue-800 rounded text-[11px] font-semibold flex items-center gap-1">
                             <Star className="w-3 h-3 text-amber-500 fill-amber-500" /> {q.boardTag}
@@ -1147,6 +1396,41 @@ export const StudentExamPortal: React.FC = () => {
               })
             )}
           </div>
+
+          {/* Pagination Footer */}
+          {quizPageSize !== -1 && filtered1MarkQuizQuestions.length > quizPageSize && (
+            <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-xs flex flex-wrap items-center justify-between gap-3">
+              <button
+                disabled={quizPage <= 1}
+                onClick={() => setQuizPage((prev) => Math.max(1, prev - 1))}
+                className="px-4 py-2 border border-gray-300 hover:bg-gray-50 disabled:opacity-40 rounded-xl text-xs font-bold text-gray-700 flex items-center gap-1 transition"
+              >
+                <ChevronLeft className="w-4 h-4" /> Previous 10 Qs
+              </button>
+
+              <div className="flex items-center gap-1 flex-wrap">
+                {Array.from({ length: Math.ceil(filtered1MarkQuizQuestions.length / quizPageSize) }, (_, i) => i + 1).map((pg) => (
+                  <button
+                    key={pg}
+                    onClick={() => setQuizPage(pg)}
+                    className={`w-8 h-8 rounded-xl text-xs font-bold transition flex items-center justify-center ${
+                      quizPage === pg ? 'bg-indigo-600 text-white shadow-xs' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {pg}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                disabled={quizPage >= Math.ceil(filtered1MarkQuizQuestions.length / quizPageSize)}
+                onClick={() => setQuizPage((prev) => Math.min(Math.ceil(filtered1MarkQuizQuestions.length / quizPageSize), prev + 1))}
+                className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white rounded-xl text-xs font-bold flex items-center gap-1 shadow-xs transition"
+              >
+                Next 10 Qs <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          )}
         </div>
       )}
 
@@ -1231,15 +1515,17 @@ export const StudentExamPortal: React.FC = () => {
             <div className="flex items-center gap-2 flex-wrap">
               <span className="text-xs font-bold text-gray-700">Marks:</span>
               {[
-                { label: 'All Marks', val: 'ALL' },
-                { label: '1 Mark', val: 1 },
-                { label: '2 Marks', val: 2 },
-                { label: '3 Marks', val: 3 },
-                { label: '5 Marks', val: 5 },
+                { label: `All Descriptive (${filteredDescriptiveQuestions.length} Qs)`, val: 'ALL' },
+                { label: '2 Marks (50 Qs)', val: 2 },
+                { label: '3 Marks (50 Qs)', val: 3 },
+                { label: '5 Marks (50 Qs)', val: 5 },
               ].map((m) => (
                 <button
                   key={m.label}
-                  onClick={() => setPrepMarkFilter(m.val as any)}
+                  onClick={() => {
+                    setPrepMarkFilter(m.val as any)
+                    setDescPage(1)
+                  }}
                   className={`px-2.5 py-1 rounded-lg text-xs font-semibold transition ${
                     prepMarkFilter === m.val ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                   }`}
@@ -1250,16 +1536,54 @@ export const StudentExamPortal: React.FC = () => {
             </div>
           </div>
 
-          {/* Search Input */}
-          <div className="relative">
-            <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
-            <input
-              type="text"
-              placeholder="Search previous year board questions by topic, formula, or law (e.g. Newton, Optics, Thales, Wheatstone)..."
-              value={prepSearchQuery}
-              onChange={(e) => setPrepSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500"
-            />
+          {/* Search Input & Pagination Header */}
+          <div className="space-y-3">
+            <div className="relative">
+              <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-3" />
+              <input
+                type="text"
+                placeholder="Search previous year board questions by topic, formula, or law (e.g. Newton, Optics, Thales, Wheatstone)..."
+                value={prepSearchQuery}
+                onChange={(e) => setPrepSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-2.5 bg-white border border-gray-300 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-xs flex flex-wrap items-center justify-between gap-3">
+              <div className="text-xs font-bold text-gray-700">
+                Showing{' '}
+                <span className="text-purple-600 font-extrabold">
+                  {filteredDescriptiveQuestions.length > 0
+                    ? descPageSize === -1
+                      ? `All 1–${filteredDescriptiveQuestions.length}`
+                      : `${(descPage - 1) * descPageSize + 1}–${Math.min(descPage * descPageSize, filteredDescriptiveQuestions.length)}`
+                    : '0'}
+                </span>{' '}
+                of <span className="text-purple-600 font-extrabold">{filteredDescriptiveQuestions.length} Descriptive Board Questions</span>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-gray-500 font-medium">View:</span>
+                {[
+                  { label: '10 / Page', size: 10 },
+                  { label: '25 / Page', size: 25 },
+                  { label: 'All', size: -1 },
+                ].map((sz) => (
+                  <button
+                    key={sz.label}
+                    onClick={() => {
+                      setDescPageSize(sz.size)
+                      setDescPage(1)
+                    }}
+                    className={`px-2.5 py-1 rounded-lg text-xs font-bold transition ${
+                      descPageSize === sz.size ? 'bg-purple-600 text-white shadow-xs' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {sz.label}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Descriptive Questions List */}
@@ -1269,7 +1593,10 @@ export const StudentExamPortal: React.FC = () => {
                 No descriptive questions found matching your filter. Try selecting a different difficulty level.
               </div>
             ) : (
-              filteredDescriptiveQuestions.map((q) => {
+              (descPageSize === -1
+                ? filteredDescriptiveQuestions
+                : filteredDescriptiveQuestions.slice((descPage - 1) * descPageSize, descPage * descPageSize)
+              ).map((q) => {
                 const evalRes = prepEvaluationResults[q.id]
                 const currentAns = prepPracticeAnswers[q.id] || ''
                 const isEasy = q.difficulty === 'Easy'
@@ -1382,6 +1709,41 @@ export const StudentExamPortal: React.FC = () => {
               })
             )}
           </div>
+
+          {/* Descriptive Pagination Footer */}
+          {descPageSize !== -1 && filteredDescriptiveQuestions.length > descPageSize && (
+            <div className="bg-white border border-gray-200 rounded-2xl p-4 shadow-xs flex flex-wrap items-center justify-between gap-3">
+              <button
+                disabled={descPage <= 1}
+                onClick={() => setDescPage((prev) => Math.max(1, prev - 1))}
+                className="px-4 py-2 border border-gray-300 hover:bg-gray-50 disabled:opacity-40 rounded-xl text-xs font-bold text-gray-700 flex items-center gap-1 transition"
+              >
+                <ChevronLeft className="w-4 h-4" /> Previous 10 Qs
+              </button>
+
+              <div className="flex items-center gap-1 flex-wrap">
+                {Array.from({ length: Math.ceil(filteredDescriptiveQuestions.length / descPageSize) }, (_, i) => i + 1).map((pg) => (
+                  <button
+                    key={pg}
+                    onClick={() => setDescPage(pg)}
+                    className={`w-8 h-8 rounded-xl text-xs font-bold transition flex items-center justify-center ${
+                      descPage === pg ? 'bg-purple-600 text-white shadow-xs' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {pg}
+                  </button>
+                ))}
+              </div>
+
+              <button
+                disabled={descPage >= Math.ceil(filteredDescriptiveQuestions.length / descPageSize)}
+                onClick={() => setDescPage((prev) => Math.min(Math.ceil(filteredDescriptiveQuestions.length / descPageSize), prev + 1))}
+                className="px-4 py-2 bg-purple-600 hover:bg-purple-700 disabled:opacity-40 text-white rounded-xl text-xs font-bold flex items-center gap-1 shadow-xs transition"
+              >
+                Next 10 Qs <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          )}
         </div>
       )}
 
@@ -1601,6 +1963,140 @@ export const StudentExamPortal: React.FC = () => {
           </div>
         </div>
       )}
+      {/* ─────────────────────────────────────────────────────────────────
+          FLOATING AI STUDY & CLARIFICATION CHATBOT
+          (Automatically disabled during LIVE_EXAM, activates after exam)
+         ───────────────────────────────────────────────────────────────── */}
+      <div className="fixed bottom-6 right-6 z-50">
+        {!isChatbotOpen ? (
+          <button
+            onClick={() => setIsChatbotOpen(true)}
+            className={`px-4 py-3 rounded-2xl shadow-xl font-bold text-xs flex items-center gap-2.5 transition-all transform hover:scale-105 ${
+              viewMode === 'LIVE_EXAM'
+                ? 'bg-gray-800 text-gray-300 border border-gray-700 cursor-not-allowed opacity-90'
+                : 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-indigo-500/25'
+            }`}
+          >
+            {viewMode === 'LIVE_EXAM' ? (
+              <>
+                <Lock className="w-4 h-4 text-amber-400" />
+                <span>AI Tutor (Disabled in Exam)</span>
+              </>
+            ) : (
+              <>
+                <Bot className="w-5 h-5 text-yellow-300 animate-pulse" />
+                <span>Ask AI Tutor</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+              </>
+            )}
+          </button>
+        ) : (
+          <div className="w-80 sm:w-96 bg-white border border-gray-200 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-[480px] animate-in slide-in-from-bottom-5 duration-200">
+            {/* Header */}
+            <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-3.5 text-white flex items-center justify-between shadow-xs">
+              <div className="flex items-center gap-2">
+                <Bot className="w-5 h-5 text-yellow-300" />
+                <div>
+                  <h4 className="text-xs font-bold">StudyRank AI Tutor</h4>
+                  <p className="text-[10px] text-indigo-100">
+                    {viewMode === 'LIVE_EXAM' ? '🔒 Locked (Anti-Cheat Active)' : '🟢 Active • State Board Assistant'}
+                  </p>
+                </div>
+              </div>
+              <button
+                onClick={() => setIsChatbotOpen(false)}
+                className="p-1 hover:bg-white/20 rounded-lg transition"
+              >
+                <X className="w-4 h-4 text-white" />
+              </button>
+            </div>
+
+            {/* Chat Body */}
+            {viewMode === 'LIVE_EXAM' ? (
+              <div className="flex-1 p-6 flex flex-col items-center justify-center text-center bg-gray-50/80 space-y-3">
+                <div className="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold">
+                  <Lock className="w-6 h-6 text-amber-600" />
+                </div>
+                <h4 className="text-xs font-bold text-gray-900">AI Assistant Disabled During Active Exam</h4>
+                <p className="text-[11px] text-gray-500 leading-relaxed max-w-xs">
+                  To ensure academic integrity, the AI Tutor is locked during live examinations. Focus on your test! The AI will automatically unlock once you submit to provide step-by-step solutions and explanations.
+                </p>
+                <div className="px-3 py-1.5 bg-indigo-50 border border-indigo-200 rounded-xl text-[10px] font-bold text-indigo-700 flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-indigo-600" /> Unlocks upon Exam Submission
+                </div>
+              </div>
+            ) : (
+              <>
+                {/* Messages Container */}
+                <div className="flex-1 p-3.5 overflow-y-auto space-y-3 bg-gray-50/50 text-xs">
+                  {chatMessages.map((msg) => (
+                    <div
+                      key={msg.id}
+                      className={`flex flex-col ${msg.sender === 'user' ? 'items-end' : 'items-start'}`}
+                    >
+                      <div
+                        className={`p-3 rounded-2xl max-w-[85%] whitespace-pre-line leading-relaxed ${
+                          msg.sender === 'user'
+                            ? 'bg-indigo-600 text-white rounded-tr-none'
+                            : 'bg-white border border-gray-200 text-gray-800 rounded-tl-none shadow-xs'
+                        }`}
+                      >
+                        {msg.text}
+                      </div>
+                      <span className="text-[9px] text-gray-400 mt-1 px-1">{msg.time}</span>
+                    </div>
+                  ))}
+
+                  {isBotTyping && (
+                    <div className="flex items-center gap-1.5 text-xs text-gray-500 p-2 bg-white rounded-xl border border-gray-200 w-fit">
+                      <Sparkles className="w-3.5 h-3.5 text-indigo-600 animate-spin" />
+                      <span>AI Tutor is formulating explanation...</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Quick Suggestion Chips */}
+                <div className="p-2 bg-white border-t border-gray-100 flex items-center gap-1.5 overflow-x-auto">
+                  {[
+                    'Explain Thales Theorem',
+                    'Momentum Conservation',
+                    'Transformer Working',
+                    'பொதுத்தமிழ்: அணி விளக்கம்',
+                    'Fixed vs Fluctuating Capital',
+                  ].map((chip) => (
+                    <button
+                      key={chip}
+                      onClick={() => handleSendChatMessage(chip)}
+                      className="px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 rounded-lg text-[10px] font-bold shrink-0 transition whitespace-nowrap"
+                    >
+                      {chip}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Chat Input */}
+                <div className="p-2.5 bg-white border-t border-gray-200 flex items-center gap-2">
+                  <input
+                    type="text"
+                    placeholder="Ask any question for clarification..."
+                    value={chatInput}
+                    onChange={(e) => setChatInput(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && handleSendChatMessage()}
+                    className="flex-1 px-3 py-2 bg-gray-50 border border-gray-300 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500 focus:bg-white"
+                  />
+                  <button
+                    disabled={!chatInput.trim() || isBotTyping}
+                    onClick={() => handleSendChatMessage()}
+                    className="p-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 text-white rounded-xl shadow-xs transition"
+                  >
+                    <Send className="w-4 h-4" />
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   )
 }

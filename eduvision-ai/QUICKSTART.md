@@ -1,4 +1,4 @@
-# 🚀 EduVision AI - Quick Start Guide
+# 🚀 StudyRank AI - Quick Start Guide
 
 ## Get Started in 5 Minutes
 
