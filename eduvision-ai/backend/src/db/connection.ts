@@ -6,13 +6,20 @@ import crypto from 'crypto'
 
 const pgp = pgPromise()
 
-const pgDb = pgp({
-  host: process.env.DB_HOST || 'localhost',
-  port: parseInt(process.env.DB_PORT || '5432'),
-  database: process.env.DB_NAME || 'eduvision_ai',
-  user: process.env.DB_USER || 'postgres',
-  password: process.env.DB_PASSWORD || 'postgres',
-})
+const connectionConfig = process.env.DATABASE_URL
+  ? {
+      connectionString: process.env.DATABASE_URL,
+      ssl: process.env.NODE_ENV === 'production' || process.env.DATABASE_SSL === 'true' ? { rejectUnauthorized: false } : false,
+    }
+  : {
+      host: process.env.DB_HOST || 'localhost',
+      port: parseInt(process.env.DB_PORT || '5432'),
+      database: process.env.DB_NAME || 'eduvision_ai',
+      user: process.env.DB_USER || 'postgres',
+      password: process.env.DB_PASSWORD || 'postgres',
+    }
+
+const pgDb = pgp(connectionConfig as any)
 
 // ─────────────────────────────────────────────────────────────────────────────
 // In-Memory Store (Fallback / Demo Mode)
