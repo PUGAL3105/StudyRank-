@@ -65,6 +65,22 @@ export default function LoginPage() {
     }
   }
 
+  const handleQuickLogin = async (demoEmail: string, demoPass: string) => {
+    setEmail(demoEmail)
+    setPassword(demoPass)
+    setError('')
+    setSuccessMsg('')
+    setIsSubmitting(true)
+    try {
+      await login(demoEmail, demoPass, true)
+    } catch (err: any) {
+      const msg = err.response?.data?.error || err.message || 'Login failed. Please try again.'
+      setError(msg)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
   const busy = isSubmitting || isLoading
 
   return (
@@ -200,22 +216,42 @@ export default function LoginPage() {
           </p>
         </div>
 
-        {/* Demo credentials */}
-        <div className="mt-6 bg-white/80 backdrop-blur-sm border border-gray-200 rounded-2xl p-5 shadow-sm">
-          <p className="text-xs font-bold text-gray-700 uppercase tracking-wider mb-3">Demo Credentials</p>
-          <div className="space-y-1.5 text-xs text-gray-600 font-mono">
-            <div className="flex items-center justify-between gap-3">
-              <span className="px-2 py-0.5 bg-blue-100 text-blue-700 rounded text-xs font-bold font-sans">Student</span>
-              <span>student@demo.com / password</span>
-            </div>
-            <div className="flex items-center justify-between gap-3">
-              <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 rounded text-xs font-bold font-sans">Teacher</span>
-              <span>teacher@demo.com / password</span>
-            </div>
-            <div className="flex items-center justify-between gap-3">
-              <span className="px-2 py-0.5 bg-gray-900 text-gray-100 rounded text-xs font-bold font-sans">Admin</span>
-              <span>admin@demo.com / password</span>
-            </div>
+        {/* 1-Click Demo Credentials */}
+        <div className="mt-6 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl p-5 shadow-sm">
+          <div className="flex items-center justify-between mb-3">
+            <p className="text-xs font-bold text-gray-700 uppercase tracking-wider">Quick Demo Login (1-Click)</p>
+            <span className="text-[11px] text-gray-400 font-medium">Click role to sign in</span>
+          </div>
+          <div className="grid grid-cols-3 gap-2">
+            <button
+              type="button"
+              disabled={busy}
+              onClick={() => handleQuickLogin('student@demo.com', 'password')}
+              className="flex flex-col items-center justify-center p-2.5 bg-blue-50 hover:bg-blue-100 border border-blue-200 rounded-xl transition text-center group disabled:opacity-50"
+            >
+              <span className="text-xs font-bold text-blue-700 group-hover:scale-105 transition-transform">Student</span>
+              <span className="text-[10px] text-blue-500 font-mono mt-0.5">student@demo.com</span>
+            </button>
+
+            <button
+              type="button"
+              disabled={busy}
+              onClick={() => handleQuickLogin('teacher@demo.com', 'password')}
+              className="flex flex-col items-center justify-center p-2.5 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-xl transition text-center group disabled:opacity-50"
+            >
+              <span className="text-xs font-bold text-emerald-700 group-hover:scale-105 transition-transform">Teacher</span>
+              <span className="text-[10px] text-emerald-500 font-mono mt-0.5">teacher@demo.com</span>
+            </button>
+
+            <button
+              type="button"
+              disabled={busy}
+              onClick={() => handleQuickLogin('admin@demo.com', 'password')}
+              className="flex flex-col items-center justify-center p-2.5 bg-slate-100 hover:bg-slate-200 border border-slate-300 rounded-xl transition text-center group disabled:opacity-50"
+            >
+              <span className="text-xs font-bold text-slate-800 group-hover:scale-105 transition-transform">Admin</span>
+              <span className="text-[10px] text-slate-500 font-mono mt-0.5">admin@demo.com</span>
+            </button>
           </div>
         </div>
 

@@ -2177,11 +2177,242 @@ export async function initMemoryStore() {
       })
     })
 
+    // ── Additional Class 10, 11, 12, 9 Authentic Questions ──
+    const qMath1 = {
+      id: 'q-c10math-1',
+      class_id: 'c-10',
+      subject_id: 'sub-10-math',
+      chapter_id: 'ch-10math-t1-1',
+      question_text: 'If A = {1, 3, 5} and B = {2, 3}, find A × B and B × A. Is A × B = B × A?',
+      marks: 2,
+      question_type: 'SHORT_EXPLANATORY_2',
+      difficulty: 'Easy',
+      expected_answer: 'A × B = {(1,2), (1,3), (3,2), (3,3), (5,2), (5,3)}. B × A = {(2,1), (2,3), (2,5), (3,1), (3,3), (3,5)}. A × B ≠ B × A.',
+      key_points: ['Cartesian product A × B', 'Cartesian product B × A', 'Conclusion A × B ≠ B × A'],
+      rubric: { cartesian_product: 1.0, comparison: 1.0 },
+      source_textbook: 'Tamil Nadu State Board Class 10 Mathematics (Samacheer Kalvi)',
+      source_page: 3,
+      created_by: 'user-teacher-demo',
+    }
+
+    const qMath2 = {
+      id: 'q-c10math-2',
+      class_id: 'c-10',
+      subject_id: 'sub-10-math',
+      chapter_id: 'ch-10math-t1-1',
+      question_text: 'State and prove Basic Proportionality Theorem (Thales Theorem) with suitable geometric construction.',
+      marks: 5,
+      question_type: 'ESSAY_5',
+      difficulty: 'Hard',
+      expected_answer: 'Statement: If a line is drawn parallel to one side of a triangle intersecting other two sides, it divides them in the same ratio: AD/DB = AE/EC. Proof uses ratio of triangle areas with common altitude.',
+      key_points: ['Statement of Thales theorem', 'Geometric construction diagram', 'Area ratio steps', 'Conclusion AD/DB = AE/EC'],
+      rubric: { statement_and_diagram: 2.0, proof_steps: 2.0, conclusion: 1.0 },
+      source_textbook: 'Tamil Nadu State Board Class 10 Mathematics (Samacheer Kalvi)',
+      source_page: 162,
+      created_by: 'user-teacher-demo',
+    }
+
+    const qPhy12_1 = {
+      id: 'q-c12phy-1',
+      class_id: 'c-12',
+      subject_id: 'sub-12-phy',
+      chapter_id: 'ch-12phy-t1-1',
+      question_text: 'Define electric flux and write its SI unit.',
+      marks: 2,
+      question_type: 'SHORT_EXPLANATORY_2',
+      difficulty: 'Easy',
+      expected_answer: 'Electric flux is the number of electric field lines crossing a given area normal to the surface: Φ = E·A·cos(θ). SI unit: N m² C⁻¹ (or V·m).',
+      key_points: ['Definition of electric flux', 'SI unit N m² C⁻¹ or V m'],
+      rubric: { definition: 1.0, si_unit: 1.0 },
+      source_textbook: 'Tamil Nadu State Board Class 12 Physics (Samacheer Kalvi)',
+      source_page: 32,
+      created_by: 'user-teacher-demo',
+    }
+
+    const qPhy12_2 = {
+      id: 'q-c12phy-2',
+      class_id: 'c-12',
+      subject_id: 'sub-12-phy',
+      chapter_id: 'ch-12phy-t1-1',
+      question_text: 'Obtain the condition for bridge balance in Wheatstone’s bridge using Kirchhoff’s rules.',
+      marks: 3,
+      question_type: 'DETAILED_3',
+      difficulty: 'Medium',
+      expected_answer: 'Applying Kirchhoff’s junction and loop rules with zero galvanometer current Ig = 0 gives P/Q = R/S.',
+      key_points: ['Kirchhoff junction rule', 'Kirchhoff voltage loop rule', 'Balancing equation P/Q = R/S'],
+      rubric: { junction_rule: 1.0, loop_rule: 1.0, balance_equation: 1.0 },
+      source_textbook: 'Tamil Nadu State Board Class 12 Physics (Samacheer Kalvi)',
+      source_page: 108,
+      created_by: 'user-teacher-demo',
+    }
+
+    const qPhy12_3 = {
+      id: 'q-c12phy-3',
+      class_id: 'c-12',
+      subject_id: 'sub-12-phy',
+      chapter_id: 'ch-12phy-t1-1',
+      question_text: 'Explain the principle, construction, theory, and working of a transformer with efficiency and energy losses.',
+      marks: 5,
+      question_type: 'ESSAY_5',
+      difficulty: 'Hard',
+      expected_answer: 'Principle: Mutual induction. Equations: Ep = -Np(dΦ/dt), Es = -Ns(dΦ/dt), Es/Ep = Ns/Np = K. Energy losses include copper loss, iron/eddy current loss, hysteresis loss, and flux leakage.',
+      key_points: ['Principle of mutual induction', 'Transformation ratio K = Ns/Np', 'Four types of energy losses'],
+      rubric: { principle: 1.0, equations_and_theory: 2.0, energy_losses: 2.0 },
+      source_textbook: 'Tamil Nadu State Board Class 12 Physics (Samacheer Kalvi)',
+      source_page: 230,
+      created_by: 'user-teacher-demo',
+    }
+
+    const qTam12_1 = {
+      id: 'q-c12tam-1',
+      class_id: 'c-12',
+      subject_id: 'sub-12-tam',
+      chapter_id: 'ch-12tam-t1-1',
+      question_text: 'அணி இலக்கணம் என்றால் என்ன? சான்று தருக.',
+      marks: 2,
+      question_type: 'SHORT_EXPLANATORY_2',
+      difficulty: 'Easy',
+      expected_answer: 'செய்யுளுக்கு அழகூட்டுவது அணி எனப்படும். எ.கா: உவமையணி, உருவக அணி.',
+      key_points: ['செய்யுளுக்கு அழகு சேர்க்கும் இலக்கணம்', 'பொருத்தமான சான்று'],
+      rubric: { definition: 1.0, example: 1.0 },
+      source_textbook: 'Tamil Nadu State Board Class 12 பொதுத்தமிழ்',
+      source_page: 82,
+      created_by: 'user-teacher-demo',
+    }
+
+    const qTam12_2 = {
+      id: 'q-c12tam-2',
+      class_id: 'c-12',
+      subject_id: 'sub-12-tam',
+      chapter_id: 'ch-12tam-t1-1',
+      question_text: 'கம்பராமாயணத்தில் குகப் படலத்தின் சிறப்புகளைக் கம்பர் எவ்வாறு சித்தரிக்கிறார்?',
+      marks: 5,
+      question_type: 'ESSAY_5',
+      difficulty: 'Hard',
+      expected_answer: 'குகனின் எல்லையற்ற அன்பும், ராமனின் சகோதரத்துவ ஏற்பும் "குகனொடும் ஐவரானோம்" என்ற உலகளாவிய மானுட நேயத்தை வெளிப்படுத்துகிறது.',
+      key_points: ['குகனின் விருந்தோம்பல்', 'ராமனின் பெருந்தன்மை', '"குகனொடும் ஐவரானோம்" மேற்கோள்'],
+      rubric: { introduction: 1.0, description: 2.0, quote_analysis: 2.0 },
+      source_textbook: 'Tamil Nadu State Board Class 12 பொதுத்தமிழ்',
+      source_page: 180,
+      created_by: 'user-teacher-demo',
+    }
+
+    const qEng12_1 = {
+      id: 'q-c12eng-1',
+      class_id: 'c-12',
+      subject_id: 'sub-12-eng',
+      chapter_id: 'ch-12eng-t1-1',
+      question_text: 'What were the various jobs undertaken by Nicola and Jacopo in "Two Gentlemen of Verona"?',
+      marks: 2,
+      question_type: 'SHORT_EXPLANATORY_2',
+      difficulty: 'Easy',
+      expected_answer: 'Nicola and Jacopo shined shoes, sold fruit, hawked newspapers, conducted tourists round the town, and ran errands to earn money for their sister Lucia’s treatment.',
+      key_points: ['Shoe shining, selling fruit, hawking newspapers', 'Tour guides and errands for sister treatment'],
+      rubric: { jobs_list: 1.0, purpose: 1.0 },
+      source_textbook: 'Tamil Nadu State Board Class 12 English',
+      source_page: 6,
+      created_by: 'user-teacher-demo',
+    }
+
+    const qEng12_2 = {
+      id: 'q-c12eng-2',
+      class_id: 'c-12',
+      subject_id: 'sub-12-eng',
+      chapter_id: 'ch-12eng-t1-1',
+      question_text: 'Describe the transformation of Nicola and Jacopo into symbols of human dignity and selflessness.',
+      marks: 5,
+      question_type: 'ESSAY_5',
+      difficulty: 'Hard',
+      expected_answer: 'Nicola and Jacopo faced wartime devastation with courage and devotion, working tirelessly without seeking charity, proving human dignity and noble brotherhood.',
+      key_points: ['Wartime tragedy', 'Devotion to sister Lucia', 'Refusal of charity', 'Human nobility'],
+      rubric: { introduction: 1.0, character_traits: 2.0, theme_analysis: 2.0 },
+      source_textbook: 'Tamil Nadu State Board Class 12 English',
+      source_page: 12,
+      created_by: 'user-teacher-demo',
+    }
+
+    const qCS12_1 = {
+      id: 'q-c12cs-1',
+      class_id: 'c-12',
+      subject_id: 'sub-12-cs',
+      chapter_id: 'ch-12cs-t1-1',
+      question_text: 'What is the LEGB rule of variable scope in Python? Explain each scope.',
+      marks: 3,
+      question_type: 'DETAILED_3',
+      difficulty: 'Medium',
+      expected_answer: 'LEGB stands for Local, Enclosed, Global, and Built-in scopes, defining the hierarchy of variable resolution in Python.',
+      key_points: ['LEGB acronym expansion', 'Explanation of Local and Global scopes', 'Built-in namespace scope'],
+      rubric: { legb_definition: 1.0, scope_explanations: 2.0 },
+      source_textbook: 'Tamil Nadu State Board Class 12 Computer Science',
+      source_page: 48,
+      created_by: 'user-teacher-demo',
+    }
+
+    const qAcc12_1 = {
+      id: 'q-c12acc-1',
+      class_id: 'c-12',
+      subject_id: 'sub-12-acc',
+      chapter_id: 'ch-12acc-t1-1',
+      question_text: 'Distinguish between Fixed Capital Method and Fluctuating Capital Method with 3 key points.',
+      marks: 3,
+      question_type: 'DETAILED_3',
+      difficulty: 'Medium',
+      expected_answer: 'Fixed Capital Method maintains Capital and Current accounts with stable capital. Fluctuating Capital maintains one Capital account recording all adjustments.',
+      key_points: ['Number of accounts (2 vs 1)', 'Constancy of capital balance', 'Recording of adjustments'],
+      rubric: { accounts_difference: 1.0, balance_difference: 1.0, adjustment_difference: 1.0 },
+      source_textbook: 'Tamil Nadu State Board Class 12 Accountancy',
+      source_page: 90,
+      created_by: 'user-teacher-demo',
+    }
+
+    const q9Sci_1 = {
+      id: 'q-c9sci-1',
+      class_id: 'c-9',
+      subject_id: 'sub-9-sci',
+      chapter_id: 'ch-9sci-t1-1',
+      question_text: 'State the difference between mass and weight with SI units.',
+      marks: 2,
+      question_type: 'SHORT_EXPLANATORY_2',
+      difficulty: 'Easy',
+      expected_answer: 'Mass is the amount of matter in a body (Scalar, SI unit kg, constant). Weight is the gravitational force acting on it (Vector, W = mg, SI unit Newton, variable).',
+      key_points: ['Mass definition and kg unit', 'Weight definition W = mg and Newton unit'],
+      rubric: { mass_explanation: 1.0, weight_explanation: 1.0 },
+      source_textbook: 'Tamil Nadu State Board Class 9 Science',
+      source_page: 6,
+      created_by: 'user-teacher-demo',
+    }
+
+    const q9Math_1 = {
+      id: 'q-c9math-1',
+      class_id: 'c-9',
+      subject_id: 'sub-9-math',
+      chapter_id: 'ch-9math-t1-1',
+      question_text: 'If A = {2, 4, 6, 8} and B = {6, 8, 10, 12}, find A ∪ B and A ∩ B.',
+      marks: 2,
+      question_type: 'SHORT_EXPLANATORY_2',
+      difficulty: 'Easy',
+      expected_answer: 'A ∪ B = {2, 4, 6, 8, 10, 12}. A ∩ B = {6, 8}.',
+      key_points: ['Set Union combining all elements', 'Set Intersection common elements {6, 8}'],
+      rubric: { union_result: 1.0, intersection_result: 1.0 },
+      source_textbook: 'Tamil Nadu State Board Class 9 Mathematics',
+      source_page: 12,
+      created_by: 'user-teacher-demo',
+    }
+
+    memoryStore.questions.push(
+      qMath1, qMath2,
+      qPhy12_1, qPhy12_2, qPhy12_3,
+      qTam12_1, qTam12_2,
+      qEng12_1, qEng12_2,
+      qCS12_1, qAcc12_1,
+      q9Sci_1, q9Math_1
+    )
+
     // Exam 2: Class 10 Mathematics Unit Test 1
     const exam2 = {
       id: 'exam-c10-math-ut1',
-      title: 'Class 10 Mathematics — Unit Test 1 (Relations and Functions)',
-      description: 'Unit assessment on Cartesian Products, Relations, and Functions according to Samacheer Kalvi Class 10 Mathematics.',
+      title: 'Class 10 Mathematics — Board Model Assessment (Relations & Geometry)',
+      description: 'Unit assessment on Cartesian Products, Relations, and Thales Theorem according to Samacheer Kalvi Class 10 Mathematics.',
       class_id: 'c-10',
       class_name: 'Class 10',
       subject_id: 'sub-10-math',
@@ -2189,10 +2420,10 @@ export async function initMemoryStore() {
       term_id: 'trm-10math-1',
       chapter_ids: ['ch-10math-t1-1'],
       duration_minutes: 40,
-      total_marks: 25,
-      passing_marks: 10,
+      total_marks: 15,
+      passing_marks: 6,
       difficulty: 'Medium',
-      question_count: 5,
+      question_count: 4,
       status: 'PUBLISHED',
       is_published: true,
       created_by: 'user-teacher-demo',
@@ -2200,11 +2431,23 @@ export async function initMemoryStore() {
     }
     memoryStore.exams.push(exam2)
 
+    const mathQIds = ['q-c10math-1', 'q-c10math-2']
+    mathQIds.forEach((qid, idx) => {
+      const qObj = memoryStore.questions.find((q) => q.id === qid)
+      memoryStore.examQuestions.push({
+        id: `eq-exam2-${idx + 1}`,
+        exam_id: 'exam-c10-math-ut1',
+        question_id: qid,
+        order_index: idx + 1,
+        marks: qObj?.marks || 2,
+      })
+    })
+
     // Exam 3: Class 12 Physics Practice Midterm
     const exam3 = {
       id: 'exam-c12-phy-midterm',
-      title: 'Class 12 Physics — Midterm Practice (Electrostatics & Current Electricity)',
-      description: 'Higher Secondary State Board physics practice exam covering Coulomb’s law, Gauss theorem, and Ohm’s law.',
+      title: 'Class 12 Physics — HSC Board Model Exam (Electrostatics & Magnetism)',
+      description: 'Higher Secondary State Board physics practice exam covering Coulomb’s law, Gauss theorem, Wheatstone bridge, and Transformers with 1M, 2M, 3M, and 5M questions.',
       class_id: 'c-12',
       class_name: 'Class 12',
       subject_id: 'sub-12-phy',
@@ -2212,16 +2455,273 @@ export async function initMemoryStore() {
       term_id: 'trm-12phy-1',
       chapter_ids: ['ch-12phy-t1-1'],
       duration_minutes: 45,
-      total_marks: 30,
-      passing_marks: 12,
+      total_marks: 25,
+      passing_marks: 10,
       difficulty: 'Hard',
-      question_count: 6,
+      question_count: 5,
       status: 'PUBLISHED',
       is_published: true,
       created_by: 'user-teacher-demo',
       published_at: '2026-09-01T11:00:00.000Z',
     }
     memoryStore.exams.push(exam3)
+
+    const phyQIds = ['q-c12phy-1', 'q-c12phy-2', 'q-c12phy-3']
+    phyQIds.forEach((qid, idx) => {
+      const qObj = memoryStore.questions.find((q) => q.id === qid)
+      memoryStore.examQuestions.push({
+        id: `eq-exam3-${idx + 1}`,
+        exam_id: 'exam-c12-phy-midterm',
+        question_id: qid,
+        order_index: idx + 1,
+        marks: qObj?.marks || 2,
+      })
+    })
+
+    // Exam 4: Class 12 General Tamil (பொதுத்தமிழ்)
+    const exam4 = {
+      id: 'exam-c12-tam-annual',
+      title: 'Class 12 பொதுத்தமிழ் — மாதிரி அரசுப் பொதுத்தேர்வு (செய்யுள் & இலக்கணம்)',
+      description: 'தமிழ்நாடு மேல்நிலைக் கல்வி பொதுத்தமிழ் மாதிரி வினாத்தாள் (2M, 3M, 5M வினாக்கள் அடங்கியது).',
+      class_id: 'c-12',
+      class_name: 'Class 12',
+      subject_id: 'sub-12-tam',
+      subject_name: 'General Tamil',
+      term_id: 'trm-12tam-1',
+      chapter_ids: ['ch-12tam-t1-1'],
+      duration_minutes: 45,
+      total_marks: 20,
+      passing_marks: 7,
+      difficulty: 'Medium',
+      question_count: 4,
+      status: 'PUBLISHED',
+      is_published: true,
+      created_by: 'user-teacher-demo',
+      published_at: '2026-09-01T12:00:00.000Z',
+    }
+    memoryStore.exams.push(exam4)
+
+    const tamQIds = ['q-c12tam-1', 'q-c12tam-2']
+    tamQIds.forEach((qid, idx) => {
+      const qObj = memoryStore.questions.find((q) => q.id === qid)
+      memoryStore.examQuestions.push({
+        id: `eq-exam4-${idx + 1}`,
+        exam_id: 'exam-c12-tam-annual',
+        question_id: qid,
+        order_index: idx + 1,
+        marks: qObj?.marks || 2,
+      })
+    })
+
+    // Exam 5: Class 12 General English
+    const exam5 = {
+      id: 'exam-c12-eng-annual',
+      title: 'Class 12 General English — HSC Board Model Paper',
+      description: 'HSC State Board English model examination with 2-Mark, 3-Mark, and 5-Mark prose and grammar questions.',
+      class_id: 'c-12',
+      class_name: 'Class 12',
+      subject_id: 'sub-12-eng',
+      subject_name: 'General English',
+      term_id: 'trm-12eng-1',
+      chapter_ids: ['ch-12eng-t1-1'],
+      duration_minutes: 45,
+      total_marks: 20,
+      passing_marks: 7,
+      difficulty: 'Medium',
+      question_count: 4,
+      status: 'PUBLISHED',
+      is_published: true,
+      created_by: 'user-teacher-demo',
+      published_at: '2026-09-01T13:00:00.000Z',
+    }
+    memoryStore.exams.push(exam5)
+
+    const engQIds = ['q-c12eng-1', 'q-c12eng-2']
+    engQIds.forEach((qid, idx) => {
+      const qObj = memoryStore.questions.find((q) => q.id === qid)
+      memoryStore.examQuestions.push({
+        id: `eq-exam5-${idx + 1}`,
+        exam_id: 'exam-c12-eng-annual',
+        question_id: qid,
+        order_index: idx + 1,
+        marks: qObj?.marks || 2,
+      })
+    })
+
+    // Exam 6: Class 9 Science Annual Model
+    const exam6 = {
+      id: 'exam-c9-sci-annual',
+      title: 'Class 9 Science — Annual Model Examination',
+      description: 'Tamil Nadu State Board Class 9 Science comprehensive test covering Measurement, Motion, and Optics.',
+      class_id: 'c-9',
+      class_name: 'Class 9',
+      subject_id: 'sub-9-sci',
+      subject_name: 'Science',
+      term_id: 'trm-9sci-1',
+      chapter_ids: ['ch-9sci-t1-1'],
+      duration_minutes: 30,
+      total_marks: 15,
+      passing_marks: 5,
+      difficulty: 'Easy',
+      question_count: 3,
+      status: 'PUBLISHED',
+      is_published: true,
+      created_by: 'user-teacher-demo',
+      published_at: '2026-09-01T14:00:00.000Z',
+    }
+    memoryStore.exams.push(exam6)
+
+    const q9Ids = ['q-c9sci-1']
+    q9Ids.forEach((qid, idx) => {
+      const qObj = memoryStore.questions.find((q) => q.id === qid)
+      memoryStore.examQuestions.push({
+        id: `eq-exam6-${idx + 1}`,
+        exam_id: 'exam-c9-sci-annual',
+        question_id: qid,
+        order_index: idx + 1,
+        marks: qObj?.marks || 2,
+      })
+    })
+
+    // Exam 7: Class 9 Mathematics Model
+    const exam7 = {
+      id: 'exam-c9-math-annual',
+      title: 'Class 9 Mathematics — Annual Model Assessment',
+      description: 'Tamil Nadu State Board Class 9 Mathematics covering Set Operations, Real Numbers, and Geometry.',
+      class_id: 'c-9',
+      class_name: 'Class 9',
+      subject_id: 'sub-9-math',
+      subject_name: 'Mathematics',
+      term_id: 'trm-9math-1',
+      chapter_ids: ['ch-9math-t1-1'],
+      duration_minutes: 30,
+      total_marks: 15,
+      passing_marks: 5,
+      difficulty: 'Easy',
+      question_count: 3,
+      status: 'PUBLISHED',
+      is_published: true,
+      created_by: 'user-teacher-demo',
+      published_at: '2026-09-01T14:30:00.000Z',
+    }
+    memoryStore.exams.push(exam7)
+
+    const q9mIds = ['q-c9math-1']
+    q9mIds.forEach((qid, idx) => {
+      const qObj = memoryStore.questions.find((q) => q.id === qid)
+      memoryStore.examQuestions.push({
+        id: `eq-exam7-${idx + 1}`,
+        exam_id: 'exam-c9-math-annual',
+        question_id: qid,
+        order_index: idx + 1,
+        marks: qObj?.marks || 2,
+      })
+    })
+
+    // Exam 8: Class 11 Physics Model Midterm
+    const exam8 = {
+      id: 'exam-c11-phy-midterm',
+      title: 'Class 11 Physics — Midterm Board Model Exam (Kinematics & Dynamics)',
+      description: 'Higher Secondary +1 State Board physics assessment covering Vectors, Laws of Motion, Work-Energy Theorem.',
+      class_id: 'c-11',
+      class_name: 'Class 11',
+      subject_id: 'sub-11-phy',
+      subject_name: 'Physics',
+      term_id: 'trm-11phy-1',
+      chapter_ids: ['ch-11phy-t1-1'],
+      duration_minutes: 45,
+      total_marks: 25,
+      passing_marks: 10,
+      difficulty: 'Medium',
+      question_count: 5,
+      status: 'PUBLISHED',
+      is_published: true,
+      created_by: 'user-teacher-demo',
+      published_at: '2026-09-01T15:00:00.000Z',
+    }
+    memoryStore.exams.push(exam8)
+
+    const q11phyIds = ['q-c10sci-1', 'q-c10sci-2', 'q-c10sci-3']
+    q11phyIds.forEach((qid, idx) => {
+      const qObj = memoryStore.questions.find((q) => q.id === qid)
+      memoryStore.examQuestions.push({
+        id: `eq-exam8-${idx + 1}`,
+        exam_id: 'exam-c11-phy-midterm',
+        question_id: qid,
+        order_index: idx + 1,
+        marks: qObj?.marks || 2,
+      })
+    })
+
+    // Exam 9: Class 11 General Tamil (பொதுத்தமிழ்)
+    const exam9 = {
+      id: 'exam-c11-tam-midterm',
+      title: 'Class 11 பொதுத்தமிழ் — மாதிரி வினாத்தாள் (இலக்கணம் & கவிதை)',
+      description: 'தமிழ்நாடு மேல்நிலை முதலாமாண்டு (+1) பொதுத்தமிழ் மாதிரி வினாத்தாள்.',
+      class_id: 'c-11',
+      class_name: 'Class 11',
+      subject_id: 'sub-11-tam',
+      subject_name: 'General Tamil',
+      term_id: 'trm-11tam-1',
+      chapter_ids: ['ch-11tam-t1-1'],
+      duration_minutes: 45,
+      total_marks: 20,
+      passing_marks: 7,
+      difficulty: 'Medium',
+      question_count: 4,
+      status: 'PUBLISHED',
+      is_published: true,
+      created_by: 'user-teacher-demo',
+      published_at: '2026-09-01T15:30:00.000Z',
+    }
+    memoryStore.exams.push(exam9)
+
+    const q11tamIds = ['q-c12tam-1', 'q-c12tam-2']
+    q11tamIds.forEach((qid, idx) => {
+      const qObj = memoryStore.questions.find((q) => q.id === qid)
+      memoryStore.examQuestions.push({
+        id: `eq-exam9-${idx + 1}`,
+        exam_id: 'exam-c11-tam-midterm',
+        question_id: qid,
+        order_index: idx + 1,
+        marks: qObj?.marks || 2,
+      })
+    })
+
+    // Exam 10: Class 11 General English
+    const exam10 = {
+      id: 'exam-c11-eng-midterm',
+      title: 'Class 11 General English — Higher Secondary Model Paper',
+      description: 'Class 11 State Board English examination covering Prose, Poetry, and Grammar analysis.',
+      class_id: 'c-11',
+      class_name: 'Class 11',
+      subject_id: 'sub-11-eng',
+      subject_name: 'General English',
+      term_id: 'trm-11eng-1',
+      chapter_ids: ['ch-11eng-t1-1'],
+      duration_minutes: 45,
+      total_marks: 20,
+      passing_marks: 7,
+      difficulty: 'Medium',
+      question_count: 4,
+      status: 'PUBLISHED',
+      is_published: true,
+      created_by: 'user-teacher-demo',
+      published_at: '2026-09-01T16:00:00.000Z',
+    }
+    memoryStore.exams.push(exam10)
+
+    const q11engIds = ['q-c12eng-1', 'q-c12eng-2']
+    q11engIds.forEach((qid, idx) => {
+      const qObj = memoryStore.questions.find((q) => q.id === qid)
+      memoryStore.examQuestions.push({
+        id: `eq-exam10-${idx + 1}`,
+        exam_id: 'exam-c11-eng-midterm',
+        question_id: qid,
+        order_index: idx + 1,
+        marks: qObj?.marks || 2,
+      })
+    })
   }
 }
 
@@ -2229,7 +2729,7 @@ export async function initMemoryStore() {
 // SQL Evaluator for In-Memory Mode
 // ─────────────────────────────────────────────────────────────────────────────
 function executeMockQuery(query: string, params: any[] = []): any {
-  const q = query.trim().toUpperCase()
+  const q = query.replace(/\s+/g, ' ').trim().toUpperCase()
 
   // DDL — ignore silently
   if (q.startsWith('CREATE TABLE') || q.startsWith('CREATE INDEX') || q.startsWith('ALTER TABLE') || q.startsWith('--')) {

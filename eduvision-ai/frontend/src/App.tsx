@@ -183,12 +183,16 @@ function AppRoutes() {
   )
 }
 
+import ErrorBoundary from './components/ErrorBoundary'
+
 function App() {
   return (
     <Router>
-      <AuthProvider>
-        <AppRoutes />
-      </AuthProvider>
+      <ErrorBoundary>
+        <AuthProvider>
+          <AppRoutes />
+        </AuthProvider>
+      </ErrorBoundary>
     </Router>
   )
 }

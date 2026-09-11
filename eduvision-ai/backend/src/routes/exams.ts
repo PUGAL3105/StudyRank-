@@ -28,9 +28,9 @@ router.get('/available', authMiddleware, async (req: AuthenticatedRequest, res: 
     const student = memoryStore.users.find((u) => u.id === studentId)
     const classId = student?.class_id || 'c-10'
 
-    // Get published exams for student's class (or all published in demo)
+    // Get published exams across all classes (Class 9, 10, 11, 12)
     const publishedExams = memoryStore.exams.filter(
-      (e) => (e.status === 'PUBLISHED' || e.is_published) && (!e.class_id || e.class_id === classId || e.class_id === 'c-10')
+      (e) => e.status === 'PUBLISHED' || e.is_published
     )
 
     const examsList = publishedExams.map((exam) => {

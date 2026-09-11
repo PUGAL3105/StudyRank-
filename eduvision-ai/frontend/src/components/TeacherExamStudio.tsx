@@ -55,9 +55,60 @@ export const TeacherExamStudio: React.FC = () => {
   const [overrideFeedbacks, setOverrideFeedbacks] = useState<Record<string, string>>({})
   const [overallFeedback, setOverallFeedback] = useState<string>('')
 
-  useEffect(() => {
-    loadTeacherExams()
-  }, [])
+  const getTeacherSubjectOptions = () => {
+    if (selectedClass === 'c-9') {
+      return [
+        { id: 'sub-9-sci', name: 'Science' },
+        { id: 'sub-9-math', name: 'Mathematics' },
+        { id: 'sub-9-soc', name: 'Social Science' },
+        { id: 'sub-9-tam', name: 'Tamil' },
+        { id: 'sub-9-eng', name: 'English' },
+      ]
+    }
+    if (selectedClass === 'c-10') {
+      return [
+        { id: 'sub-10-sci', name: 'Science' },
+        { id: 'sub-10-math', name: 'Mathematics' },
+        { id: 'sub-10-soc', name: 'Social Science' },
+        { id: 'sub-10-tam', name: 'Tamil' },
+        { id: 'sub-10-eng', name: 'English' },
+      ]
+    }
+    if (selectedClass === 'c-11') {
+      return [
+        { id: 'sub-11-phy', name: 'Physics' },
+        { id: 'sub-11-chem', name: 'Chemistry' },
+        { id: 'sub-11-bio', name: 'Biology' },
+        { id: 'sub-11-cs', name: 'Computer Science' },
+        { id: 'sub-11-math', name: 'Mathematics' },
+        { id: 'sub-11-acc', name: 'Accountancy' },
+        { id: 'sub-11-com', name: 'Commerce' },
+        { id: 'sub-11-eco', name: 'Economics' },
+        { id: 'sub-11-tam', name: 'General Tamil' },
+        { id: 'sub-11-eng', name: 'General English' },
+      ]
+    }
+    return [
+      { id: 'sub-12-phy', name: 'Physics' },
+      { id: 'sub-12-chem', name: 'Chemistry' },
+      { id: 'sub-12-bio', name: 'Biology' },
+      { id: 'sub-12-cs', name: 'Computer Science' },
+      { id: 'sub-12-math', name: 'Mathematics' },
+      { id: 'sub-12-acc', name: 'Accountancy' },
+      { id: 'sub-12-com', name: 'Commerce' },
+      { id: 'sub-12-eco', name: 'Economics' },
+      { id: 'sub-12-tam', name: 'General Tamil' },
+      { id: 'sub-12-eng', name: 'General English' },
+    ]
+  }
+
+  const handleClassChange = (newClass: string) => {
+    setSelectedClass(newClass)
+    if (newClass === 'c-9') setSelectedSubject('sub-9-sci')
+    else if (newClass === 'c-10') setSelectedSubject('sub-10-sci')
+    else if (newClass === 'c-11') setSelectedSubject('sub-11-phy')
+    else if (newClass === 'c-12') setSelectedSubject('sub-12-phy')
+  }
 
   const loadTeacherExams = async () => {
     try {
@@ -70,6 +121,10 @@ export const TeacherExamStudio: React.FC = () => {
       setLoading(false)
     }
   }
+
+  useEffect(() => {
+    loadTeacherExams()
+  }, [])
 
   // ─────────────────────────────────────────────────────────────────────────
   // AI QUESTION GENERATOR (TEXTBOOK GROUNDED)
@@ -349,7 +404,7 @@ export const TeacherExamStudio: React.FC = () => {
               <label className="block text-xs font-semibold text-gray-700 mb-1">Class Level</label>
               <select
                 value={selectedClass}
-                onChange={(e) => setSelectedClass(e.target.value)}
+                onChange={(e) => handleClassChange(e.target.value)}
                 className="w-full p-2.5 border border-gray-300 rounded-xl text-xs font-medium"
               >
                 <option value="c-9">Class 9 (9th Std)</option>
@@ -366,11 +421,11 @@ export const TeacherExamStudio: React.FC = () => {
                 onChange={(e) => setSelectedSubject(e.target.value)}
                 className="w-full p-2.5 border border-gray-300 rounded-xl text-xs font-medium"
               >
-                <option value="sub-10-sci">Science</option>
-                <option value="sub-10-math">Mathematics</option>
-                <option value="sub-10-soc">Social Science</option>
-                <option value="sub-10-tam">Tamil</option>
-                <option value="sub-10-eng">English</option>
+                {getTeacherSubjectOptions().map((sub) => (
+                  <option key={sub.id} value={sub.id}>
+                    {sub.name}
+                  </option>
+                ))}
               </select>
             </div>
 

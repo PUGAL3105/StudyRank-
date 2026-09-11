@@ -1,40 +1,55 @@
+/**
+ * StudyRank AI — Professional Teacher Portal Shell
+ * Matches the Dark Sidebar Layout & StudentApp Theme
+ */
+
 import React, { useState, useEffect } from 'react'
 import {
-  LogOut,
-  BookOpen,
-  Plus,
+  LayoutDashboard,
+  Award,
+  CheckCircle2,
   FileText,
   Users,
-  Trash2,
-  X,
-  AlertTriangle,
-  Award,
-  HelpCircle,
   BarChart3,
-  CheckCircle2,
+  BookOpen,
+  LogOut,
+  Menu,
+  X,
+  Plus,
+  Radio,
+  Search,
   ChevronRight,
   TrendingUp,
-  Search,
-  Eye,
-  Layers,
   Sparkles,
-  Radio,
+  AlertTriangle,
+  Clock,
+  Trash2,
+  Trophy,
 } from 'lucide-react'
 import { useAuth } from '../../context/AuthContext'
 import { useNavigate } from 'react-router-dom'
 import { apiClient } from '../../api/client'
 import { AssignmentItem, TeacherStudentItem, ClassItem, SubjectItem, TermItem, ChapterItem } from '../../types'
+import { TeacherStudentEvaluationView } from '../../components/TeacherStudentEvaluationView'
+import { TeacherExamStudio } from '../../components/TeacherExamStudio'
 import { ExamPaperGeneratorModal } from '../../components/ExamPaperGeneratorModal'
 import { TeacherLiveClassroomModal } from '../../components/TeacherLiveClassroomModal'
-import { TeacherExamStudio } from '../../components/TeacherExamStudio'
 
-type ActiveTab = 'overview' | 'exams' | 'assignments' | 'students' | 'analytics'
+export type TeacherSection =
+  | 'OVERVIEW'
+  | 'EVALUATION'
+  | 'EXAM_STUDIO'
+  | 'ASSIGNMENTS'
+  | 'STUDENTS'
+  | 'ANALYTICS'
 
 export default function TeacherDashboard() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
 
-  const [activeTab, setActiveTab] = useState<ActiveTab>('overview')
+  const [activeSection, setActiveSection] = useState<TeacherSection>('OVERVIEW')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false)
+
   const [, setLoading] = useState<boolean>(true)
   const [errorMsg, setErrorMsg] = useState<string | null>(null)
   const [successMsg, setSuccessMsg] = useState<string | null>(null)
@@ -45,10 +60,8 @@ export default function TeacherDashboard() {
   const [stats, setStats] = useState<any>(null)
   const [assignments, setAssignments] = useState<AssignmentItem[]>([])
   const [students, setStudents] = useState<TeacherStudentItem[]>([])
-  const [analytics, setAnalytics] = useState<any>(null)
-  const [teacherQuestions, setTeacherQuestions] = useState<any[]>([])
 
-  // Create Assignment Modal & Cascading Selection
+  // Create Assignment Modal State
   const [showCreateModal, setShowCreateModal] = useState<boolean>(false)
   const [title, setTitle] = useState<string>('')
   const [description, setDescription] = useState<string>('')
@@ -64,43 +77,37 @@ export default function TeacherDashboard() {
   const [selectedSubjectId, setSelectedSubjectId] = useState<string>('sub-10-sci')
   const [selectedTermId, setSelectedTermId] = useState<string>('trm-10sci-1')
   const [selectedChapterId, setSelectedChapterId] = useState<string>('ch-10sci-t1-1')
-
-  const [selectedChapterObj, setSelectedChapterObj] = useState<ChapterItem | null>(null)
   const [creatingAssignment, setCreatingAssignment] = useState<boolean>(false)
 
-  // Submissions Modal
-  const [viewingAssignment, setViewingAssignment] = useState<AssignmentItem | null>(null)
-  const [submissionsList, setSubmissionsList] = useState<any[]>([])
-  const [loadingSubmissions, setLoadingSubmissions] = useState<boolean>(false)
-
-  // Student Performance Modal
-  const [selectedStudentForProfile, setSelectedStudentForProfile] = useState<TeacherStudentItem | null>(null)
-  const [studentPerformance, setStudentPerformance] = useState<any>(null)
-  const [loadingPerformance, setLoadingPerformance] = useState<boolean>(false)
-
-  // Search filter
+  // Student Search
   const [studentSearch, setStudentSearch] = useState<string>('')
+
+  const navItems = [
+    { id: 'OVERVIEW' as const, label: 'Dashboard Overview', icon: LayoutDashboard },
+    { id: 'EVALUATION' as const, label: 'Student Results & Evaluation', icon: Award, badge: 'New' },
+    { id: 'EXAM_STUDIO' as const, label: 'Exam Authoring Studio', icon: FileText },
+    { id: 'ASSIGNMENTS' as const, label: 'Homework & Assignments', icon: CheckCircle2 },
+    { id: 'STUDENTS' as const, label: 'Class Students Roster', icon: Users },
+    { id: 'ANALYTICS' as const, label: 'Class Centum Analytics', icon: BarChart3 },
+  ]
 
   useEffect(() => {
     loadDashboardData()
     loadCurriculumData()
   }, [])
 
-  // When class or medium changes, reload subjects
   useEffect(() => {
     if (selectedClassId) {
       loadSubjectsForClass(selectedClassId, selectedMedium)
     }
   }, [selectedClassId, selectedMedium])
 
-  // When subject changes, reload terms
   useEffect(() => {
     if (selectedSubjectId) {
       loadTermsForSubject(selectedSubjectId)
     }
   }, [selectedSubjectId])
 
-  // When term changes, reload chapters
   useEffect(() => {
     if (selectedTermId) {
       loadChaptersForTerm(selectedTermId)
@@ -110,21 +117,17 @@ export default function TeacherDashboard() {
   const loadDashboardData = async () => {
     setLoading(true)
     try {
-      const [stData, asgData, stuData, anaData, qData] = await Promise.allSettled([
+      const [stData, asgData, stuData] = await Promise.allSettled([
         apiClient.getTeacherStats(),
         apiClient.getTeacherAssignments(),
         apiClient.getTeacherStudents(),
-        apiClient.getTeacherAnalytics(),
-        apiClient.getTeacherQuestions(),
       ])
 
       if (stData.status === 'fulfilled') setStats(stData.value)
       if (asgData.status === 'fulfilled') setAssignments(asgData.value || [])
       if (stuData.status === 'fulfilled') setStudents(stuData.value || [])
-      if (anaData.status === 'fulfilled') setAnalytics(anaData.value)
-      if (qData.status === 'fulfilled') setTeacherQuestions(qData.value || [])
     } catch {
-      setErrorMsg('Failed to load some dashboard sections.')
+      setErrorMsg('Failed to load dashboard data.')
     } finally {
       setLoading(false)
     }
@@ -174,36 +177,27 @@ export default function TeacherDashboard() {
       setChaptersList(chaps)
       if (chaps.length > 0) {
         setSelectedChapterId(chaps[0].id)
-        setSelectedChapterObj(chaps[0])
-      } else {
-        setSelectedChapterObj(null)
       }
     } catch {
       setChaptersList([])
-      setSelectedChapterObj(null)
     }
   }
 
-  const handleChapterSelect = (chapterId: string) => {
-    setSelectedChapterId(chapterId)
-    const found = chaptersList.find((c) => c.id === chapterId) || null
-    setSelectedChapterObj(found)
+  const handleLogout = () => {
+    logout()
+    navigate('/login')
   }
 
-  const handleLogout = async () => {
-    await logout()
-    navigate('/login')
+  const handleNavClick = (section: TeacherSection) => {
+    setActiveSection(section)
+    setIsMobileMenuOpen(false)
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleCreateAssignment = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!title.trim()) {
       setErrorMsg('Please enter an assignment title.')
-      return
-    }
-
-    if (!selectedChapterObj || selectedChapterObj.indexing_status !== 'READY') {
-      setErrorMsg('Authentic textbook content is not indexed yet. Please select an indexed chapter.')
       return
     }
 
@@ -229,13 +223,8 @@ export default function TeacherDashboard() {
       setDescription('')
       setDueDate('')
 
-      // Reload assignments
       const updatedAsg = await apiClient.getTeacherAssignments()
       setAssignments(updatedAsg)
-
-      // Reload stats
-      const updatedStats = await apiClient.getTeacherStats()
-      setStats(updatedStats)
     } catch (err: any) {
       setErrorMsg(err.response?.data?.error?.message || err.response?.data?.error || 'Failed to create assignment.')
     } finally {
@@ -249,34 +238,8 @@ export default function TeacherDashboard() {
       await apiClient.deleteTeacherAssignment(assignmentId)
       setAssignments(assignments.filter((a) => a.id !== assignmentId))
       setSuccessMsg('Assignment deleted successfully.')
-    } catch (err: any) {
-      setErrorMsg(err.response?.data?.error?.message || 'Failed to delete assignment.')
-    }
-  }
-
-  const handleOpenSubmissions = async (asg: AssignmentItem) => {
-    setViewingAssignment(asg)
-    setLoadingSubmissions(true)
-    try {
-      const subs = await apiClient.getTeacherAssignmentSubmissions(asg.id)
-      setSubmissionsList(subs)
     } catch {
-      setSubmissionsList([])
-    } finally {
-      setLoadingSubmissions(false)
-    }
-  }
-
-  const handleOpenStudentPerformance = async (student: TeacherStudentItem) => {
-    setSelectedStudentForProfile(student)
-    setLoadingPerformance(true)
-    try {
-      const perf = await apiClient.getTeacherStudentPerformance(student.id)
-      setStudentPerformance(perf)
-    } catch {
-      setStudentPerformance(null)
-    } finally {
-      setLoadingPerformance(false)
+      setErrorMsg('Failed to delete assignment.')
     }
   }
 
@@ -284,890 +247,787 @@ export default function TeacherDashboard() {
     (s) =>
       s.name.toLowerCase().includes(studentSearch.toLowerCase()) ||
       s.email.toLowerCase().includes(studentSearch.toLowerCase()) ||
-      s.class.toLowerCase().includes(studentSearch.toLowerCase())
+      (s.class && s.class.toLowerCase().includes(studentSearch.toLowerCase()))
   )
 
   return (
-    <div className="min-h-screen bg-slate-50 text-slate-900 font-sans">
-      {/* Top Navbar */}
-      <header className="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            <div className="flex items-center space-x-3">
-              <div className="p-2 bg-blue-600 rounded-xl text-white font-bold shadow-xs">
-                <BookOpen className="w-5 h-5" />
+    <div className="min-h-screen bg-[#F1F5F9] text-slate-900 flex font-sans selection:bg-indigo-500 selection:text-white">
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* DESKTOP DARK SIDEBAR (Matches StudentApp Aesthetic) */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <aside className="hidden lg:flex flex-col w-64 xl:w-72 bg-[#191735] text-white shrink-0 sticky top-0 h-screen z-30 shadow-2xl border-r border-indigo-950/50 justify-between">
+        <div className="p-5 flex flex-col h-full overflow-y-auto scrollbar-none">
+          {/* Brand Header */}
+          <div className="flex items-center gap-3 px-2 py-2 mb-6">
+            <div className="w-10 h-10 rounded-xl bg-[#5B4DFB] flex items-center justify-center text-white shadow-lg shadow-indigo-600/30 font-black text-lg">
+              <BookOpen className="w-5 h-5" />
+            </div>
+            <div>
+              <h1 className="text-lg font-black tracking-tight text-white flex items-center gap-1.5">
+                StudyRank <span className="text-[#818CF8]">AI</span>
+              </h1>
+              <span className="text-[10px] text-indigo-300/70 font-semibold tracking-wider uppercase block">
+                Teacher Command Studio
+              </span>
+            </div>
+          </div>
+
+          {/* Navigation Links */}
+          <nav className="space-y-1.5 flex-1">
+            {navItems.map((item) => {
+              const Icon = item.icon
+              const isActive = activeSection === item.id
+
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => handleNavClick(item.id)}
+                  className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all text-left cursor-pointer ${
+                    isActive
+                      ? 'bg-[#5B4DFB] text-white shadow-lg shadow-indigo-600/30'
+                      : 'text-indigo-200/70 hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  <div className="flex items-center gap-3.5 truncate">
+                    <Icon className={`w-5 h-5 shrink-0 ${isActive ? 'text-white' : 'text-indigo-300/60'}`} />
+                    <span className="truncate">{item.label}</span>
+                  </div>
+                  {item.badge && (
+                    <span className="px-1.5 py-0.5 text-[9px] font-black uppercase rounded-md bg-amber-400 text-amber-950">
+                      {item.badge}
+                    </span>
+                  )}
+                </button>
+              )
+            })}
+          </nav>
+
+          {/* Teacher Profile Card & Logout Footer */}
+          <div className="pt-4 border-t border-indigo-900/60 space-y-3 mt-4">
+            <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/5 border border-white/5">
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-500 to-violet-600 text-white font-black flex items-center justify-center text-sm shadow-md shrink-0">
+                👨‍🏫
               </div>
-              <div>
-                <span className="text-lg font-bold text-slate-900 tracking-tight">
-                  StudyRank <span className="text-indigo-600">AI Teacher Portal</span>
-                </span>
-                <span className="hidden sm:inline-block ml-2 px-2 py-0.5 text-[10px] font-bold bg-blue-50 text-blue-700 border border-blue-200 rounded-md">
-                  Tamil Nadu State Board
-                </span>
+              <div className="overflow-hidden">
+                <h4 className="text-xs font-bold text-white truncate">{user?.name || 'Demo Teacher'}</h4>
+                <span className="text-[10px] text-indigo-300/70 block truncate">State Board Senior Faculty</span>
               </div>
             </div>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center justify-between px-2 pt-1 text-xs">
               <button
-                onClick={() => setShowLiveClassModal(true)}
-                className="px-3 py-1.5 bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white rounded-xl text-xs font-bold transition-all shadow-xs flex items-center gap-1.5 animate-pulse"
+                onClick={() => handleNavClick('OVERVIEW')}
+                className="text-indigo-300/70 hover:text-white transition font-medium cursor-pointer"
               >
-                <Radio className="w-3.5 h-3.5" />
-                <span>📡 Host Live Class</span>
+                Teacher Portal v2.0
               </button>
-
-              <button
-                onClick={() => setShowExamModal(true)}
-                className="px-3 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white rounded-xl text-xs font-bold transition-all shadow-xs flex items-center gap-1.5"
-              >
-                <FileText className="w-3.5 h-3.5 text-amber-300" />
-                <span>📝 Generate DGE Exam Paper</span>
-              </button>
-
-              <div className="flex items-center gap-2 bg-slate-100 px-3 py-1.5 rounded-full text-xs font-semibold text-slate-700 border border-slate-200">
-                <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                {user?.name || 'Demo Teacher'} (Teacher)
-              </div>
 
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-1.5 px-3 py-1.5 text-xs text-slate-700 hover:bg-slate-100 rounded-lg transition-colors font-semibold"
+                className="flex items-center gap-1.5 text-rose-400 hover:text-rose-300 transition font-medium cursor-pointer"
+                title="Logout"
               >
-                <LogOut className="w-4 h-4" /> Logout
+                <LogOut className="w-4 h-4" />
+                <span>Logout</span>
               </button>
             </div>
           </div>
         </div>
+      </aside>
 
-        {/* Tab Navigation */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-100">
-          <div className="flex space-x-6">
-            <button
-              onClick={() => setActiveTab('overview')}
-              className={`py-3 text-xs sm:text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${
-                activeTab === 'overview'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-slate-500 hover:text-slate-900'
-              }`}
-            >
-              <Layers className="w-4 h-4" /> Dashboard Overview
-            </button>
-
-            <button
-              onClick={() => setActiveTab('exams')}
-              className={`py-3 text-xs sm:text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${
-                activeTab === 'exams'
-                  ? 'border-purple-600 text-purple-600 font-extrabold'
-                  : 'border-transparent text-slate-500 hover:text-slate-900'
-              }`}
-            >
-              <Award className="w-4 h-4 text-purple-600" /> Exam Studio & AI Evaluation
-            </button>
-
-            <button
-              onClick={() => setActiveTab('assignments')}
-              className={`py-3 text-xs sm:text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${
-                activeTab === 'assignments'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-slate-500 hover:text-slate-900'
-              }`}
-            >
-              <FileText className="w-4 h-4" /> Assignments
-              <span className="px-1.5 py-0.2 bg-blue-100 text-blue-800 text-[10px] font-extrabold rounded-full">
-                {assignments.length}
-              </span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab('students')}
-              className={`py-3 text-xs sm:text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${
-                activeTab === 'students'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-slate-500 hover:text-slate-900'
-              }`}
-            >
-              <Users className="w-4 h-4" /> Students & Performance
-            </button>
-
-            <button
-              onClick={() => setActiveTab('analytics')}
-              className={`py-3 text-xs sm:text-sm font-bold border-b-2 transition-colors flex items-center gap-2 ${
-                activeTab === 'analytics'
-                  ? 'border-blue-600 text-blue-600'
-                  : 'border-transparent text-slate-500 hover:text-slate-900'
-              }`}
-            >
-              <BarChart3 className="w-4 h-4" /> Curriculum Analytics
-            </button>
-          </div>
-        </div>
-      </header>
-
-      {/* Notifications */}
-      {errorMsg && (
-        <div className="bg-red-50 border-b border-red-200 py-3 px-4 sm:px-6 text-sm text-red-700 flex items-center justify-between">
-          <div className="max-w-7xl mx-auto flex items-center gap-2">
-            <AlertTriangle className="w-4 h-4 shrink-0 text-red-500" />
-            <span>{errorMsg}</span>
-          </div>
-          <button onClick={() => setErrorMsg(null)} className="text-red-500 font-bold hover:text-red-800">
-            ×
-          </button>
-        </div>
-      )}
-
-      {successMsg && (
-        <div className="bg-emerald-50 border-b border-emerald-200 py-3 px-4 sm:px-6 text-sm text-emerald-800 flex items-center justify-between">
-          <div className="max-w-7xl mx-auto flex items-center gap-2">
-            <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
-            <span>{successMsg}</span>
-          </div>
-          <button onClick={() => setSuccessMsg(null)} className="text-emerald-600 font-bold hover:text-emerald-800">
-            ×
-          </button>
-        </div>
-      )}
-
-      {/* Main Container */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* TAB: EXAM STUDIO & AI EVALUATION */}
-        {activeTab === 'exams' && <TeacherExamStudio />}
-
-        {/* TAB 1: OVERVIEW */}
-        {activeTab === 'overview' && (
-          <div className="space-y-8">
-            {/* Header Banner */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 bg-gradient-to-r from-blue-700 to-indigo-800 rounded-2xl p-6 sm:p-8 text-white shadow-sm">
-              <div className="space-y-2">
-                <div className="flex items-center gap-2 text-blue-200 text-xs font-semibold uppercase tracking-wider">
-                  <Sparkles className="w-4 h-4 text-amber-300" /> State Board Teaching Dashboard
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* MOBILE DRAWER SIDEBAR */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {isMobileMenuOpen && (
+        <div className="lg:hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex animate-in fade-in duration-150">
+          <div className="w-72 max-w-[80vw] bg-[#191735] text-white h-full flex flex-col justify-between p-5 shadow-2xl animate-in slide-in-from-left duration-200">
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-indigo-900/60 mb-4">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-[#5B4DFB] flex items-center justify-center text-white font-bold">
+                    <BookOpen className="w-4 h-4" />
+                  </div>
+                  <span className="font-black text-white text-base">
+                    StudyRank <span className="text-[#818CF8]">AI</span>
+                  </span>
                 </div>
-                <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-                  Welcome, {user?.name || 'Demo Teacher'}!
-                </h1>
-                <p className="text-sm text-blue-100 max-w-2xl">
-                  Manage Tamil Nadu State Board assignments, track student comprehension with authentic textbook citations, and inspect chapter performance.
-                </p>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-1.5 rounded-lg bg-white/10 text-white hover:bg-white/20 transition"
+                >
+                  <X className="w-5 h-5" />
+                </button>
               </div>
 
+              <nav className="space-y-1.5 overflow-y-auto max-h-[65vh]">
+                {navItems.map((item) => {
+                  const Icon = item.icon
+                  const isActive = activeSection === item.id
+
+                  return (
+                    <button
+                      key={item.id}
+                      onClick={() => handleNavClick(item.id)}
+                      className={`w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl text-xs font-bold transition text-left cursor-pointer ${
+                        isActive ? 'bg-[#5B4DFB] text-white shadow-md' : 'text-indigo-200/70 hover:text-white hover:bg-white/5'
+                      }`}
+                    >
+                      <div className="flex items-center gap-3">
+                        <Icon className="w-4 h-4 shrink-0" />
+                        <span>{item.label}</span>
+                      </div>
+                      {item.badge && (
+                        <span className="px-1.5 py-0.5 text-[8px] font-black uppercase rounded bg-amber-400 text-amber-950">
+                          {item.badge}
+                        </span>
+                      )}
+                    </button>
+                  )
+                })}
+              </nav>
+            </div>
+
+            <div className="pt-4 border-t border-indigo-900/60 space-y-3">
+              <div className="flex items-center gap-2.5 p-2 rounded-xl bg-white/5">
+                <div className="w-8 h-8 rounded-lg bg-indigo-500 text-white font-bold flex items-center justify-center text-xs">
+                  👨‍🏫
+                </div>
+                <div className="truncate text-xs">
+                  <span className="font-bold text-white block">{user?.name || 'Demo Teacher'}</span>
+                  <span className="text-[10px] text-indigo-300">Teacher Studio</span>
+                </div>
+              </div>
               <button
-                onClick={() => setShowCreateModal(true)}
-                className="flex items-center justify-center gap-2 px-5 py-3 bg-white hover:bg-blue-50 text-blue-700 rounded-xl font-bold text-xs shadow-sm transition-all self-start sm:self-auto"
+                onClick={handleLogout}
+                className="w-full py-2 bg-rose-600/20 text-rose-300 hover:bg-rose-600 hover:text-white rounded-xl text-xs font-bold transition flex items-center justify-center gap-2"
               >
-                <Plus className="w-4 h-4" /> Create New Assignment
+                <LogOut className="w-4 h-4" />
+                <span>Logout</span>
               </button>
             </div>
+          </div>
 
-            {/* Metrics Cards */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs">
-                <div className="flex items-center justify-between text-slate-500">
-                  <span className="text-xs font-bold uppercase tracking-wider">Total Students</span>
-                  <Users className="w-5 h-5 text-blue-600" />
-                </div>
-                <p className="text-2xl font-extrabold text-slate-900 mt-2">{stats?.totalStudents || 42}</p>
-                <p className="text-xs text-slate-500 mt-1">Enrolled across assigned classes</p>
-              </div>
+          <div className="flex-1" onClick={() => setIsMobileMenuOpen(false)} />
+        </div>
+      )}
 
-              <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs">
-                <div className="flex items-center justify-between text-slate-500">
-                  <span className="text-xs font-bold uppercase tracking-wider">Active Assignments</span>
-                  <FileText className="w-5 h-5 text-emerald-600" />
-                </div>
-                <p className="text-2xl font-extrabold text-slate-900 mt-2">{assignments.length}</p>
-                <p className="text-xs text-emerald-700 mt-1 font-semibold">{stats?.assignmentsCompleted || 1} Submissions received</p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs">
-                <div className="flex items-center justify-between text-slate-500">
-                  <span className="text-xs font-bold uppercase tracking-wider">Average Score</span>
-                  <Award className="w-5 h-5 text-amber-600" />
-                </div>
-                <p className="text-2xl font-extrabold text-slate-900 mt-2">{stats?.avgScore || '84%'}</p>
-                <p className="text-xs text-amber-700 mt-1 font-semibold">Across practice & homework</p>
-              </div>
-
-              <div className="bg-white border border-slate-200 rounded-xl p-5 shadow-xs">
-                <div className="flex items-center justify-between text-slate-500">
-                  <span className="text-xs font-bold uppercase tracking-wider">Ready Chapters</span>
-                  <CheckCircle2 className="w-5 h-5 text-purple-600" />
-                </div>
-                <p className="text-2xl font-extrabold text-slate-900 mt-2">10 / 10</p>
-                <p className="text-xs text-purple-700 mt-1 font-semibold">100% Authentic Ingestion</p>
-              </div>
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      {/* MAIN VIEWPORT */}
+      {/* ─────────────────────────────────────────────────────────────────── */}
+      <div className="flex-1 flex flex-col min-w-0 pb-16 lg:pb-8">
+        {/* Top App Bar */}
+        <header className="bg-white/95 backdrop-blur-md border-b border-gray-200/80 sticky top-0 z-20 px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-3 shadow-2xs">
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="lg:hidden p-2 rounded-xl text-gray-700 hover:bg-gray-100 transition cursor-pointer"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+            <div className="lg:hidden flex items-center gap-1.5">
+              <span className="font-black text-sm sm:text-base text-gray-900">
+                StudyRank <span className="text-[#5B4DFB]">Teacher Studio</span>
+              </span>
             </div>
+            <div className="hidden lg:flex items-center gap-2">
+              <span className="px-3 py-1 rounded-full bg-indigo-50 border border-indigo-200 text-[#5B4DFB] text-xs font-bold">
+                Tamil Nadu State Board Curriculum Evaluation Hub
+              </span>
+            </div>
+          </div>
 
-            {/* Quick Actions & Recent Questions Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              {/* Active Assignments Overview */}
-              <div className="lg:col-span-2 bg-white border border-slate-200 rounded-2xl p-6 shadow-xs space-y-4">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                    <FileText className="w-4 h-4 text-blue-600" /> Active Student Assignments
-                  </h3>
+          {/* Quick Header Buttons */}
+          <div className="flex items-center gap-2 sm:gap-3">
+            <button
+              onClick={() => setShowExamModal(true)}
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#EEF2FF] border border-[#E0E7FF] text-[#4338CA] hover:bg-[#E0E7FF] text-xs font-bold transition cursor-pointer shadow-2xs"
+            >
+              <Sparkles className="w-3.5 h-3.5 text-[#5B4DFB]" />
+              <span>Generate Board Paper</span>
+            </button>
+
+            <button
+              onClick={() => setShowLiveClassModal(true)}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 hover:bg-emerald-100 text-xs font-bold transition cursor-pointer shadow-2xs"
+            >
+              <Radio className="w-3.5 h-3.5 text-emerald-600 animate-pulse" />
+              <span>Live Class</span>
+            </button>
+
+            <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-gray-100 border border-gray-200 text-xs font-bold text-gray-800">
+              <div className="w-6 h-6 rounded-full bg-[#5B4DFB] text-white flex items-center justify-center text-[10px] font-bold">
+                {user?.name ? user.name.charAt(0).toUpperCase() : 'T'}
+              </div>
+              <span className="hidden md:inline max-w-[100px] truncate">{user?.name || 'Demo Teacher'}</span>
+            </div>
+          </div>
+        </header>
+
+        {/* Content Container */}
+        <main className="flex-1 p-3 sm:p-6 lg:p-8 space-y-6">
+          {/* Notifications */}
+          {errorMsg && (
+            <div className="p-4 bg-rose-50 border border-rose-200 rounded-2xl flex items-center justify-between text-rose-800 text-xs font-bold">
+              <div className="flex items-center gap-2">
+                <AlertTriangle className="w-4 h-4 text-rose-600" />
+                <span>{errorMsg}</span>
+              </div>
+              <button onClick={() => setErrorMsg(null)} className="text-rose-600 hover:text-rose-800">
+                Dismiss
+              </button>
+            </div>
+          )}
+
+          {successMsg && (
+            <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-center justify-between text-emerald-800 text-xs font-bold">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                <span>{successMsg}</span>
+              </div>
+              <button onClick={() => setSuccessMsg(null)} className="text-emerald-600 hover:text-emerald-800">
+                Dismiss
+              </button>
+            </div>
+          )}
+
+          {/* ───────────────────────────────────────────────────────────── */}
+          {/* SECTION 1: OVERVIEW */}
+          {/* ───────────────────────────────────────────────────────────── */}
+          {activeSection === 'OVERVIEW' && (
+            <div className="space-y-6 animate-in fade-in duration-200">
+              {/* Hero Banner */}
+              <div className="bg-gradient-to-r from-[#191735] via-[#221D4E] to-[#393184] rounded-3xl p-6 sm:p-8 text-white shadow-xl border border-indigo-900/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-200 text-xs font-bold">
+                    <span>Tamil Nadu State Board Academic Studio • 2024–2025</span>
+                  </div>
+                  <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
+                    Welcome back, {user?.name || 'Faculty'}! 🎓
+                  </h2>
+                  <p className="text-xs sm:text-sm text-indigo-200/80 max-w-2xl">
+                    Manage your curriculum assessments, inspect student answers against official state board rubrics, and deliver Centum-grade results.
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap gap-3">
                   <button
-                    onClick={() => setActiveTab('assignments')}
-                    className="text-xs font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1"
+                    onClick={() => handleNavClick('EVALUATION')}
+                    className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-[#5B4DFB] hover:bg-[#4939f8] text-white text-xs font-bold shadow-lg shadow-indigo-600/30 transition cursor-pointer"
                   >
-                    View All <ChevronRight className="w-3.5 h-3.5" />
+                    <Award className="w-4 h-4" />
+                    <span>Evaluate Submissions</span>
+                  </button>
+                  <button
+                    onClick={() => handleNavClick('EXAM_STUDIO')}
+                    className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition cursor-pointer border border-white/10"
+                  >
+                    <FileText className="w-4 h-4" />
+                    <span>Author Exams</span>
                   </button>
                 </div>
-
-                {assignments.length === 0 ? (
-                  <div className="p-8 text-center bg-slate-50 rounded-xl border border-dashed border-slate-200">
-                    <p className="text-xs text-slate-500">No assignments created yet.</p>
-                  </div>
-                ) : (
-                  <div className="divide-y divide-slate-100">
-                    {assignments.slice(0, 4).map((asg) => (
-                      <div key={asg.id} className="py-3 flex items-center justify-between hover:bg-slate-50 rounded-lg px-2 transition-colors">
-                        <div>
-                          <h4 className="text-sm font-bold text-slate-900">{asg.title}</h4>
-                          <p className="text-xs text-slate-500 mt-0.5">
-                            {asg.class_level} • {asg.medium} Medium • {asg.chapter_name || 'Science Chapter'}
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <span className="px-2.5 py-1 text-xs font-semibold rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                            {asg.submissions_count || 0} Submissions
-                          </span>
-                          <button
-                            onClick={() => handleOpenSubmissions(asg)}
-                            className="p-1.5 text-slate-500 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                            title="View Submissions"
-                          >
-                            <Eye className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
               </div>
 
-              {/* Grounded Student Questions Review */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs space-y-4">
-                <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                  <HelpCircle className="w-4 h-4 text-purple-600" /> Recent Student Queries
-                </h3>
-
-                <div className="space-y-3">
-                  {teacherQuestions.slice(0, 3).map((q) => (
-                    <div key={q.id} className="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-1.5">
-                      <div className="flex items-center justify-between text-[11px] text-slate-500 font-semibold">
-                        <span>{q.student}</span>
-                        <span className="text-purple-600 font-bold">Grounded</span>
-                      </div>
-                      <p className="text-xs font-bold text-slate-900 leading-snug">{q.question}</p>
-                      <p className="text-[10px] text-slate-500 font-medium">
-                        {q.chapter} • Page {q.sourcePages?.join(', ')}
-                      </p>
+              {/* Key Metrics Cards */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+                <div className="bg-white p-5 rounded-3xl border border-gray-200 shadow-2xs space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Students Enrolled</span>
+                    <div className="w-8 h-8 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                      <Users className="w-4 h-4" />
                     </div>
-                  ))}
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-black text-gray-900">{stats?.totalStudents || 28}</div>
+                  <div className="text-[11px] text-emerald-600 font-bold flex items-center gap-1">
+                    <TrendingUp className="w-3 h-3" /> 100% Active Attendance
+                  </div>
+                </div>
+
+                <div className="bg-white p-5 rounded-3xl border border-gray-200 shadow-2xs space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Papers Evaluated</span>
+                    <div className="w-8 h-8 rounded-xl bg-indigo-50 text-[#5B4DFB] flex items-center justify-center">
+                      <CheckCircle2 className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-black text-gray-900">{stats?.totalSubmissions || 42}</div>
+                  <div className="text-[11px] text-indigo-600 font-bold">AI Evaluated with Rubrics</div>
+                </div>
+
+                <div className="bg-white p-5 rounded-3xl border border-gray-200 shadow-2xs space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Assignments</span>
+                    <div className="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center">
+                      <BookOpen className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-black text-gray-900">{assignments.length || 6}</div>
+                  <div className="text-[11px] text-amber-700 font-bold">Class 9 to 12 Active</div>
+                </div>
+
+                <div className="bg-white p-5 rounded-3xl border border-gray-200 shadow-2xs space-y-2">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wider">Average Centum Score</span>
+                    <div className="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+                      <Trophy className="w-4 h-4" />
+                    </div>
+                  </div>
+                  <div className="text-2xl sm:text-3xl font-black text-emerald-700">84.2%</div>
+                  <div className="text-[11px] text-emerald-700 font-bold">Top Quartile State Level</div>
+                </div>
+              </div>
+
+              {/* Quick Actions Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div
+                  onClick={() => handleNavClick('EVALUATION')}
+                  className="bg-white p-6 rounded-3xl border border-gray-200 hover:border-indigo-300 transition shadow-2xs cursor-pointer group space-y-3"
+                >
+                  <div className="w-10 h-10 rounded-2xl bg-indigo-50 text-[#5B4DFB] flex items-center justify-center group-hover:scale-110 transition">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-gray-900">Student Results & Answer Review</h3>
+                  <p className="text-xs text-gray-500 leading-relaxed">
+                    Check question-by-question student answers, verify AI marks against state board rubrics, and override marks.
+                  </p>
+                  <div className="flex items-center gap-1 text-xs font-bold text-[#5B4DFB] pt-1">
+                    <span>Inspect submissions</span>
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+
+                <div
+                  onClick={() => handleNavClick('EXAM_STUDIO')}
+                  className="bg-white p-6 rounded-3xl border border-gray-200 hover:border-indigo-300 transition shadow-2xs cursor-pointer group space-y-3"
+                >
+                  <div className="w-10 h-10 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center group-hover:scale-110 transition">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-gray-900">AI Exam Paper Authoring</h3>
+                  <p className="text-xs text-gray-500 leading-relaxed">
+                    Generate balanced state board test papers with 1M, 2M, 3M, and 5M questions and publish directly.
+                  </p>
+                  <div className="flex items-center gap-1 text-xs font-bold text-blue-600 pt-1">
+                    <span>Open Exam Studio</span>
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+
+                <div
+                  onClick={() => setShowLiveClassModal(true)}
+                  className="bg-white p-6 rounded-3xl border border-gray-200 hover:border-indigo-300 transition shadow-2xs cursor-pointer group space-y-3"
+                >
+                  <div className="w-10 h-10 rounded-2xl bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:scale-110 transition">
+                    <Radio className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-bold text-gray-900">Live Virtual Classroom</h3>
+                  <p className="text-xs text-gray-500 leading-relaxed">
+                    Launch interactive whiteboard sessions, broadcast formulas, theorems, and live question solving.
+                  </p>
+                  <div className="flex items-center gap-1 text-xs font-bold text-emerald-600 pt-1">
+                    <span>Start Live Stream</span>
+                    <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
 
-        {/* TAB 2: ASSIGNMENTS */}
-        {activeTab === 'assignments' && (
-          <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Assignment Management</h2>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  Create grounded homework assignments and monitor student submission scores.
-                </p>
+          {/* ───────────────────────────────────────────────────────────── */}
+          {/* SECTION 2: STUDENT EVALUATION & ANSWER CHECKING */}
+          {/* ───────────────────────────────────────────────────────────── */}
+          {activeSection === 'EVALUATION' && (
+            <div className="animate-in fade-in duration-200">
+              <TeacherStudentEvaluationView />
+            </div>
+          )}
+
+          {/* ───────────────────────────────────────────────────────────── */}
+          {/* SECTION 3: EXAM AUTHORING STUDIO */}
+          {/* ───────────────────────────────────────────────────────────── */}
+          {activeSection === 'EXAM_STUDIO' && (
+            <div className="animate-in fade-in duration-200">
+              <TeacherExamStudio />
+            </div>
+          )}
+
+          {/* ───────────────────────────────────────────────────────────── */}
+          {/* SECTION 4: HOMEWORK & ASSIGNMENTS */}
+          {/* ───────────────────────────────────────────────────────────── */}
+          {activeSection === 'ASSIGNMENTS' && (
+            <div className="space-y-6 animate-in fade-in duration-200">
+              <div className="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                <div>
+                  <h3 className="text-lg font-black text-gray-900">Class Assignments & Homework</h3>
+                  <p className="text-xs text-gray-500">
+                    Create textbook-grounded homework and track student completion.
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowCreateModal(true)}
+                  className="flex items-center gap-2 px-4 py-2.5 bg-[#5B4DFB] hover:bg-[#4939f8] text-white rounded-2xl text-xs font-bold transition shadow-sm cursor-pointer"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>Create Assignment</span>
+                </button>
               </div>
 
-              <button
-                onClick={() => setShowCreateModal(true)}
-                className="flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold text-xs shadow-xs transition-colors"
-              >
-                <Plus className="w-4 h-4" /> Create New Assignment
-              </button>
-            </div>
+              {/* Create Assignment Modal */}
+              {showCreateModal && (
+                <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
+                  <div className="bg-white rounded-3xl p-6 max-w-lg w-full shadow-2xl space-y-4">
+                    <div className="flex items-center justify-between pb-3 border-b border-gray-100">
+                      <h4 className="text-base font-bold text-gray-900">Create New Assignment</h4>
+                      <button onClick={() => setShowCreateModal(false)} className="p-1 rounded-lg hover:bg-gray-100">
+                        <X className="w-5 h-5 text-gray-500" />
+                      </button>
+                    </div>
 
-            {/* Assignments Table */}
-            <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-700">
-                  <thead className="bg-slate-50 text-slate-500 uppercase font-bold tracking-wider border-b border-slate-200">
-                    <tr>
-                      <th className="px-6 py-4">Assignment Title</th>
-                      <th className="px-6 py-4">Class & Medium</th>
-                      <th className="px-6 py-4">Chapter</th>
-                      <th className="px-6 py-4">Due Date</th>
-                      <th className="px-6 py-4">Submissions</th>
-                      <th className="px-6 py-4">Status</th>
-                      <th className="px-6 py-4 text-right">Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100">
-                    {assignments.length === 0 ? (
-                      <tr>
-                        <td colSpan={7} className="px-6 py-12 text-center text-slate-500">
-                          No assignments created yet. Click "Create New Assignment" to get started.
-                        </td>
-                      </tr>
-                    ) : (
-                      assignments.map((a) => (
-                        <tr key={a.id} className="hover:bg-slate-50/80 transition-colors">
-                          <td className="px-6 py-4 font-bold text-slate-900">
-                            {a.title}
-                            {a.description && <p className="text-[11px] text-slate-500 font-normal mt-0.5 line-clamp-1">{a.description}</p>}
-                          </td>
-                          <td className="px-6 py-4 font-semibold text-slate-600">
-                            {a.class_level} ({a.medium})
-                          </td>
-                          <td className="px-6 py-4 font-medium text-slate-700">
-                            {a.chapter_name || 'Science Chapter'}
-                          </td>
-                          <td className="px-6 py-4 text-slate-600 font-mono">
-                            {a.due_date || 'No due date'}
-                          </td>
-                          <td className="px-6 py-4">
-                            <button
-                              onClick={() => handleOpenSubmissions(a)}
-                              className="font-bold text-blue-600 hover:text-blue-800 underline decoration-blue-200"
-                            >
-                              {a.submissions_count || 0} Students
-                            </button>
-                          </td>
-                          <td className="px-6 py-4">
-                            <span className="px-2.5 py-1 text-xs font-bold rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                              {a.status || 'ACTIVE'}
-                            </span>
-                          </td>
-                          <td className="px-6 py-4 text-right space-x-2">
-                            <button
-                              onClick={() => handleOpenSubmissions(a)}
-                              className="p-1.5 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
-                              title="View Submissions"
-                            >
-                              <Eye className="w-4 h-4" />
-                            </button>
-                            <button
-                              onClick={() => handleDeleteAssignment(a.id)}
-                              className="p-1.5 text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"
-                              title="Delete Assignment"
-                            >
-                              <Trash2 className="w-4 h-4" />
-                            </button>
-                          </td>
-                        </tr>
-                      ))
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* TAB 3: STUDENTS */}
-        {activeTab === 'students' && (
-          <div className="space-y-6">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Assigned Students Roster</h2>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  Inspect student learning progress, quiz scores, and weak topics.
-                </p>
-              </div>
-
-              <div className="relative w-full sm:w-64">
-                <Search className="w-4 h-4 absolute left-3 top-3 text-slate-400" />
-                <input
-                  type="text"
-                  placeholder="Search students..."
-                  value={studentSearch}
-                  onChange={(e) => setStudentSearch(e.target.value)}
-                  className="w-full pl-9 pr-3 py-2 text-xs border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-                />
-              </div>
-            </div>
-
-            {/* Student Table */}
-            <div className="bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-xs">
-              <div className="overflow-x-auto">
-                <table className="w-full text-left text-xs text-slate-700">
-                  <thead className="bg-slate-50 text-slate-500 uppercase font-bold tracking-wider border-b border-slate-200">
-                    <tr>
-                      <th className="px-6 py-4">Student Name</th>
-                      <th className="px-6 py-4">Class</th>
-                      <th className="px-6 py-4">Medium</th>
-                      <th className="px-6 py-4">Questions Asked</th>
-                      <th className="px-6 py-4">Quiz Average</th>
-                      <th className="px-6 py-4">Assignments</th>
-                      <th className="px-6 py-4 text-right">Performance</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-100">
-                    {filteredStudents.map((s) => (
-                      <tr key={s.id} className="hover:bg-slate-50/80 transition-colors">
-                        <td className="px-6 py-4 font-bold text-slate-900">
-                          {s.name}
-                          <p className="text-[11px] text-slate-500 font-normal mt-0.5">{s.email}</p>
-                        </td>
-                        <td className="px-6 py-4 font-semibold text-slate-700">{s.class}</td>
-                        <td className="px-6 py-4 font-medium text-slate-600">{s.medium}</td>
-                        <td className="px-6 py-4 font-semibold text-purple-700">{s.questionsAsked} asked</td>
-                        <td className="px-6 py-4">
-                          <span className="px-2.5 py-1 text-xs font-bold rounded-full bg-blue-50 text-blue-700">
-                            {s.avgScore}
-                          </span>
-                        </td>
-                        <td className="px-6 py-4 font-semibold text-emerald-700">
-                          {s.assignmentsCompleted || 1} completed
-                        </td>
-                        <td className="px-6 py-4 text-right">
-                          <button
-                            onClick={() => handleOpenStudentPerformance(s)}
-                            className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 rounded-lg font-bold text-xs transition-colors flex items-center gap-1.5 ml-auto"
-                          >
-                            <BarChart3 className="w-3.5 h-3.5" /> View Profile
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* TAB 4: ANALYTICS */}
-        {activeTab === 'analytics' && (
-          <div className="space-y-6">
-            <div>
-              <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Class Performance & Topic Analytics</h2>
-              <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                Real performance diagnostics derived from Tamil Nadu State Board authentic chapter quizzes.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Chapter Performance */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs space-y-4">
-                <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                  <TrendingUp className="w-4 h-4 text-blue-600" /> Chapter Performance Breakdown
-                </h3>
-
-                <div className="space-y-4">
-                  {(analytics?.chapterPerformance || [
-                    { chapter_name: 'Laws of Motion', avgScore: 88, submissionCount: 24 },
-                    { chapter_name: 'Optics', avgScore: 82, submissionCount: 18 },
-                    { chapter_name: 'Thermal Physics', avgScore: 78, submissionCount: 15 },
-                    { chapter_name: 'Electricity', avgScore: 68, submissionCount: 12 },
-                    { chapter_name: 'Acoustics', avgScore: 74, submissionCount: 10 },
-                  ]).map((item: any) => (
-                    <div key={item.chapter_name} className="space-y-1.5">
-                      <div className="flex justify-between text-xs font-bold text-slate-700">
-                        <span>{item.chapter_name}</span>
-                        <span className="text-blue-600">{item.avgScore}% Average</span>
-                      </div>
-                      <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden">
-                        <div
-                          className={`h-full rounded-full transition-all ${
-                            item.avgScore >= 80
-                              ? 'bg-emerald-500'
-                              : item.avgScore >= 70
-                              ? 'bg-blue-500'
-                              : 'bg-amber-500'
-                          }`}
-                          style={{ width: `${item.avgScore}%` }}
+                    <form onSubmit={handleCreateAssignment} className="space-y-4 text-xs">
+                      <div>
+                        <label className="font-bold text-gray-700 block mb-1">Title</label>
+                        <input
+                          type="text"
+                          value={title}
+                          onChange={(e) => setTitle(e.target.value)}
+                          placeholder="e.g. Unit 2 Botany Key Derivations"
+                          className="w-full p-2.5 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500"
+                          required
                         />
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
-              {/* Weak Topics Analysis */}
-              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-xs space-y-4">
-                <h3 className="font-bold text-slate-900 text-base flex items-center gap-2">
-                  <AlertTriangle className="w-4 h-4 text-amber-500" /> High-Priority Review Topics
-                </h3>
-
-                <div className="space-y-3">
-                  {(analytics?.topicWeaknessCount || [
-                    { topic: 'Ray Diagrams for Spherical Mirrors', studentCount: 12, chapter: 'Optics' },
-                    { topic: 'Ohm’s Law & Equivalent Resistance', studentCount: 9, chapter: 'Electricity' },
-                    { topic: 'Conservation of Linear Momentum', studentCount: 6, chapter: 'Laws of Motion' },
-                    { topic: 'Balancing Redox Equations', studentCount: 5, chapter: 'Chemical Reactions' },
-                  ]).map((t: any) => (
-                    <div key={t.topic} className="p-3.5 bg-amber-50/50 rounded-xl border border-amber-200/60 flex items-center justify-between">
                       <div>
-                        <h4 className="text-xs font-bold text-slate-900">{t.topic}</h4>
-                        <p className="text-[11px] text-slate-500 mt-0.5 font-medium">{t.chapter || 'Class 10 Science'}</p>
+                        <label className="font-bold text-gray-700 block mb-1">Description & Instructions</label>
+                        <textarea
+                          rows={3}
+                          value={description}
+                          onChange={(e) => setDescription(e.target.value)}
+                          placeholder="Instructions for students..."
+                          className="w-full p-2.5 border border-gray-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500"
+                        />
                       </div>
-                      <span className="px-2.5 py-1 text-xs font-bold rounded-full bg-amber-100 text-amber-800">
-                        {t.studentCount} Students Flagged
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-      </main>
 
-      {/* MODAL 1: CREATE ASSIGNMENT */}
-      {showCreateModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-xl w-full p-6 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                <FileText className="w-5 h-5 text-blue-600" /> Create Grounded Assignment
-              </h3>
-              <button
-                onClick={() => setShowCreateModal(false)}
-                className="text-slate-400 hover:text-slate-700"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="font-bold text-gray-700 block mb-1">Class</label>
+                          <select
+                            value={selectedClassId}
+                            onChange={(e) => setSelectedClassId(e.target.value)}
+                            className="w-full p-2.5 border border-gray-300 rounded-xl outline-none"
+                          >
+                            {classesList.map((c) => (
+                              <option key={c.id} value={c.id}>
+                                {c.class_name}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <div>
+                          <label className="font-bold text-gray-700 block mb-1">Medium</label>
+                          <select
+                            value={selectedMedium}
+                            onChange={(e) => setSelectedMedium(e.target.value as any)}
+                            className="w-full p-2.5 border border-gray-300 rounded-xl outline-none"
+                          >
+                            <option value="English">English</option>
+                            <option value="Tamil">Tamil (தமிழ்)</option>
+                          </select>
+                        </div>
+                      </div>
 
-            <form onSubmit={handleCreateAssignment} className="space-y-4">
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Assignment Title *
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                  placeholder="e.g., Newton's Laws & Momentum Practice"
-                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                />
-              </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="font-bold text-gray-700 block mb-1">Subject</label>
+                          <select
+                            value={selectedSubjectId}
+                            onChange={(e) => setSelectedSubjectId(e.target.value)}
+                            className="w-full p-2.5 border border-gray-300 rounded-xl outline-none"
+                          >
+                            {subjectsList.map((s) => (
+                              <option key={s.id} value={s.id}>
+                                {s.subject_name}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <div>
+                          <label className="font-bold text-gray-700 block mb-1">Due Date</label>
+                          <input
+                            type="date"
+                            value={dueDate}
+                            onChange={(e) => setDueDate(e.target.value)}
+                            className="w-full p-2.5 border border-gray-300 rounded-xl outline-none"
+                          />
+                        </div>
+                      </div>
 
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Description / Instructions
-                </label>
-                <textarea
-                  rows={2}
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  placeholder="Review pages 1-15 in the textbook and answer the practice questions."
-                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                />
-              </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        <div>
+                          <label className="font-bold text-gray-700 block mb-1">Term</label>
+                          <select
+                            value={selectedTermId}
+                            onChange={(e) => setSelectedTermId(e.target.value)}
+                            className="w-full p-2.5 border border-gray-300 rounded-xl outline-none"
+                          >
+                            {termsList.map((t) => (
+                              <option key={t.id} value={t.id}>
+                                {t.term_name}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                        <div>
+                          <label className="font-bold text-gray-700 block mb-1">Chapter</label>
+                          <select
+                            value={selectedChapterId}
+                            onChange={(e) => setSelectedChapterId(e.target.value)}
+                            className="w-full p-2.5 border border-gray-300 rounded-xl outline-none"
+                          >
+                            {chaptersList.map((ch) => (
+                              <option key={ch.id} value={ch.id}>
+                                {ch.chapter_name}
+                              </option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
 
-              {/* Dynamic Cascading Selection */}
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Class *
-                  </label>
-                  <select
-                    value={selectedClassId}
-                    onChange={(e) => setSelectedClassId(e.target.value)}
-                    className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
-                  >
-                    {classesList.map((c) => (
-                      <option key={c.id} value={c.id}>
-                        {c.class_name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Medium *
-                  </label>
-                  <select
-                    value={selectedMedium}
-                    onChange={(e) => setSelectedMedium(e.target.value as 'English' | 'Tamil')}
-                    className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
-                  >
-                    <option value="English">English Medium</option>
-                    <option value="Tamil">Tamil Medium</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Subject *
-                  </label>
-                  <select
-                    value={selectedSubjectId}
-                    onChange={(e) => setSelectedSubjectId(e.target.value)}
-                    className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
-                  >
-                    {subjectsList.map((s) => (
-                      <option key={s.id} value={s.id}>
-                        {s.subject_name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Term / Semester *
-                  </label>
-                  <select
-                    value={selectedTermId}
-                    onChange={(e) => setSelectedTermId(e.target.value)}
-                    className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
-                  >
-                    {termsList.map((t) => (
-                      <option key={t.id} value={t.id}>
-                        {t.term_name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              {/* Chapter Selection & READY status check */}
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Textbook Chapter *
-                </label>
-                <select
-                  value={selectedChapterId}
-                  onChange={(e) => handleChapterSelect(e.target.value)}
-                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
-                >
-                  {chaptersList.map((c) => (
-                    <option key={c.id} value={c.id}>
-                      {c.chapter_name} ({c.indexing_status || 'PENDING'})
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* PENDING status warning */}
-              {selectedChapterObj && selectedChapterObj.indexing_status !== 'READY' && (
-                <div className="p-3 bg-amber-50 border border-amber-200 rounded-xl flex items-center gap-2 text-amber-800 text-xs">
-                  <AlertTriangle className="w-4 h-4 shrink-0 text-amber-600" />
-                  <span>
-                    <strong>Unindexed Chapter:</strong> Authentic textbook content is not indexed yet. Please select a READY chapter.
-                  </span>
+                      <div className="flex items-center justify-end gap-2 pt-3 border-t border-gray-100">
+                        <button
+                          type="button"
+                          onClick={() => setShowCreateModal(false)}
+                          className="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-xl font-bold"
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          type="submit"
+                          disabled={creatingAssignment}
+                          className="px-5 py-2 bg-[#5B4DFB] hover:bg-[#4939f8] text-white rounded-xl font-bold shadow-md transition disabled:opacity-50"
+                        >
+                          {creatingAssignment ? 'Creating...' : 'Create Assignment'}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               )}
 
-              <div>
-                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                  Due Date
-                </label>
-                <input
-                  type="date"
-                  value={dueDate}
-                  onChange={(e) => setDueDate(e.target.value)}
-                  className="w-full px-3 py-2 text-xs border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:outline-none bg-white"
-                />
-              </div>
-
-              <div className="flex justify-end gap-3 pt-3 border-t border-slate-100">
-                <button
-                  type="button"
-                  onClick={() => setShowCreateModal(false)}
-                  className="px-4 py-2 text-xs font-bold text-slate-600 hover:bg-slate-100 rounded-xl transition-colors"
-                >
-                  Cancel
-                </button>
-
-                <button
-                  type="submit"
-                  disabled={creatingAssignment || (selectedChapterObj?.indexing_status !== 'READY')}
-                  className={`px-5 py-2 text-xs font-bold text-white rounded-xl shadow-xs transition-colors flex items-center gap-2 ${
-                    creatingAssignment || (selectedChapterObj?.indexing_status !== 'READY')
-                      ? 'bg-slate-400 cursor-not-allowed'
-                      : 'bg-blue-600 hover:bg-blue-700'
-                  }`}
-                >
-                  {creatingAssignment ? 'Creating...' : 'Create Assignment'}
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* MODAL 2: VIEW SUBMISSIONS */}
-      {viewingAssignment && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-6 shadow-2xl space-y-5 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <div>
-                <h3 className="text-lg font-bold text-slate-900">
-                  {viewingAssignment.title}
-                </h3>
-                <p className="text-xs text-slate-500 mt-0.5">
-                  {viewingAssignment.class_level} • {viewingAssignment.chapter_name || 'Science Chapter'}
-                </p>
-              </div>
-              <button
-                onClick={() => setViewingAssignment(null)}
-                className="text-slate-400 hover:text-slate-700"
-              >
-                <X className="w-5 h-5" />
-              </button>
-            </div>
-
-            {loadingSubmissions ? (
-              <div className="py-8 text-center text-xs text-slate-500">Loading student submissions...</div>
-            ) : submissionsList.length === 0 ? (
-              <div className="p-8 text-center bg-slate-50 rounded-xl border border-dashed border-slate-200">
-                <p className="text-xs text-slate-500">No student submissions received yet.</p>
-              </div>
-            ) : (
-              <div className="divide-y divide-slate-100">
-                {submissionsList.map((sub) => (
-                  <div key={sub.id} className="py-3 flex items-center justify-between">
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900">{sub.student_name}</h4>
-                      <p className="text-[11px] text-slate-500">{sub.student_email}</p>
-                      {sub.feedback && (
-                        <p className="text-[11px] text-blue-700 font-medium mt-1">Feedback: {sub.feedback}</p>
-                      )}
+              {/* Assignment Cards */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {assignments.map((asg) => (
+                  <div key={asg.id} className="bg-white p-5 rounded-3xl border border-gray-200 shadow-2xs space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-indigo-50 text-[#5B4DFB]">
+                        {asg.class_level} • {asg.medium}
+                      </span>
+                      <button
+                        onClick={() => handleDeleteAssignment(asg.id)}
+                        className="p-1.5 text-gray-400 hover:text-rose-600 transition"
+                        title="Delete Assignment"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
                     </div>
-                    <div className="text-right">
-                      <span className="text-sm font-extrabold text-slate-900">{sub.score}/5</span>
-                      <p className="text-xs font-bold text-emerald-600">{sub.percentage}% Score</p>
+                    <h4 className="text-sm font-bold text-gray-900">{asg.title}</h4>
+                    <p className="text-xs text-gray-500 line-clamp-2">{asg.description}</p>
+                    <div className="pt-2 border-t border-gray-100 flex items-center justify-between text-xs text-gray-500">
+                      <span className="flex items-center gap-1">
+                        <Clock className="w-3 h-3" /> Due: {asg.due_date || 'N/A'}
+                      </span>
+                      <span className="font-bold text-emerald-600">Active</span>
                     </div>
                   </div>
                 ))}
               </div>
-            )}
-          </div>
-        </div>
-      )}
+            </div>
+          )}
 
-      {/* MODAL 3: STUDENT PERFORMANCE PROFILE */}
-      {selectedStudentForProfile && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs">
-          <div className="bg-white rounded-2xl max-w-3xl w-full p-6 shadow-2xl space-y-6 max-h-[90vh] overflow-y-auto">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-3">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center text-base">
-                  {selectedStudentForProfile.name[0]}
-                </div>
+          {/* ───────────────────────────────────────────────────────────── */}
+          {/* SECTION 5: STUDENTS ROSTER */}
+          {/* ───────────────────────────────────────────────────────────── */}
+          {activeSection === 'STUDENTS' && (
+            <div className="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-6 animate-in fade-in duration-200">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
                 <div>
-                  <h3 className="text-lg font-bold text-slate-900">{selectedStudentForProfile.name}</h3>
-                  <p className="text-xs text-slate-500">
-                    {selectedStudentForProfile.class} • {selectedStudentForProfile.medium} Medium • {selectedStudentForProfile.email}
-                  </p>
+                  <h3 className="text-lg font-black text-gray-900">Enrolled Students Roster</h3>
+                  <p className="text-xs text-gray-500">Class 9 to 12 student list with scores and progress.</p>
+                </div>
+                <div className="relative">
+                  <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    value={studentSearch}
+                    onChange={(e) => setStudentSearch(e.target.value)}
+                    placeholder="Search students..."
+                    className="pl-9 pr-4 py-2 bg-gray-50 border border-gray-200 rounded-xl text-xs focus:ring-2 focus:ring-indigo-500 outline-none w-60"
+                  />
                 </div>
               </div>
 
-              <button
-                onClick={() => setSelectedStudentForProfile(null)}
-                className="text-slate-400 hover:text-slate-700"
-              >
-                <X className="w-5 h-5" />
-              </button>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-gray-200 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                      <th className="pb-3 px-3">Student Name</th>
+                      <th className="pb-3 px-3">Class</th>
+                      <th className="pb-3 px-3">Medium</th>
+                      <th className="pb-3 px-3">Completed Quizzes</th>
+                      <th className="pb-3 px-3">Avg Score</th>
+                      <th className="pb-3 px-3 text-right">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 text-xs sm:text-sm">
+                    {filteredStudents.map((stu) => (
+                      <tr key={stu.id} className="hover:bg-gray-50/80 transition">
+                        <td className="py-3 px-3 font-bold text-gray-900 flex items-center gap-2">
+                          <div className="w-7 h-7 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs">
+                            {stu.name.charAt(0)}
+                          </div>
+                          <span>{stu.name}</span>
+                        </td>
+                        <td className="py-3 px-3 text-gray-700">{stu.class}</td>
+                        <td className="py-3 px-3 text-gray-700">{stu.medium}</td>
+                        <td className="py-3 px-3 text-gray-700">{stu.quizAttempts || 0} Quizzes</td>
+                        <td className="py-3 px-3 font-bold text-emerald-600">{stu.avgScore || '88%'}</td>
+                        <td className="py-3 px-3 text-right">
+                          <button
+                            onClick={() => handleNavClick('EVALUATION')}
+                            className="text-xs font-bold text-[#5B4DFB] hover:underline"
+                          >
+                            View Submissions
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
+          )}
 
-            {loadingPerformance ? (
-              <div className="py-8 text-center text-xs text-slate-500">Loading student diagnostic data...</div>
-            ) : (
-              <div className="space-y-6">
-                {/* Performance Summary Cards */}
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <span className="text-[10px] font-bold text-slate-500 uppercase">Overall Progress</span>
-                    <p className="text-xl font-extrabold text-blue-600 mt-1">
-                      {studentPerformance?.overallProgressPercentage || 20}%
-                    </p>
-                  </div>
+          {/* ───────────────────────────────────────────────────────────── */}
+          {/* SECTION 6: ANALYTICS */}
+          {/* ───────────────────────────────────────────────────────────── */}
+          {activeSection === 'ANALYTICS' && (
+            <div className="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-6 animate-in fade-in duration-200">
+              <h3 className="text-lg font-black text-gray-900">Class Performance & Centum Analytics</h3>
+              <p className="text-xs text-gray-500">
+                Detailed insights on question bank coverage, accuracy rates, and difficult topics.
+              </p>
 
-                  <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <span className="text-[10px] font-bold text-slate-500 uppercase">Quiz Average</span>
-                    <p className="text-xl font-extrabold text-emerald-600 mt-1">
-                      {studentPerformance?.quizAveragePercentage || 82}%
-                    </p>
-                  </div>
-
-                  <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
-                    <span className="text-[10px] font-bold text-slate-500 uppercase">Assignment Average</span>
-                    <p className="text-xl font-extrabold text-purple-600 mt-1">
-                      {studentPerformance?.assignmentAveragePercentage || 80}%
-                    </p>
-                  </div>
-                </div>
-
-                {/* Chapter-Wise Breakdown */}
-                <div className="space-y-3">
-                  <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
-                    Chapter-Wise Progress & Scores
-                  </h4>
-                  <div className="border border-slate-200 rounded-xl overflow-hidden">
-                    <table className="w-full text-left text-xs text-slate-700">
-                      <thead className="bg-slate-50 text-slate-500 font-bold border-b border-slate-200">
-                        <tr>
-                          <th className="px-4 py-2.5">Chapter</th>
-                          <th className="px-4 py-2.5">Progress</th>
-                          <th className="px-4 py-2.5">Quiz Score</th>
-                          <th className="px-4 py-2.5">Status</th>
-                        </tr>
-                      </thead>
-                      <tbody className="divide-y divide-slate-100">
-                        {(studentPerformance?.chapters || []).slice(0, 5).map((chap: any) => (
-                          <tr key={chap.id} className="hover:bg-slate-50/50">
-                            <td className="px-4 py-2.5 font-bold text-slate-900">{chap.chapter_name}</td>
-                            <td className="px-4 py-2.5">{chap.progress}%</td>
-                            <td className="px-4 py-2.5 font-bold text-blue-600">{chap.quizScore > 0 ? `${chap.quizScore}%` : '—'}</td>
-                            <td className="px-4 py-2.5">
-                              <span
-                                className={`px-2 py-0.5 text-[10px] font-bold rounded-md ${
-                                  chap.status === 'COMPLETED'
-                                    ? 'bg-emerald-50 text-emerald-700'
-                                    : 'bg-slate-100 text-slate-600'
-                                }`}
-                              >
-                                {chap.status}
-                              </span>
-                            </td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-
-                {/* Weak Topics */}
-                {studentPerformance?.weakTopics?.length > 0 && (
-                  <div className="p-4 bg-amber-50 border border-amber-200 rounded-xl space-y-2">
-                    <h4 className="text-xs font-bold text-amber-900 uppercase tracking-wider flex items-center gap-1.5">
-                      <AlertTriangle className="w-3.5 h-3.5 text-amber-600" /> Targeted Remediation Topics
-                    </h4>
-                    <div className="space-y-1.5">
-                      {studentPerformance.weakTopics.map((wt: any) => (
-                        <div key={wt.topic_name} className="text-xs text-amber-900">
-                          <strong>{wt.topic_name}</strong> ({wt.chapter_name}): {wt.recommendation}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
+                <div className="p-5 rounded-2xl bg-indigo-50/60 border border-indigo-100 space-y-3">
+                  <h4 className="text-sm font-bold text-indigo-950">Subject-wise Mastery Rate</h4>
+                  <div className="space-y-2">
+                    {[
+                      { name: 'Biology', rate: 92 },
+                      { name: 'Physics', rate: 84 },
+                      { name: 'Chemistry', rate: 86 },
+                      { name: 'Mathematics', rate: 88 },
+                      { name: 'General Tamil (பொதுத்தமிழ்)', rate: 94 },
+                      { name: 'Computer Science', rate: 90 },
+                    ].map((item) => (
+                      <div key={item.name} className="space-y-1">
+                        <div className="flex justify-between text-xs font-bold text-gray-700">
+                          <span>{item.name}</span>
+                          <span>{item.rate}%</span>
                         </div>
-                      ))}
+                        <div className="w-full h-2 bg-indigo-200/60 rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-[#5B4DFB] rounded-full transition-all duration-500"
+                            style={{ width: `${item.rate}%` }}
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="p-5 rounded-2xl bg-emerald-50/60 border border-emerald-100 space-y-3">
+                  <h4 className="text-sm font-bold text-emerald-950">Question Tier Accuracy</h4>
+                  <div className="space-y-3 pt-2">
+                    <div className="p-3 bg-white rounded-xl border border-emerald-200 flex items-center justify-between">
+                      <span className="text-xs font-bold text-gray-800">1-Mark MCQ Arena</span>
+                      <span className="text-xs font-black text-emerald-700">89.4% Accuracy</span>
+                    </div>
+                    <div className="p-3 bg-white rounded-xl border border-emerald-200 flex items-center justify-between">
+                      <span className="text-xs font-bold text-gray-800">2-Mark Definitions & Laws</span>
+                      <span className="text-xs font-black text-emerald-700">86.2% Accuracy</span>
+                    </div>
+                    <div className="p-3 bg-white rounded-xl border border-emerald-200 flex items-center justify-between">
+                      <span className="text-xs font-bold text-gray-800">3-Mark Problem Solving</span>
+                      <span className="text-xs font-black text-emerald-700">81.5% Accuracy</span>
+                    </div>
+                    <div className="p-3 bg-white rounded-xl border border-emerald-200 flex items-center justify-between">
+                      <span className="text-xs font-bold text-gray-800">5-Mark Essays & Either-Or</span>
+                      <span className="text-xs font-black text-emerald-700">85.0% Accuracy</span>
                     </div>
                   </div>
-                )}
+                </div>
               </div>
-            )}
-          </div>
+            </div>
+          )}
+        </main>
+
+        {/* ───────────────────────────────────────────────────────────────── */}
+        {/* MOBILE BOTTOM NAVIGATION BAR */}
+        {/* ───────────────────────────────────────────────────────────────── */}
+        <div className="lg:hidden fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-gray-200 px-2 py-1.5 z-40 flex items-center justify-around shadow-lg">
+          <button
+            onClick={() => handleNavClick('OVERVIEW')}
+            className={`flex flex-col items-center gap-1 py-1 px-2 rounded-lg text-[10px] font-bold transition ${
+              activeSection === 'OVERVIEW' ? 'text-[#5B4DFB]' : 'text-gray-500'
+            }`}
+          >
+            <LayoutDashboard className="w-4 h-4" />
+            <span>Home</span>
+          </button>
+
+          <button
+            onClick={() => handleNavClick('EVALUATION')}
+            className={`flex flex-col items-center gap-1 py-1 px-2 rounded-lg text-[10px] font-bold transition ${
+              activeSection === 'EVALUATION' ? 'text-[#5B4DFB]' : 'text-gray-500'
+            }`}
+          >
+            <Award className="w-4 h-4" />
+            <span>Results</span>
+          </button>
+
+          <button
+            onClick={() => handleNavClick('EXAM_STUDIO')}
+            className={`flex flex-col items-center gap-1 py-1 px-2 rounded-lg text-[10px] font-bold transition ${
+              activeSection === 'EXAM_STUDIO' ? 'text-[#5B4DFB]' : 'text-gray-500'
+            }`}
+          >
+            <FileText className="w-4 h-4" />
+            <span>Exams</span>
+          </button>
+
+          <button
+            onClick={() => handleNavClick('ASSIGNMENTS')}
+            className={`flex flex-col items-center gap-1 py-1 px-2 rounded-lg text-[10px] font-bold transition ${
+              activeSection === 'ASSIGNMENTS' ? 'text-[#5B4DFB]' : 'text-gray-500'
+            }`}
+          >
+            <CheckCircle2 className="w-4 h-4" />
+            <span>Tasks</span>
+          </button>
+
+          <button
+            onClick={() => handleNavClick('STUDENTS')}
+            className={`flex flex-col items-center gap-1 py-1 px-2 rounded-lg text-[10px] font-bold transition ${
+              activeSection === 'STUDENTS' ? 'text-[#5B4DFB]' : 'text-gray-500'
+            }`}
+          >
+            <Users className="w-4 h-4" />
+            <span>Students</span>
+          </button>
         </div>
-      )}
+      </div>
 
-      {/* DGE Exam Paper & Blueprint Generator Modal */}
-      <ExamPaperGeneratorModal
-        isOpen={showExamModal}
-        onClose={() => setShowExamModal(false)}
-      />
-
-      {/* Teacher Live Classroom & AI Doubt Clustering Modal */}
-      <TeacherLiveClassroomModal
-        isOpen={showLiveClassModal}
-        onClose={() => setShowLiveClassModal(false)}
-      />
+      {/* Modals */}
+      <ExamPaperGeneratorModal isOpen={showExamModal} onClose={() => setShowExamModal(false)} />
+      <TeacherLiveClassroomModal isOpen={showLiveClassModal} onClose={() => setShowLiveClassModal(false)} />
     </div>
   )
 }
